@@ -1395,6 +1395,101 @@ img,svg,video{max-width:100%;}
   </div>
 </section>
 
+<!-- ============================================================
+     TRANSPORT DELIVERY RATES & SURCHARGES
+     ============================================================ -->
+<style>
+#transport-rates{padding:72px 24px;background:#070f1e;}
+#transport-rates .tr-inner{max-width:860px;margin:0 auto;}
+#transport-rates .tr-eyebrow{font-family:'Space Mono',monospace;font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:#00d4e0;margin-bottom:10px;text-align:center;}
+#transport-rates h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3rem);letter-spacing:2px;color:#e8f0ff;text-align:center;margin-bottom:10px;line-height:1.1;}
+#transport-rates .tr-subtitle{text-align:center;color:rgba(232,240,255,0.5);font-size:0.92rem;margin-bottom:48px;line-height:1.6;}
+.tr-block{margin-bottom:40px;}
+.tr-label{font-family:'Space Mono',monospace;font-size:0.65rem;letter-spacing:2.5px;text-transform:uppercase;color:#00d4e0;margin-bottom:12px;padding-left:4px;}
+.tr-table{width:100%;border-collapse:collapse;background:#0d1e38;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.3);}
+.tr-table thead tr{background:#0a1628;border-bottom:1px solid rgba(0,212,224,0.2);}
+.tr-table thead th{padding:14px 20px;text-align:left;font-family:'Space Mono',monospace;font-size:0.63rem;letter-spacing:2px;text-transform:uppercase;color:rgba(232,240,255,0.35);font-weight:400;}
+.tr-table thead th:last-child{text-align:right;}
+.tr-table tbody tr{border-bottom:1px solid rgba(255,255,255,0.05);transition:background 0.15s;}
+.tr-table tbody tr:last-child{border-bottom:none;}
+.tr-table tbody tr:hover{background:rgba(0,212,224,0.04);}
+.tr-table tbody td{padding:15px 20px;font-size:0.92rem;color:rgba(232,240,255,0.75);}
+.tr-table tbody td:last-child{text-align:right;font-family:'Space Mono',monospace;font-size:0.85rem;color:#f0b840;font-weight:700;white-space:nowrap;}
+.tr-table .call-row td:last-child{color:#00d4e0;}
+.tr-table .surcharge-td{display:flex;align-items:center;gap:10px;}
+.surcharge-dot{width:7px;height:7px;background:#f0b840;border-radius:50%;flex-shrink:0;display:inline-block;}
+.tr-divider{height:1px;background:rgba(0,212,224,0.1);margin:44px 0;}
+.tr-footnote{margin-top:14px;padding:16px 20px;background:rgba(0,212,224,0.05);border-left:2px solid #00d4e0;border-radius:0 8px 8px 0;}
+.tr-footnote p{font-size:0.8rem;color:rgba(232,240,255,0.45);line-height:1.6;margin-bottom:6px;}
+.tr-footnote p:last-child{margin-bottom:0;}
+.tr-footnote strong{color:rgba(232,240,255,0.7);}
+@media(max-width:540px){
+  .tr-table tbody td{padding:13px 14px;font-size:0.85rem;}
+  .tr-table thead th{padding:12px 14px;}
+}
+</style>
+
+<section id="transport-rates">
+  <div class="tr-inner">
+    <p class="tr-eyebrow">&#9875; Transport Delivery</p>
+    <h2>DELIVERY RATES &amp; SURCHARGES</h2>
+    <p class="tr-subtitle">
+      Zone-based pricing for vehicle transport and delivery.<br>
+      All rates are per vehicle. Surcharges are added to the base zone rate.
+    </p>
+
+    <!-- ZONE RATE TABLE -->
+    <div class="tr-block">
+      <p class="tr-label">Zone Rate Table</p>
+      <table class="tr-table">
+        <thead>
+          <tr>
+            <th>Delivery Zone</th>
+            <th>Rate Per Vehicle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Los Angeles (Local)</td><td>$275 &ndash; $325</td></tr>
+          <tr><td>Orange County</td><td>$300 &ndash; $350</td></tr>
+          <tr><td>Ventura County</td><td>$325 &ndash; $375</td></tr>
+          <tr><td>Valencia / Santa Clarita</td><td>$350 &ndash; $400</td></tr>
+          <tr><td>Riverside / San Bernardino</td><td>$400 &ndash; $475</td></tr>
+          <tr><td>San Diego</td><td>$600 &ndash; $675</td></tr>
+          <tr><td>Northern California</td><td>$625 &ndash; $725</td></tr>
+          <tr class="call-row"><td>48 States</td><td>Call for Quote</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tr-divider"></div>
+
+    <!-- SURCHARGE TABLE -->
+    <div class="tr-block">
+      <p class="tr-label">Surcharges &mdash; Added to Zone Rate</p>
+      <table class="tr-table">
+        <thead>
+          <tr>
+            <th>Condition</th>
+            <th>Additional Per Vehicle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="surcharge-td"><span class="surcharge-dot"></span>Non-Operating Vehicle</span></td><td>+ $200</td></tr>
+          <tr><td><span class="surcharge-td"><span class="surcharge-dot"></span>Requires Winching</span></td><td>+ $125</td></tr>
+          <tr><td><span class="surcharge-td"><span class="surcharge-dot"></span>Oversized Vehicle</span></td><td>+ $125</td></tr>
+          <tr><td><span class="surcharge-td"><span class="surcharge-dot"></span>Lifted / Modified Vehicle</span></td><td>+ $125 &ndash; $175</td></tr>
+        </tbody>
+      </table>
+      <div class="tr-footnote">
+        <p><strong>Example:</strong> Non-operating vehicle delivered to San Diego = $600&ndash;$675 base + $200 surcharge = <strong>$800&ndash;$875 total.</strong></p>
+        <p>Any vehicle with a surcharge condition receives a call-for-rate confirmation before scheduling. Exact amount confirmed on inspection.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 <!-- Netlify bot detection form (hidden, must exist in HTML at build time) -->
 <form name="transport-request" netlify netlify-honeypot="bot-field" enctype="multipart/form-data" style="display:none;">
   <input type="hidden" name="form-name" value="transport-request">
