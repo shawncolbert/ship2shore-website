@@ -1595,18 +1595,51 @@ footer{ background:var(--steel-dark); border-top:1px solid var(--steel-line-soft
       <div class="foot-col">
         <h5>Pay Your Invoice</h5>
         <div class="foot-pay">
-          <div class="foot-pay-item"><span>Cash App</span><a href="https://cash.app/$shawncolbert" target="_blank" rel="noopener">$shawncolbert</a></div>
-          <div class="foot-pay-item"><span>Venmo</span><a href="https://venmo.com/Shawn-Colbert-2" target="_blank" rel="noopener">@Shawn-Colbert-2</a></div>
-          <div class="foot-pay-item"><span>Zelle</span><a href="tel:13107480040">(310) 748-0040</a></div>
-          <div class="foot-pay-item"><span>Apple Pay</span><a href="tel:13107480040">(310) 748-0040</a></div>
+          <div class="foot-pay-item"><span>Cash App</span></div>
+          <div class="foot-pay-item"><span>Venmo</span></div>
+          <div class="foot-pay-item"><span>Zelle</span></div>
+          <div class="foot-pay-item"><span>Apple Pay</span></div>
         </div>
         <div class="foot-cc">
           <p class="foot-cc-label">Credit cards accepted via <strong>Wave</strong></p>
           <div class="foot-cc-cards">
-            <span class="cc-badge visa">VISA</span>
-            <span class="cc-badge mc">MC</span>
-            <span class="cc-badge disc">DISC</span>
-            <span class="cc-badge amex">AMEX</span>
+
+            <!-- VISA -->
+            <svg class="cc-emblem" viewBox="0 0 60 38" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Visa">
+              <rect width="60" height="38" rx="5" fill="#1a1f71"/>
+              <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle"
+                font-family="Arial,sans-serif" font-size="15" font-weight="900"
+                font-style="italic" letter-spacing="-0.5" fill="#fff">VISA</text>
+            </svg>
+
+            <!-- Mastercard -->
+            <svg class="cc-emblem" viewBox="0 0 60 38" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mastercard">
+              <rect width="60" height="38" rx="5" fill="#252525"/>
+              <circle cx="23" cy="19" r="11" fill="#eb001b"/>
+              <circle cx="37" cy="19" r="11" fill="#f79e1b"/>
+              <path d="M30 10.5a11 11 0 0 1 0 17 11 11 0 0 1 0-17z" fill="#ff5f00"/>
+            </svg>
+
+            <!-- Discover -->
+            <svg class="cc-emblem" viewBox="0 0 60 38" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Discover">
+              <rect width="60" height="38" rx="5" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+              <text x="12" y="57%" dominant-baseline="middle" text-anchor="start"
+                font-family="Arial,sans-serif" font-size="7.5" font-weight="800"
+                fill="#231f20" letter-spacing="0">DISCOVER</text>
+              <circle cx="46" cy="19" r="10" fill="#f76f20"/>
+            </svg>
+
+            <!-- Amex -->
+            <svg class="cc-emblem" viewBox="0 0 60 38" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="American Express">
+              <rect width="60" height="38" rx="5" fill="#007bc1"/>
+              <text x="50%" y="44%" dominant-baseline="middle" text-anchor="middle"
+                font-family="Arial,sans-serif" font-size="7" font-weight="700"
+                fill="#fff" letter-spacing="1.5">AMERICAN</text>
+              <text x="50%" y="68%" dominant-baseline="middle" text-anchor="middle"
+                font-family="Arial,sans-serif" font-size="7" font-weight="700"
+                fill="#fff" letter-spacing="1.5">EXPRESS</text>
+            </svg>
+
           </div>
         </div>
       </div>
