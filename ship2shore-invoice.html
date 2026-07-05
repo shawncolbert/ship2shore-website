@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Invoice — Ship2Shore Booking</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#070f1e; --navy-mid:#0d1e38; --navy-card:#111f3a; --navy-light:#162540;
+  --aqua:#00d4e0; --aqua-dim:#0099a8; --aqua-glow:rgba(0,212,224,0.12);
+  --gold:#f0b840; --gold-dim:#c08820;
+  --white:#e8f0ff; --gray:#6080a8; --muted:rgba(232,240,255,0.55);
+  --border:rgba(0,212,224,0.18); --border-soft:rgba(0,212,224,0.1);
+  --success:#20d880; --danger:#ff4060;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh;line-height:1.55;overflow-x:hidden}
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:linear-gradient(rgba(0,212,224,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,224,0.03) 1px,transparent 1px);
+  background-size:44px 44px;pointer-events:none;z-index:0;
+}
+body::after{
+  content:'';position:fixed;top:-15%;left:-10%;width:640px;height:640px;
+  background:radial-gradient(circle,rgba(0,212,224,0.08) 0%,transparent 65%);pointer-events:none;z-index:0;
+}
+.wrap{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:32px 18px 60px}
+.top-bar{display:flex;align-items:center;gap:10px;margin-bottom:28px}
+.tb-anchor{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--aqua),var(--aqua-dim));display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 0 18px rgba(0,212,224,0.4)}
+.tb-brand{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;line-height:1}
+.tb-brand span{display:block;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--aqua);font-weight:400}
+
+/* ══════ BUILDER (Shawn's side) ══════ */
+.builder{width:100%;max-width:460px;background:var(--navy-card);border:1px solid var(--border);border-radius:20px;padding:26px;margin-bottom:24px}
+.builder h2{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;margin-bottom:4px}
+.builder p.sub{font-size:12.5px;color:var(--muted);margin-bottom:20px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:11px;color:var(--gray);font-family:'Space Mono',monospace;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
+.field input,.field select,.field textarea{
+  width:100%;background:var(--navy);border:1.5px solid var(--border);border-radius:10px;
+  padding:11px 13px;color:var(--white);font-size:14px;font-family:'DM Sans',sans-serif;
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--aqua)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.section-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--aqua);text-transform:uppercase;margin:22px 0 12px;padding-top:16px;border-top:1px dashed var(--border-soft)}
+.section-label:first-of-type{border-top:none;margin-top:6px}
+
+/* Line item rows w/ qty steppers */
+.item-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border-soft)}
+.item-row:last-child{border-bottom:none}
+.item-info{flex:1;min-width:0}
+.item-name{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.5px;color:var(--white)}
+.item-rate{font-size:11.5px;color:var(--gray);font-family:'Space Mono',monospace}
+.stepper{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.stepper button{
+  width:30px;height:30px;border-radius:8px;border:1.5px solid var(--border);background:var(--navy);
+  color:var(--aqua);font-size:16px;font-weight:700;cursor:pointer;transition:all .15s;
+}
+.stepper button:hover{border-color:var(--aqua);background:rgba(0,212,224,0.08)}
+.stepper button:disabled{opacity:.3;cursor:default}
+.stepper .qty{width:20px;text-align:center;font-family:'Space Mono',monospace;font-size:14px;font-weight:700}
+
+.custom-row{display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-top:6px}
+
+.running-total{
+  margin-top:18px;padding:16px;background:rgba(0,212,224,0.05);border:1px solid var(--border-soft);
+  border-radius:12px;display:flex;justify-content:space-between;align-items:center;
+}
+.running-total .rt-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1px;color:var(--gray);text-transform:uppercase}
+.running-total .rt-value{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold)}
+
+.gen-btn{
+  width:100%;margin-top:18px;background:linear-gradient(135deg,var(--aqua),var(--aqua-dim));
+  color:var(--navy);border:none;border-radius:12px;padding:14px;font-family:'Bebas Neue',sans-serif;
+  font-size:16px;letter-spacing:1.5px;cursor:pointer;transition:opacity .2s;
+}
+.gen-btn:hover{opacity:0.9}
+.link-out{
+  margin-top:14px;display:none;background:var(--navy);border:1px solid var(--border-soft);
+  border-radius:10px;padding:12px;font-size:12px;color:var(--aqua);word-break:break-all;font-family:'Space Mono',monospace;
+}
+
+.mode-toggle{text-align:center;margin-bottom:18px}
+.mode-toggle a{color:var(--gray);font-size:12px;text-decoration:underline;cursor:pointer}
+
+/* ══════ INVOICE (client's side) ══════ */
+.invoice{width:100%;max-width:440px;background:var(--navy-card);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.5);position:relative;display:none}
+.inv-head{background:linear-gradient(135deg,var(--navy-mid),rgba(0,212,224,0.05));border-bottom:1px dashed var(--border);padding:22px 26px 20px;position:relative}
+.inv-eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--aqua);text-transform:uppercase;margin-bottom:6px}
+.inv-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(20px,6.5vw,28px);letter-spacing:2px;color:var(--white);word-break:break-word}
+.inv-stamp{position:absolute;top:20px;right:22px;border:2px solid var(--gold);color:var(--gold);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;font-weight:700;padding:5px 9px;border-radius:6px;transform:rotate(6deg);opacity:0.85}
+.inv-meta{padding:18px 26px 6px;font-size:13px}
+.inv-meta-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border-soft)}
+.inv-meta-row .ml{color:var(--gray);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.5px;text-transform:uppercase}
+.inv-meta-row .mv{color:var(--white);font-weight:500;text-align:right}
+
+.line-items{padding:8px 26px}
+.li-head{display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--gray);text-transform:uppercase;padding:10px 0 8px;border-bottom:1px solid var(--border)}
+.li-row{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--border-soft);font-size:13.5px}
+.li-row:last-child{border-bottom:none}
+.li-name{color:var(--white)}
+.li-qty{color:var(--gray);font-family:'Space Mono',monospace;font-size:12px}
+.li-amt{color:var(--white);font-weight:600;font-family:'Space Mono',monospace}
+
+.perforation{height:0;border-top:2px dashed var(--border);margin:6px 26px 0;position:relative}
+.perforation::before,.perforation::after{content:'';position:absolute;top:-9px;width:18px;height:18px;border-radius:50%;background:var(--navy)}
+.perforation::before{left:-35px}
+.perforation::after{right:-35px}
+
+.amount-block{padding:24px 26px 20px;text-align:center;background:rgba(0,212,224,0.03)}
+.amount-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gray);text-transform:uppercase;margin-bottom:8px}
+.amount-value{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,11vw,56px);letter-spacing:1px;color:var(--gold);line-height:1}
+.amount-note{font-size:12px;color:var(--muted);margin-top:8px}
+
+.pay-section{padding:6px 22px 10px}
+.pay-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gray);text-transform:uppercase;padding:12px 4px 12px;text-align:center}
+.pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pay-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:var(--navy);border:2px solid var(--border);border-radius:14px;padding:16px 10px;text-decoration:none;color:var(--white);transition:all .2s;cursor:pointer;font-family:'DM Sans',sans-serif}
+.pay-btn:hover{border-color:var(--aqua);background:rgba(0,212,224,0.06);transform:translateY(-1px)}
+.pay-btn .pay-icon{font-size:22px}
+.pay-btn .pay-name{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1px}
+.pay-btn .pay-sub{font-size:10.5px;color:var(--gray);font-family:'Space Mono',monospace;letter-spacing:.3px}
+.pay-btn.copied{border-color:var(--success)}
+.pay-btn.copied .pay-sub{color:var(--success)}
+
+.receipt-section{padding:4px 22px 22px}
+.receipt-btn{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(135deg,var(--success),#159a5c);color:var(--navy);border:none;border-radius:14px;
+  padding:15px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1px;cursor:pointer;
+}
+.receipt-btn:hover{opacity:.92}
+.receipt-hint{text-align:center;font-size:11.5px;color:var(--muted);margin-top:8px}
+
+.contact-note{text-align:center;font-size:12.5px;color:var(--muted);padding:0 26px 24px;line-height:1.6}
+.contact-note a{color:var(--aqua);text-decoration:none}
+.contact-note strong{color:var(--white)}
+.inv-foot{border-top:1px solid var(--border);padding:14px 26px;display:flex;justify-content:space-between;align-items:center;font-family:'Space Mono',monospace;font-size:10px;color:var(--gray);letter-spacing:.5px}
+
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--navy-card);border:1px solid var(--aqua);color:var(--white);padding:12px 20px;border-radius:12px;font-size:13px;transition:transform .3s;z-index:200;box-shadow:0 8px 24px rgba(0,0,0,0.4);max-width:88vw;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ══════ RESPONSIVE: small phones (iPhone SE etc.) ══════ */
+@media (max-width:380px){
+  .wrap{padding:24px 12px 48px}
+  .builder,.invoice{padding-left:0;padding-right:0}
+  .builder{padding:20px}
+  .field-row{grid-template-columns:1fr}
+  .pay-grid{gap:9px}
+  .pay-btn{padding:13px 8px}
+  .amount-value{font-size:clamp(34px,13vw,44px)}
+}
+
+/* ══════ RESPONSIVE: tablets — iPad portrait & landscape ══════ */
+@media (min-width:700px){
+  .wrap{padding:48px 24px 80px}
+  .builder,.invoice{max-width:600px}
+  .top-bar{margin-bottom:40px}
+  .tb-anchor{width:40px;height:40px;font-size:19px}
+  .tb-brand{font-size:21px}
+  .pay-grid{gap:16px}
+  .pay-btn{padding:20px 14px}
+  .pay-btn .pay-icon{font-size:26px}
+  .pay-btn .pay-name{font-size:18px}
+  .item-row{padding:14px 0}
+  .receipt-btn{padding:17px;font-size:17px}
+}
+
+/* ══════ RESPONSIVE: desktop / large iPad landscape ══════ */
+@media (min-width:1000px){
+  .wrap{flex-direction:row;align-items:flex-start;justify-content:center;gap:36px;padding-top:64px}
+  .top-bar{width:100%;position:absolute;top:32px;left:0;justify-content:center}
+  .builder,.invoice{margin-top:40px}
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-bar">
+    <div class="tb-anchor">⚓</div>
+    <div class="tb-brand">SHIP2SHORE<span>PORT ENTRY SPECIALIST</span></div>
+  </div>
+
+  <!-- ══════ BUILDER ══════ -->
+  <div class="builder" id="builder">
+    <h2>Create Invoice</h2>
+    <p class="sub">Tap the + / − next to each service to build the line items, then generate the client's invoice link.</p>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Client / Company</label>
+        <input type="text" id="in-client" placeholder="e.g. Lilly Transport">
+      </div>
+      <div class="field">
+        <label>Port</label>
+        <select id="in-port">
+          <option>Port of Long Beach</option>
+          <option>Port of Wilmington, CA</option>
+          <option>Port of Matson</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Job / Vehicle Ref</label>
+        <input type="text" id="in-ref" placeholder="e.g. 2000 Nissan Skyline — ER34-013101">
+      </div>
+      <div class="field">
+        <label>Job Date</label>
+        <input type="date" id="in-date">
+      </div>
+    </div>
+
+    <div class="section-label">Services</div>
+    <div id="item-list"></div>
+
+    <div class="section-label">Custom Line Item</div>
+    <div class="custom-row">
+      <input type="text" id="custom-desc" placeholder="e.g. Port storage fee">
+      <input type="number" id="custom-amt" placeholder="$ amount">
+    </div>
+
+    <div class="running-total">
+      <div class="rt-label">Running Total</div>
+      <div class="rt-value">$<span id="rt-amount">0</span></div>
+    </div>
+
+    <button class="gen-btn" onclick="generateLink()">Generate Invoice Link</button>
+    <div class="link-out" id="link-out"></div>
+  </div>
+
+  <div class="mode-toggle" id="backToBuilder" style="display:none">
+    <a onclick="showBuilder()">← Back to builder</a>
+  </div>
+
+  <!-- ══════ CLIENT INVOICE ══════ -->
+  <div class="invoice" id="invoice">
+    <div class="inv-head">
+      <div class="inv-eyebrow">Invoice</div>
+      <div class="inv-title" id="v-client">—</div>
+      <div class="inv-stamp" id="v-stamp">DUE</div>
+    </div>
+
+    <div class="inv-meta">
+      <div class="inv-meta-row"><div class="ml">Port</div><div class="mv" id="v-port">—</div></div>
+      <div class="inv-meta-row" id="v-ref-row" style="display:none"><div class="ml">Job Ref</div><div class="mv" id="v-ref">—</div></div>
+      <div class="inv-meta-row"><div class="ml">Date</div><div class="mv" id="v-date">—</div></div>
+    </div>
+
+    <div class="line-items">
+      <div class="li-head"><span>Line Item</span><span>Amount</span></div>
+      <div id="v-items"></div>
+    </div>
+
+    <div class="perforation"></div>
+
+    <div class="amount-block">
+      <div class="amount-label">Total Due</div>
+      <div class="amount-value">$<span id="v-total">0</span></div>
+      <div class="amount-note">Payment due same-day</div>
+    </div>
+
+    <div class="pay-section">
+      <div class="pay-label">Tap to Pay</div>
+      <div class="pay-grid">
+        <a class="pay-btn" id="btn-cashapp" target="_blank" rel="noopener">
+          <div class="pay-icon">💵</div><div class="pay-name">Cash App</div><div class="pay-sub">$shawncolbert</div>
+        </a>
+        <a class="pay-btn" id="btn-venmo" target="_blank" rel="noopener">
+          <div class="pay-icon">📱</div><div class="pay-name">Venmo</div><div class="pay-sub">@Shawn-Colbert-2</div>
+        </a>
+        <div class="pay-btn" onclick="copyContact('zelle')">
+          <div class="pay-icon">🏦</div><div class="pay-name">Zelle</div><div class="pay-sub" id="zelle-sub">Tap to copy (310) 748-0040</div>
+        </div>
+        <div class="pay-btn" onclick="copyContact('applepay')">
+          <div class="pay-icon">🍎</div><div class="pay-name">Apple Pay</div><div class="pay-sub" id="applepay-sub">Tap to copy (310) 748-0040</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="receipt-section">
+      <button class="receipt-btn" onclick="sendReceipt()">✅ I've Paid — Send Shawn a Receipt</button>
+      <div class="receipt-hint">Opens a text to Shawn confirming payment sent, with the invoice details.</div>
+    </div>
+
+    <div class="contact-note">
+      Questions? Call or text <a href="tel:3107480040"><strong>(310) 748-0040</strong></a> or email
+      <a href="mailto:shawn@ship2shorebooking.com">shawn@ship2shorebooking.com</a><br>
+      You do not need to contact the port — Ship2Shore handles everything.
+    </div>
+
+    <div class="inv-foot">
+      <span>SHIP2SHORE BOOKING</span>
+      <span>WE GO WHERE YOU CAN'T.</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Service catalog (rates per memory: TWIC $75/vehicle) ──
+const CATALOG = [
+  { id:'twic',    name:'TWIC Vehicle Escort',        rate:75  },
+  { id:'military',name:'TWIC Escort — Military/PCS', rate:60  },
+  { id:'hotshot', name:'Hotshot Delivery',            rate:200 },
+  { id:'semi',    name:'Semi / Container',            rate:325 },
+  { id:'storage', name:'Port Storage / Demurrage Fee',rate:42.85 }
+];
+let QTY = {};
+CATALOG.forEach(s => QTY[s.id] = 0);
+
+function renderItemList(){
+  const list = document.getElementById('item-list');
+  list.innerHTML = '';
+  CATALOG.forEach(s => {
+    const row = document.createElement('div');
+    row.className = 'item-row';
+    row.innerHTML = `
+      <div class="item-info">
+        <div class="item-name">${s.name}</div>
+        <div class="item-rate">$${s.rate.toFixed(2).replace(/\.00$/,'')} ${s.id==='storage'?'flat fee':'per unit'}</div>
+      </div>
+      <div class="stepper">
+        <button onclick="changeQty('${s.id}',-1)" id="minus-${s.id}" disabled>−</button>
+        <div class="qty" id="qty-${s.id}">0</div>
+        <button onclick="changeQty('${s.id}',1)">+</button>
+      </div>`;
+    list.appendChild(row);
+  });
+}
+
+function changeQty(id, delta){
+  QTY[id] = Math.max(0, QTY[id] + delta);
+  document.getElementById('qty-'+id).textContent = QTY[id];
+  document.getElementById('minus-'+id).disabled = QTY[id] === 0;
+  updateRunningTotal();
+}
+
+function updateRunningTotal(){
+  let total = 0;
+  CATALOG.forEach(s => total += QTY[s.id] * s.rate);
+  const custom = parseFloat(document.getElementById('custom-amt').value) || 0;
+  total += custom;
+  document.getElementById('rt-amount').textContent = total.toFixed(2).replace(/\.00$/,'');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  renderItemList();
+  document.getElementById('custom-amt').addEventListener('input', updateRunningTotal);
+});
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2400);
+}
+
+function fmtDate(str){
+  if(!str) return 'Flexible';
+  const d = new Date(str + 'T00:00:00');
+  const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${days[d.getDay()]}, ${months[d.getMonth()]} ${d.getDate()}`;
+}
+
+function generateLink(){
+  const client = document.getElementById('in-client').value.trim();
+  const port = document.getElementById('in-port').value;
+  const ref = document.getElementById('in-ref').value.trim();
+  const date = document.getElementById('in-date').value;
+  const customDesc = document.getElementById('custom-desc').value.trim();
+  const customAmt = parseFloat(document.getElementById('custom-amt').value) || 0;
+
+  const items = [];
+  CATALOG.forEach(s => {
+    if(QTY[s.id] > 0) items.push({ n:s.name, q:QTY[s.id], r:s.rate });
+  });
+  if(customDesc && customAmt > 0) items.push({ n:customDesc, q:1, r:customAmt });
+
+  if(!client || items.length === 0){
+    showToast('Enter a client name and at least one line item');
+    return;
+  }
+
+  const payload = { c:client, p:port, r:ref, d:date, i:items };
+  const encoded = btoa(encodeURIComponent(JSON.stringify(payload)));
+  const url = `${window.location.origin}${window.location.pathname}?inv=${encoded}`;
+
+  const out = document.getElementById('link-out');
+  out.style.display = 'block';
+  out.textContent = url;
+
+  navigator.clipboard.writeText(url).then(()=>{
+    showToast('Invoice link copied — text or email it to your client');
+  }).catch(()=>{
+    showToast('Link generated below — copy and send it manually');
+  });
+}
+
+function renderInvoice(payload){
+  document.getElementById('v-client').textContent = payload.c || 'Valued Client';
+  document.getElementById('v-port').textContent = payload.p || 'Port of Long Beach';
+  document.getElementById('v-date').textContent = fmtDate(payload.d);
+
+  if(payload.r){
+    document.getElementById('v-ref').textContent = payload.r;
+    document.getElementById('v-ref-row').style.display = 'flex';
+  }
+
+  const itemsEl = document.getElementById('v-items');
+  itemsEl.innerHTML = '';
+  let total = 0;
+  (payload.i || []).forEach(it => {
+    const amt = it.q * it.r;
+    total += amt;
+    const row = document.createElement('div');
+    row.className = 'li-row';
+    row.innerHTML = `<div><div class="li-name">${it.n}</div><div class="li-qty">${it.q > 1 ? it.q + ' × $' + it.r.toFixed(2) : ''}</div></div><div class="li-amt">$${amt.toFixed(2)}</div>`;
+    itemsEl.appendChild(row);
+  });
+
+  document.getElementById('v-total').textContent = total.toFixed(2);
+
+  const note = encodeURIComponent(`Ship2Shore Booking — ${payload.c || 'Invoice'}`);
+  document.getElementById('btn-cashapp').href = `https://cash.app/$shawncolbert/${total.toFixed(2)}`;
+  document.getElementById('btn-venmo').href = `https://venmo.com/u/Shawn-Colbert-2?txn=pay&amount=${total.toFixed(2)}&note=${note}`;
+
+  document.getElementById('builder').style.display = 'none';
+  document.getElementById('invoice').style.display = 'block';
+
+  window.__invoicePayload = payload;
+  window.__invoiceTotal = total;
+}
+
+function copyContact(type){
+  navigator.clipboard.writeText('3107480040').then(()=>{
+    showToast(type === 'zelle' ? 'Zelle number copied — paste in your banking app' : 'Apple Pay number copied — paste in Messages/Wallet');
+  }).catch(()=>{
+    showToast('Copy this number: (310) 748-0040');
+  });
+}
+
+function sendReceipt(){
+  const p = window.__invoicePayload;
+  const total = window.__invoiceTotal;
+  if(!p) return;
+  const lines = (p.i || []).map(it => `${it.n} x${it.q}: $${(it.q*it.r).toFixed(2)}`).join('%0A');
+  const body = `Hi Shawn, this is ${p.c || 'a client'} confirming payment sent.%0A%0APort: ${p.p}%0A${p.r ? 'Job Ref: ' + p.r + '%0A' : ''}Total Paid: $${total.toFixed(2)}%0A%0AItems:%0A${lines}`;
+  // Prefer SMS since it's faster to see; fall back to email if SMS unsupported
+  const smsUrl = `sms:3107480040?&body=${body}`;
+  window.location.href = smsUrl;
+  showToast('Opening a text to Shawn with your receipt details...');
+}
+
+function showBuilder(){
+  document.getElementById('invoice').style.display = 'none';
+  document.getElementById('builder').style.display = 'block';
+  document.getElementById('backToBuilder').style.display = 'none';
+  history.pushState({}, '', window.location.pathname);
+}
+
+// ── Init ──
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  if(params.has('inv')){
+    try{
+      const payload = JSON.parse(decodeURIComponent(atob(params.get('inv'))));
+      renderInvoice(payload);
+      document.getElementById('backToBuilder').style.display = 'block';
+    }catch(e){
+      showToast('Could not read this invoice link');
+    }
+  }
+})();
+</script>
+</body>
+</html>
