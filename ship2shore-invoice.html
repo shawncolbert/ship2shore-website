@@ -220,7 +220,11 @@ body::after{
       </div>
     </div>
 
-    <div class="section-label">Services</div>
+    <div class="field">
+      <label>Delivery Address <span style="opacity:.5">(if this job includes transport, not just port pickup)</span></label>
+      <input type="text" id="in-address" placeholder="e.g. 12430 Dry Creek Rd, Auburn, CA 95602">
+    </div>
+
     <div id="item-list"></div>
 
     <div class="section-label">Custom Line Item</div>
@@ -253,6 +257,7 @@ body::after{
     <div class="inv-meta">
       <div class="inv-meta-row"><div class="ml">Port</div><div class="mv" id="v-port">—</div></div>
       <div class="inv-meta-row" id="v-ref-row" style="display:none"><div class="ml">Job Ref</div><div class="mv" id="v-ref">—</div></div>
+      <div class="inv-meta-row" id="v-addr-row" style="display:none"><div class="ml">Deliver To</div><div class="mv" id="v-addr">—</div></div>
       <div class="inv-meta-row"><div class="ml">Date</div><div class="mv" id="v-date">—</div></div>
     </div>
 
@@ -309,35 +314,119 @@ body::after{
 <div class="toast" id="toast"></div>
 
 <script>
-// ── Service catalog (rates per memory: TWIC $75/vehicle) ──
+// ── Service catalog (rates per memory + live site transport rates) ──
 const CATALOG = [
-  { id:'twic',    name:'TWIC Vehicle Escort',        rate:75  },
-  { id:'military',name:'TWIC Escort — Military/PCS', rate:60  },
-  { id:'hotshot', name:'Hotshot Delivery',            rate:200 },
-  { id:'semi',    name:'Semi / Container',            rate:325 },
-  { id:'storage', name:'Port Storage / Demurrage Fee',rate:42.85 }
+  { id:'twic',     name:'TWIC Vehicle Escort',         rate:75,    group:'Services' },
+  { id:'military', name:'TWIC Escort — Military/PCS',  rate:60,    group:'Services' },
+  { id:'hotshot',  name:'Hotshot Delivery',             rate:200,   group:'Services' },
+  { id:'semi',     name:'Semi / Container',             rate:325,   group:'Services' },
+  { id:'storage',  name:'Port Storage / Demurrage Fee', rate:42.85, group:'Services', flat:true },
+
+  { id:'delivery', name:'Vehicle Delivery', group:'Delivery & Transport', zone:true,
+    zones:[
+      { label:'Los Angeles (Local)',          rate:275 },
+      { label:'Orange County',                 rate:300 },
+      { label:'Ventura County',                rate:325 },
+      { label:'Valencia / Santa Clarita',      rate:350 },
+      { label:'Riverside / San Bernardino',    rate:400 },
+      { label:'San Diego',                     rate:600 },
+      { label:'Northern California',           rate:625 },
+      { label:'Non-Port Delivery (call for quote)', rate:0 }
+    ]
+  },
+  { id:'nonop',     name:'Surcharge — Non-Operating Vehicle', rate:200, group:'Vehicle Surcharges' },
+  { id:'winch',     name:'Surcharge — Requires Winching',     rate:125, group:'Vehicle Surcharges' },
+  { id:'oversized', name:'Surcharge — Oversized Vehicle',     rate:125, group:'Vehicle Surcharges' },
+  { id:'lifted',    name:'Surcharge — Lifted / Modified',     rate:125, group:'Vehicle Surcharges', editable:true }
 ];
+
 let QTY = {};
-CATALOG.forEach(s => QTY[s.id] = 0);
+let RATES = {};
+let ZONE_IDX = {};
+CATALOG.forEach(s => {
+  QTY[s.id] = 0;
+  RATES[s.id] = s.zone ? s.zones[0].rate : s.rate;
+  if(s.zone) ZONE_IDX[s.id] = 0;
+});
 
 function renderItemList(){
   const list = document.getElementById('item-list');
   list.innerHTML = '';
+  let currentGroup = null;
+
   CATALOG.forEach(s => {
+    if(s.group !== currentGroup){
+      currentGroup = s.group;
+      const label = document.createElement('div');
+      label.className = 'section-label';
+      label.textContent = currentGroup;
+      list.appendChild(label);
+    }
+
     const row = document.createElement('div');
     row.className = 'item-row';
-    row.innerHTML = `
-      <div class="item-info">
-        <div class="item-name">${s.name}</div>
-        <div class="item-rate">$${s.rate.toFixed(2).replace(/\.00$/,'')} ${s.id==='storage'?'flat fee':'per unit'}</div>
-      </div>
-      <div class="stepper">
-        <button onclick="changeQty('${s.id}',-1)" id="minus-${s.id}" disabled>−</button>
-        <div class="qty" id="qty-${s.id}">0</div>
-        <button onclick="changeQty('${s.id}',1)">+</button>
-      </div>`;
+
+    if(s.zone){
+      const opts = s.zones.map((z,i) => `<option value="${i}">${z.label} — $${z.rate || 'call'}</option>`).join('');
+      row.innerHTML = `
+        <div class="item-info" style="flex:1">
+          <div class="item-name">${s.name}</div>
+          <select id="zone-${s.id}" onchange="changeZone('${s.id}')" style="width:100%;margin-top:6px;background:var(--navy);border:1.5px solid var(--border);border-radius:8px;padding:8px 10px;color:var(--white);font-size:12.5px;">${opts}</select>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:8px">
+            <span style="font-size:11px;color:var(--gray);font-family:'Space Mono',monospace">RATE $</span>
+            <input type="number" id="rate-${s.id}" value="${RATES[s.id]}" oninput="editRate('${s.id}')" style="width:80px;background:var(--navy);border:1.5px solid var(--border);border-radius:8px;padding:6px 8px;color:var(--gold);font-size:12.5px;font-family:'Space Mono',monospace">
+          </div>
+        </div>
+        <div class="stepper">
+          <button onclick="changeQty('${s.id}',-1)" id="minus-${s.id}" disabled>−</button>
+          <div class="qty" id="qty-${s.id}">0</div>
+          <button onclick="changeQty('${s.id}',1)">+</button>
+        </div>`;
+    } else if(s.editable){
+      row.innerHTML = `
+        <div class="item-info">
+          <div class="item-name">${s.name}</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:6px">
+            <span style="font-size:11px;color:var(--gray);font-family:'Space Mono',monospace">RATE $</span>
+            <input type="number" id="rate-${s.id}" value="${RATES[s.id]}" oninput="editRate('${s.id}')" style="width:80px;background:var(--navy);border:1.5px solid var(--border);border-radius:8px;padding:6px 8px;color:var(--gold);font-size:12.5px;font-family:'Space Mono',monospace">
+            <span style="font-size:11px;color:var(--gray)">(range $125&ndash;175)</span>
+          </div>
+        </div>
+        <div class="stepper">
+          <button onclick="changeQty('${s.id}',-1)" id="minus-${s.id}" disabled>−</button>
+          <div class="qty" id="qty-${s.id}">0</div>
+          <button onclick="changeQty('${s.id}',1)">+</button>
+        </div>`;
+    } else {
+      row.innerHTML = `
+        <div class="item-info">
+          <div class="item-name">${s.name}</div>
+          <div class="item-rate">$${s.rate.toFixed(2).replace(/\.00$/,'')} ${s.flat?'flat fee':'per unit'}</div>
+        </div>
+        <div class="stepper">
+          <button onclick="changeQty('${s.id}',-1)" id="minus-${s.id}" disabled>−</button>
+          <div class="qty" id="qty-${s.id}">0</div>
+          <button onclick="changeQty('${s.id}',1)">+</button>
+        </div>`;
+    }
     list.appendChild(row);
   });
+}
+
+function changeZone(id){
+  const sel = document.getElementById('zone-'+id);
+  const item = CATALOG.find(s => s.id === id);
+  const idx = parseInt(sel.value);
+  ZONE_IDX[id] = idx;
+  RATES[id] = item.zones[idx].rate;
+  document.getElementById('rate-'+id).value = RATES[id];
+  updateRunningTotal();
+}
+
+function editRate(id){
+  const val = parseFloat(document.getElementById('rate-'+id).value) || 0;
+  RATES[id] = val;
+  updateRunningTotal();
 }
 
 function changeQty(id, delta){
@@ -349,7 +438,7 @@ function changeQty(id, delta){
 
 function updateRunningTotal(){
   let total = 0;
-  CATALOG.forEach(s => total += QTY[s.id] * s.rate);
+  CATALOG.forEach(s => total += QTY[s.id] * RATES[s.id]);
   const custom = parseFloat(document.getElementById('custom-amt').value) || 0;
   total += custom;
   document.getElementById('rt-amount').textContent = total.toFixed(2).replace(/\.00$/,'');
@@ -378,13 +467,17 @@ function generateLink(){
   const client = document.getElementById('in-client').value.trim();
   const port = document.getElementById('in-port').value;
   const ref = document.getElementById('in-ref').value.trim();
+  const address = document.getElementById('in-address').value.trim();
   const date = document.getElementById('in-date').value;
   const customDesc = document.getElementById('custom-desc').value.trim();
   const customAmt = parseFloat(document.getElementById('custom-amt').value) || 0;
 
   const items = [];
   CATALOG.forEach(s => {
-    if(QTY[s.id] > 0) items.push({ n:s.name, q:QTY[s.id], r:s.rate });
+    if(QTY[s.id] > 0){
+      const name = s.zone ? `${s.name} — ${s.zones[ZONE_IDX[s.id]].label}` : s.name;
+      items.push({ n:name, q:QTY[s.id], r:RATES[s.id] });
+    }
   });
   if(customDesc && customAmt > 0) items.push({ n:customDesc, q:1, r:customAmt });
 
@@ -393,7 +486,7 @@ function generateLink(){
     return;
   }
 
-  const payload = { c:client, p:port, r:ref, d:date, i:items };
+  const payload = { c:client, p:port, r:ref, a:address, d:date, i:items };
   const encoded = btoa(encodeURIComponent(JSON.stringify(payload)));
   const url = `${window.location.origin}${window.location.pathname}?inv=${encoded}`;
 
@@ -416,6 +509,10 @@ function renderInvoice(payload){
   if(payload.r){
     document.getElementById('v-ref').textContent = payload.r;
     document.getElementById('v-ref-row').style.display = 'flex';
+  }
+  if(payload.a){
+    document.getElementById('v-addr').textContent = payload.a;
+    document.getElementById('v-addr-row').style.display = 'flex';
   }
 
   const itemsEl = document.getElementById('v-items');
