@@ -1,0 +1,149 @@
+/* Shared styles for the Ship2Shore Digital agency portfolio + trade templates.
+   Every template reskins by overriding the four --brand-* variables below —
+   nothing else needs to change per client. */
+
+:root {
+  --brand-ink: #14161a;
+  --brand-accent: #e8a317;
+  --brand-accent-dark: #cf8f0c;
+  /* Text drawn on top of --brand-accent. Amber is light enough for dark text;
+     templates using a saturated mid-dark accent override this to #fff. */
+  --brand-on-accent: #14161a;
+  --brand-muted: #6b7280;
+  --brand-line: #e5e7eb;
+  --brand-canvas: #f5f6f8;
+  --brand-surface: #ffffff;
+  --font-display: "Helvetica Neue", Arial, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--brand-ink);
+  background: var(--brand-canvas);
+  line-height: 1.6;
+}
+img, svg, video { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+
+.wrap { width: 100%; max-width: 1060px; margin: 0 auto; padding: 0 20px; }
+
+/* ---- Top bar ---- */
+.topbar {
+  background: var(--brand-ink);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+.topbar .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding-top: 14px; padding-bottom: 14px;
+}
+.brand { font-weight: 800; letter-spacing: .02em; font-size: 17px; }
+.brand span { color: var(--brand-accent); }
+.topbar .tagline { font-size: 11px; text-transform: uppercase; letter-spacing: .16em; color: rgba(255,255,255,.55); }
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-block; border: 0; cursor: pointer;
+  padding: 14px 28px; border-radius: 10px;
+  font-size: 15px; font-weight: 700; text-decoration: none;
+  transition: filter .15s ease;
+}
+.btn:hover { filter: brightness(.94); }
+.btn-primary { background: var(--brand-accent); color: var(--brand-on-accent); }
+.btn-ghost { background: transparent; color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.35); }
+.btn-dark { background: var(--brand-ink); color: #fff; }
+
+/* ---- Hero ---- */
+.hero { background: var(--brand-ink); color: #fff; padding: 64px 0 72px; }
+.hero .eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--brand-accent); margin-bottom: 14px;
+}
+.hero h1 { font-family: var(--font-display); font-size: clamp(32px, 6vw, 52px); line-height: 1.1; margin: 0 0 16px; font-weight: 800; }
+.hero p { font-size: 17px; color: rgba(255,255,255,.75); max-width: 620px; margin: 0 0 28px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ---- Sections ---- */
+section { padding: 56px 0; }
+.section-head { margin-bottom: 32px; }
+.section-head .eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--brand-muted); margin-bottom: 8px;
+}
+.section-head h2 { font-family: var(--font-display); font-size: clamp(24px, 4vw, 34px); margin: 0 0 8px; font-weight: 800; }
+.section-head p { color: var(--brand-muted); margin: 0; max-width: 640px; }
+
+/* ---- Service cards ---- */
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.card {
+  background: var(--brand-surface); border: 1px solid var(--brand-line);
+  border-radius: 14px; padding: 22px;
+}
+.card h3 { margin: 0 0 6px; font-size: 17px; font-weight: 700; }
+.card p { margin: 0; color: var(--brand-muted); font-size: 14.5px; }
+.card .price {
+  display: inline-block; margin-top: 12px; font-weight: 800;
+  font-size: 15px; color: var(--brand-ink);
+}
+
+/* ---- CTA band ---- */
+.cta-band { background: var(--brand-ink); color: #fff; text-align: center; }
+.cta-band h2 { font-family: var(--font-display); font-size: clamp(24px, 4vw, 34px); margin: 0 0 10px; font-weight: 800; }
+.cta-band p { color: rgba(255,255,255,.7); margin: 0 auto 24px; max-width: 520px; }
+
+/* ---- Contact form ---- */
+.form-card {
+  background: var(--brand-surface); border: 1px solid var(--brand-line);
+  border-radius: 14px; padding: 24px; max-width: 460px; margin: 0 auto; text-align: left;
+}
+.field { margin-bottom: 14px; }
+.field label {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--brand-muted); margin-bottom: 5px;
+}
+.field input, .field textarea {
+  width: 100%; padding: 11px 12px; font: inherit; font-size: 15px;
+  border: 1px solid var(--brand-line); border-radius: 9px; background: #fff; color: var(--brand-ink);
+}
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--brand-accent); }
+.form-card .btn { width: 100%; }
+
+/* ---- Footer ---- */
+footer { background: var(--brand-ink); color: rgba(255,255,255,.55); font-size: 13px; padding: 28px 0; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; }
+footer a { color: var(--brand-accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* ---- Demo ribbon (template pages only) ---- */
+.demo-ribbon {
+  background: var(--brand-accent); color: var(--brand-on-accent);
+  text-align: center; font-size: 13px; font-weight: 700; padding: 9px 20px;
+}
+.demo-ribbon a { color: var(--brand-on-accent); }
+
+/* ---- Portfolio index ---- */
+.portfolio-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+.trade-card {
+  background: var(--brand-surface); border: 1px solid var(--brand-line);
+  border-radius: 14px; padding: 22px; display: flex; flex-direction: column;
+  text-decoration: none; color: inherit; transition: border-color .15s ease, transform .15s ease;
+}
+.trade-card:hover { border-color: var(--brand-accent); transform: translateY(-2px); }
+.trade-card .icon { font-size: 26px; margin-bottom: 12px; }
+.trade-card h3 { margin: 0 0 6px; font-size: 18px; font-weight: 700; }
+.trade-card p { margin: 0 0 14px; color: var(--brand-muted); font-size: 14.5px; flex: 1; }
+.tag {
+  display: inline-block; align-self: flex-start; font-size: 10.5px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px;
+}
+.tag-live { background: rgba(22,163,74,.12); color: #15803d; }
+.tag-demo { background: rgba(232,163,23,.16); color: #92660a; }
+.tag-pending { background: #f1f2f4; color: var(--brand-muted); }
+.trade-card.is-pending { opacity: .62; }
+.trade-card.is-pending:hover { transform: none; border-color: var(--brand-line); }
