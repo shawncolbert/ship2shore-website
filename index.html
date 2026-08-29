@@ -1671,6 +1671,29 @@ img,svg,video{max-width:100%;}
       });
     } catch(err){ console.error('Slack:', err); }
 
+    // 3 — Ship2Shore CRM: creates the contact + Pipeline job and fires the
+    // team's Telegram alert, same as every other intake path (landing
+    // pages, the native /book widget, Calendly). This form doesn't collect
+    // email, only phone -- the CRM's lead endpoint accepts either. Runs
+    // last and never blocks the success screen below if it fails; a
+    // failure here still leaves Slack + Netlify Forms as a record.
+    try {
+      await fetch('https://dispatch.ship2shorebooking.com/.netlify/functions/public-landing-page', {
+        method: 'POST', mode: 'no-cors',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+          action: 'submit_lead',
+          slug: 'homepage-quote',
+          full_name: name,
+          phone: phone,
+          vehicle: vehicle,
+          pickup_location: port,
+          notes: 'Requested: ' + service + ' (' + price + ')' +
+            (hasFile ? ' — delivery order photo attached (see Netlify Forms dashboard)' : '')
+        })
+      });
+    } catch(err){ console.error('Ship2Shore CRM:', err); }
+
     form.style.display    = 'none';
     success.style.display = 'block';
     modal.scrollTop = 0;
