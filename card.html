@@ -488,6 +488,7 @@
     var service = document.getElementById('qq-hidden-service').value;
     var price   = document.getElementById('qq-hidden-price').value;
     var hasFile = fileInput.files && fileInput.files[0];
+    var flatPrice = (price.match(/[\d.]+/) || [])[0];
 
     // 1 — Netlify Forms (handles file upload)
     try {
@@ -508,6 +509,7 @@
           phone: phone,
           vehicle: vehicle,
           pickup_location: port,
+          value: flatPrice,
           notes: 'Requested via digital business card: ' + service + ' (' + price + ')' +
             (hasFile ? ' — delivery order photo attached (see Netlify Forms dashboard)' : '')
         })
