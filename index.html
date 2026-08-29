@@ -837,6 +837,12 @@ img,svg,video{max-width:100%;}
       </button>
 
     </div>
+    <div class="s2s-blurb-grid">
+      <p class="s2s-blurb"><span class="s2s-blurb-arrow">⬆️</span>Our most common job. We enter the secured port, locate your vehicle, document its condition with photos and video, and hand it off to you outside the gate.</p>
+      <p class="s2s-blurb"><span class="s2s-blurb-arrow">⬆️</span>Need it moving today, no exceptions? Hotshot service jumps the line for time-sensitive pickups and deliveries.</p>
+      <p class="s2s-blurb"><span class="s2s-blurb-arrow">⬆️</span>Full-size freight handling for transportation companies, auto haulers, and dispatchers moving containers or semi loads.</p>
+      <p class="s2s-blurb"><span class="s2s-blurb-arrow">⬆️</span>🎖️ Active duty, veterans, and PCS orders: thank you for your service 🇺🇸 — your TWIC Vehicle Escort rate is $80 per vehicle, $15 off standard.</p>
+    </div>
   </div>
 </section>
 
@@ -1185,6 +1191,35 @@ img,svg,video{max-width:100%;}
   font-size: 0.75rem;
   color: var(--muted, rgba(232,240,255,0.55));
   margin-top: 8px;
+}
+
+/* Full descriptive copy for each price tile above -- kept as separate,
+   same-column-count blocks below the grid (not inside the buttons) so the
+   original page copy that drove search traffic stays intact and readable,
+   with an arrow tying each blurb back to its price. */
+.s2s-blurb-grid {
+  display: grid;
+  gap: 18px;
+  margin-top: 6px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 540px) {
+  .s2s-blurb-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .s2s-blurb-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.s2s-blurb {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--muted, rgba(232,240,255,0.7));
+  text-align: center;
+  padding: 0 8px;
+}
+.s2s-blurb-arrow {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
 }
 
 /* ── OVERLAY ── */
