@@ -812,7 +812,7 @@ img,svg,video{max-width:100%;}
           <div class="rate-price"><span class="num mono">$95</span><span class="unit">per vehicle</span></div>
         </div>
         <p class="rate-desc">Our most common job. We enter the secured port, locate your vehicle, document its condition with photos and video, and hand it off to you outside the gate.</p>
-        <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" class="btn btn-red">Book This Service</a>
+        <button type="button" class="btn btn-red" data-service="TWIC Vehicle Escort" data-price="$95/vehicle">Book This Service</button>
       </div>
       <div class="rate-card">
         <div class="rate-card-top">
@@ -820,7 +820,7 @@ img,svg,video{max-width:100%;}
           <div class="rate-price"><span class="num mono">$200</span><span class="unit">per job</span></div>
         </div>
         <p class="rate-desc">Need it moving today, no exceptions? Hotshot service jumps the line for time-sensitive pickups and deliveries.</p>
-        <a href="tel:13107480040" class="btn btn-line">Call to Confirm Availability</a>
+        <button type="button" class="btn btn-line" data-service="Hotshot Delivery" data-price="$200/job">Book This Service</button>
       </div>
       <div class="rate-card">
         <div class="rate-card-top">
@@ -828,13 +828,13 @@ img,svg,video{max-width:100%;}
           <div class="rate-price"><span class="num mono">$325</span><span class="unit">per unit</span></div>
         </div>
         <p class="rate-desc">Full-size freight handling for transportation companies, auto haulers, and dispatchers moving containers or semi loads.</p>
-        <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" class="btn btn-line">Book This Service</a>
+        <button type="button" class="btn btn-line" data-service="Semi / Container Load-Unload" data-price="$325/unit">Book This Service</button>
       </div>
     </div>
     <div class="military-strip">
       <div class="ms-icon">🎖️</div>
       <p><strong>Active duty, veterans, and PCS orders:</strong> thank you for your service — your TWIC Vehicle Escort rate is <span class="mono">$80</span> per vehicle, $15 off standard.</p>
-      <a href="tel:13107480040" class="btn btn-line" style="padding:9px 18px;font-size:12.5px;">Call About PCS Pickup</a>
+      <button type="button" class="btn btn-line" style="padding:9px 18px;font-size:12.5px;" data-service="TWIC Vehicle Escort — Military/PCS" data-price="$80/vehicle">Book This Service</button>
     </div>
   </div>
 </section>
@@ -1350,51 +1350,6 @@ img,svg,video{max-width:100%;}
 <!-- ══════════════════════════════════════════════════
      SECTION HTML
 ═══════════════════════════════════════════════════ -->
-<section id="s2s-pricing">
-  <div class="s2s-inner">
-    <p class="s2s-eyebrow">⚓ Flat-Rate Pricing</p>
-    <h2>SELECT YOUR SERVICE</h2>
-    <p class="s2s-subtitle">
-      Tap a rate to request service. Shawn will call or text you to confirm clearance and get your job scheduled.
-    </p>
-
-    <div class="s2s-grid">
-
-      <button class="s2s-price-btn" data-service="TWIC Vehicle Escort" data-price="$95/vehicle">
-        <div class="s2s-amount">$95</div>
-        <div class="s2s-per">per vehicle</div>
-        <div class="s2s-name">TWIC Vehicle Escort</div>
-        <div class="s2s-desc">Pickup / Delivery / Extraction</div>
-      </button>
-
-      <button class="s2s-price-btn" data-service="Hotshot Delivery" data-price="$200/job">
-        <div class="s2s-amount">$200</div>
-        <div class="s2s-per">per job</div>
-        <div class="s2s-name">Hotshot Delivery</div>
-        <div class="s2s-desc">Urgent / Priority</div>
-      </button>
-
-      <button class="s2s-price-btn" data-service="Semi / Container Load-Unload" data-price="$325/unit">
-        <div class="s2s-amount">$325</div>
-        <div class="s2s-per">per unit</div>
-        <div class="s2s-name">Semi / Container</div>
-        <div class="s2s-desc">Load / Unload</div>
-      </button>
-
-      <button class="s2s-price-btn military" data-service="TWIC Vehicle Escort — Military/PCS" data-price="$80/vehicle" style="position:relative;">
-        <span class="s2s-badge">$15 OFF</span>
-        <div class="s2s-amount">$80</div>
-        <div class="s2s-per">per vehicle</div>
-        <div class="s2s-name">Military / PCS Escort</div>
-        <div class="s2s-desc">Thank you for your service 🇺🇸</div>
-      </button>
-
-    </div>
-
-    <p class="s2s-ports">Serving Port of Long Beach · Port of Wilmington · Port of Matson</p>
-  </div>
-</section>
-
 <!-- ============================================================
      TRANSPORT DELIVERY RATES & SURCHARGES
      ============================================================ -->
@@ -1513,7 +1468,7 @@ img,svg,video{max-width:100%;}
     <p id="s2s-modal-price" style="color:var(--gold,#f0b840); font-weight:700; font-size:1.05rem; margin-bottom:22px;"></p>
 
     <!-- FORM -->
-    <form id="s2s-form" name="transport-request" method="POST" enctype="multipart/form-data" action="/#s2s-pricing">
+    <form id="s2s-form" name="transport-request" method="POST" enctype="multipart/form-data" action="/#rates">
       <input type="hidden" name="form-name" value="transport-request">
       <p style="display:none;"><input name="bot-field"></p>
       <input type="hidden" name="service" id="s2s-hidden-service">
@@ -1591,8 +1546,11 @@ img,svg,video{max-width:100%;}
   var fileInput = document.getElementById('s2s-file-input');
   var uploadTxt = document.getElementById('s2s-upload-text');
 
-  // Open modal on card tap
-  document.querySelectorAll('.s2s-price-btn').forEach(function(btn){
+  // Open modal on card tap -- [data-service] rather than .s2s-price-btn
+  // specifically, so a plain CTA button styled like the rest of the site
+  // (e.g. the Flat Rates cards below) can trigger the same popup without
+  // inheriting s2s-price-btn's own full-card look.
+  document.querySelectorAll('[data-service]').forEach(function(btn){
     btn.addEventListener('click', function(){
       document.getElementById('s2s-modal-service').textContent = btn.dataset.service;
       document.getElementById('s2s-modal-price').textContent   = btn.dataset.price;
