@@ -2,38 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ship2shorebooking.com/</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ship2shorebooking.com/#rates</loc>
-    <lastmod>2026-06-19</lastmod>
+    <loc>https://ship2shorebooking.com/card.html</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ship2shorebooking.com/agency/</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ship2shorebooking.com/#ports</loc>
-    <lastmod>2026-06-19</lastmod>
+    <loc>https://ship2shorebooking.com/agency/auto-detailing/</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ship2shorebooking.com/#process</loc>
-    <lastmod>2026-06-19</lastmod>
+    <loc>https://ship2shorebooking.com/agency/customs-logistics/</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ship2shorebooking.com/#faq</loc>
-    <lastmod>2026-06-19</lastmod>
+    <loc>https://ship2shorebooking.com/agency/hvac/</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ship2shorebooking.com/#contact</loc>
-    <lastmod>2026-06-19</lastmod>
+    <loc>https://ship2shorebooking.com/agency/landscaping/</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ship2shorebooking.com/agency/plumbing/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ship2shorebooking.com/agency/social-media/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
