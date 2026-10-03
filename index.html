@@ -513,6 +513,11 @@ img{max-width:100%;display:block}
 /* ============================================================
    PROCESS — WHO WE SERVE
    ============================================================ */
+.svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+@media(max-width:860px){ .svc-grid{ grid-template-columns:1fr; } }
+a.who-card.svc-card{ text-decoration:none; color:inherit; flex-direction:column; gap:10px; transition:border-color .15s; }
+a.who-card.svc-card:hover{ border-color:var(--yellow); }
+.svc-link{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--yellow); }
 .who-section{ background:var(--steel-dark); }
 .who-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
 @media(max-width:860px){ .who-grid{ grid-template-columns:1fr; } }
@@ -653,6 +658,7 @@ img,svg,video{max-width:100%;}
     <nav class="topnav">
       <a href="#rates">Rates</a>
       <a href="#ports">Ports</a>
+      <a href="#services">Services</a>
       <a href="#process">Process</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
@@ -669,6 +675,7 @@ img,svg,video{max-width:100%;}
 <div class="mobile-drawer" id="mobileDrawer">
   <a href="#rates">Rates</a>
   <a href="#ports">Ports</a>
+  <a href="#services">Services</a>
   <a href="#process">Process</a>
   <a href="#faq">FAQ</a>
   <a href="#contact">Contact</a>
@@ -683,9 +690,9 @@ img,svg,video{max-width:100%;}
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow">TWIC-Credentialed Port Access</div>
-      <h1 class="hero-headline">We go the <em>extra mile.</em></h1>
-      <p class="hero-kicker">TWIC Escort &amp; Full Door-to-Door Vehicle Delivery — From Port Security to Your Driveway.</p>
-      <p class="hero-sub">Ship2Shore Booking enters secured federal port facilities to pick up, deliver, or extract your vehicle — so you never have to deal with port security, brokers, or holds yourself.</p>
+      <h1 class="hero-headline">TWIC escort &amp; <em>vehicle pickup.</em></h1>
+      <p class="hero-kicker">Port of Long Beach, Wilmington &amp; Matson — Full Door-to-Door Vehicle Delivery, From Port Security to Your Driveway.</p>
+      <p class="hero-sub">Ship2Shore Booking enters secured federal port facilities to pick up, deliver, or extract your vehicle — so you never have to deal with port security, brokers, or holds yourself. We go the extra mile.</p>
       <div class="hero-actions">
         <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" class="btn btn-red">Book TWIC Escort &amp; Delivery</a>
         <a href="#zone-rates" class="btn btn-blue">Get Instant Quote</a>
@@ -985,6 +992,33 @@ img,svg,video{max-width:100%;}
           <li>Hotshot and semi/container service available</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES -- links to the three landing pages on the CRM site
+     ============================================================ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="eyebrow">More Ways We Move Vehicles</div>
+    <h2 style="font-size:clamp(26px,3.4vw,38px); margin-bottom:40px;">Our services.</h2>
+    <div class="svc-grid">
+      <a class="who-card svc-card" href="https://dispatch.ship2shorebooking.com/pages/port-transport">
+        <h4>Port vehicle transport &amp; TWIC escorts</h4>
+        <p>Direct vehicle extraction and terminal logistics at Long Beach, Wilmington and Matson. Get a port quote in 30 seconds.</p>
+        <span class="svc-link">See port service &rarr;</span>
+      </a>
+      <a class="who-card svc-card" href="https://dispatch.ship2shorebooking.com/pages/nationwide-transport">
+        <h4>Nationwide auto transport</h4>
+        <p>Open and enclosed auto transport to all 48 states, with professional dispatch and tracking.</p>
+        <span class="svc-link">Get a nationwide quote &rarr;</span>
+      </a>
+      <a class="who-card svc-card" href="https://dispatch.ship2shorebooking.com/pages/transport">
+        <h4>Direct carrier dispatch</h4>
+        <p>Auto transport dispatched direct, with no middlemen and no broker fees. Southern California based.</p>
+        <span class="svc-link">Get a free quote &rarr;</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1730,7 +1764,7 @@ img,svg,video{max-width:100%;}
         <ul>
           <li><a href="tel:13107480040" itemprop="telephone">(310) 748-0040</a></li>
           <li><a href="mailto:shawn@ship2shorebooking.com" itemprop="email">shawn@ship2shorebooking.com</a></li>
-          <li><a href="https://https://calendly.com/whaleyinc/60-min-appt-clone" target="_blank" rel="noopener">https://calendly.com/whaleyinc/60-min-appt-clone</a></li>
+          <li><a href="https://calendly.com/whaleyinc/60-min-appt-clone" target="_blank" rel="noopener">Schedule a pickup or drop-off</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -1765,8 +1799,8 @@ img,svg,video{max-width:100%;}
     <div class="foot-bottom">
       <p>© 2026 Ship2Shore Booking. All rights reserved.</p>
       <div class="foot-bottom-links">
-        <a href="#top">Privacy Policy</a>
-        <a href="#top">Terms &amp; Conditions</a>
+        <a href="https://dispatch.ship2shorebooking.com/privacy">Privacy Policy</a>
+        <a href="https://dispatch.ship2shorebooking.com/terms">Terms &amp; Conditions</a>
       </div>
     </div>
     <div class="foot-cards-row">
