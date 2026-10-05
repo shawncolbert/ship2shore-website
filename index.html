@@ -1610,6 +1610,11 @@ img,svg,video{max-width:100%;}
         </label>
       </div>
 
+      <div class="s2s-field" style="display:flex; gap:10px; align-items:flex-start;">
+        <input type="checkbox" id="s2s-sms-consent" name="sms-consent" value="yes" style="margin-top:4px; flex-shrink:0; width:18px; height:18px;">
+        <label for="s2s-sms-consent" style="font-size:0.8rem; color:rgba(232,240,255,0.6); line-height:1.5;">Text me about this request. Message and data rates may apply. Reply STOP to opt out.</label>
+      </div>
+
       <button type="submit" id="s2s-submit">SUBMIT REQUEST</button>
     </form>
 
@@ -1756,6 +1761,7 @@ img,svg,video{max-width:100%;}
           vehicle: vehicle,
           pickup_location: port,
           value: flatPrice,
+          sms_consent: !!(document.getElementById('s2s-sms-consent') && document.getElementById('s2s-sms-consent').checked),
           notes: 'Requested: ' + service + ' (' + price + ')' +
             (hasFile ? ' — delivery order photo attached (see Netlify Forms dashboard)' : '')
         })
