@@ -257,7 +257,7 @@
       "name": "Is Port of Wilmington open every day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No — Port of Wilmington (California) is closed every Wednesday. We schedule all Wilmington jobs Thursday through Tuesday. Port of Long Beach and Port of Matson remain open daily."
+        "text": "No — Port of Wilmington (California) is open Monday, Tuesday, Thursday and Friday, and closed Wednesdays and weekends. Port of Long Beach and Port of Matson are open Monday-Friday and closed weekends."
       }
     }
   ]
@@ -512,6 +512,29 @@ img{max-width:100%;display:block}
 .military-strip .mono{ color:var(--yellow); font-size:14px; }
 
 /* ============================================================
+   PORT PICKUP STEPS
+   ============================================================ */
+.pickup-section{ background:var(--steel-dark); border-bottom:1px solid var(--steel-line-soft); }
+.pickup-intro{ max-width:760px; margin-bottom:40px; }
+.pickup-intro h2{ font-size:clamp(26px,3.4vw,38px); margin-bottom:14px; text-transform:uppercase; overflow-wrap:anywhere; }
+.pickup-intro p{ color:var(--text-dim); font-size:17px; }
+.pickup-sub{ font-size:clamp(20px,2.4vw,26px); margin-bottom:22px; color:var(--text); }
+.pickup-steps{ list-style:none; counter-reset:pstep; display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+@media(max-width:860px){ .pickup-steps{ grid-template-columns:1fr; } }
+.pickup-steps li{ counter-increment:pstep; background:var(--steel-raised); border:1px solid var(--steel-line-soft); border-radius:var(--radius); padding:26px 24px 24px; }
+.pickup-steps li::before{ content:counter(pstep); display:flex; align-items:center; justify-content:center; width:34px; height:34px; border:1.5px solid var(--yellow); border-radius:50%; color:var(--yellow); font-family:'IBM Plex Mono',monospace; font-size:14px; margin-bottom:14px; }
+.pickup-steps h4{ font-size:19px; color:var(--text); margin-bottom:8px; }
+.pickup-steps p{ font-size:14.5px; color:var(--text-dim); line-height:1.6; overflow-wrap:anywhere; }
+.pickup-steps a{ color:var(--yellow); text-decoration:underline; }
+.pickup-days{ margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+@media(max-width:860px){ .pickup-days{ grid-template-columns:1fr; } }
+.pickup-card{ background:var(--steel); border:1px solid var(--steel-line-soft); border-left:3px solid var(--yellow); border-radius:var(--radius); padding:22px 24px; }
+.pickup-card h3{ font-size:19px; margin-bottom:12px; }
+.pickup-card ul{ list-style:none; display:flex; flex-direction:column; gap:6px; }
+.pickup-card li, .pickup-card p{ font-size:14.5px; color:var(--text-dim); }
+.pickup-card strong{ color:var(--text); }
+
+/* ============================================================
    PORTS
    ============================================================ */
 .ports-section{ background:var(--steel); border-top:1px solid var(--steel-line-soft); border-bottom:1px solid var(--steel-line-soft); }
@@ -568,6 +591,7 @@ a.who-card.svc-card:hover{ border-color:var(--yellow); }
 .do-section{ background:var(--steel-dark); }
 .do-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
 @media(max-width:900px){ .do-grid{ grid-template-columns:1fr; gap:40px; } }
+.do-grid > *{ min-width:0; }
 .do-text h2{ font-size:clamp(24px,3vw,32px); margin-bottom:18px; }
 .do-text p{ color:var(--text-dim); font-size:15.5px; margin-bottom:16px; }
 .do-text .btn{ margin-top:10px;}
@@ -673,6 +697,7 @@ img,svg,video{max-width:100%;}
       <div class="brand-name">SHIP2SHORE<span> &middot; PORT ENTRY SPECIALIST</span></div>
     </a>
     <nav class="topnav">
+      <a href="#port-pickup">Pickup Steps</a>
       <a href="#rates">Rates</a>
       <a href="#ports">Ports</a>
       <a href="#services">Services</a>
@@ -691,6 +716,7 @@ img,svg,video{max-width:100%;}
 
 <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
 <div class="mobile-drawer" id="mobileDrawer">
+  <a href="#port-pickup">Pickup Steps</a>
   <a href="#rates">Rates</a>
   <a href="#ports">Ports</a>
   <a href="#services">Services</a>
@@ -777,6 +803,61 @@ img,svg,video{max-width:100%;}
     <p>📞 <strong>You never call the port.</strong> Ship2Shore handles everything start to finish — your only contact is <a href="tel:13107480040">(310) 748-0040</a>.</p>
   </div>
 </div>
+
+<!-- ============================================================
+     PORT VEHICLE PICKUP STEPS
+     ============================================================ -->
+<section class="pickup-section section" id="port-pickup">
+  <div class="wrap">
+    <div class="pickup-intro">
+      <div class="eyebrow">How it works</div>
+      <h2>Port Vehicle Pickup &mdash; Long Beach, Wilmington &amp; Matson</h2>
+      <p>No TWIC card needed. We go into the port for you.</p>
+    </div>
+    <h3 class="pickup-sub">What happens when you hire Ship2Shore Booking</h3>
+    <ol class="pickup-steps">
+      <li>
+        <h4>You book a pickup time.</h4>
+        <p>Choose your pickup time through our <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener">booking page</a>. We require 24 hours' notice for Long Beach and Wilmington. We accept up to 3 pickups per time slot.</p>
+      </li>
+      <li>
+        <h4>You send us your paperwork.</h4>
+        <p>We need your Delivery Order, vessel name, Bill of Lading number, and VIN. The Delivery Order must name Ship2Shore Booking in the "Local Delivery or Transfer By" box.</p>
+      </li>
+      <li>
+        <h4>We check before we go.</h4>
+        <p>Before heading to the port, we verify that the steamship line, customs, and gate-pass requirements are clear. The port cannot release a vehicle that has not been cleared. For Wilmington, we request the gate pass from the port's gate desk using your Delivery Order. For Long Beach and Matson, we verify that the vehicle is available and that the required pickup authorization and documentation are in place before we go.</p>
+      </li>
+      <li>
+        <h4>We go into the secured port and get your vehicle.</h4>
+        <p>You don't need a TWIC card and you don't go inside. We enter the secured port, locate your vehicle, and bring it to the gate.</p>
+      </li>
+      <li>
+        <h4>We document the vehicle.</h4>
+        <p>We photograph all four sides of the vehicle, take a walkaround video, and complete a condition report that is signed at handoff.</p>
+      </li>
+      <li>
+        <h4>You complete the handoff and pay.</h4>
+        <p>Once the vehicle is at the gate, you complete the handoff and pay Ship2Shore Booking for the pickup service.</p>
+      </li>
+    </ol>
+    <div class="pickup-days">
+      <div class="pickup-card">
+        <h3>Our pickup days</h3>
+        <ul>
+          <li><strong>Long Beach:</strong> Monday-Friday</li>
+          <li><strong>Matson:</strong> Monday-Friday</li>
+          <li><strong>Wilmington:</strong> Monday, Tuesday, Thursday and Friday</li>
+          <li><strong>Closed:</strong> Wednesdays at Wilmington and weekends at all ports.</li>
+        </ul>
+      </div>
+      <div class="pickup-card">
+        <h3>Important</h3>
+        <p>Port and terminal hours can change. Pickup availability is based on the port's operating schedule and whether the vehicle and required paperwork are cleared before pickup.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============================================================
      CLEARANCE CHAIN — SIGNATURE ELEMENT
@@ -981,7 +1062,7 @@ img,svg,video{max-width:100%;}
       <div class="port-card">
         <div class="port-card-head">
           <h3>Port of Long Beach</h3>
-          <span class="port-status open">Open Daily</span>
+          <span class="port-status open">Mon&ndash;Fri</span>
         </div>
         <ul>
           <li>Appointment pier — we give 24-hour advance notice before every pickup or drop-off</li>
@@ -992,10 +1073,10 @@ img,svg,video{max-width:100%;}
       <div class="port-card">
         <div class="port-card-head">
           <h3>Port of Wilmington, CA</h3>
-          <span class="port-status note">Closed Wed.</span>
+          <span class="port-status note">Mon, Tue, Thu, Fri</span>
         </div>
         <ul>
-          <li>Closed every Wednesday — we schedule Wilmington jobs Thursday through Tuesday</li>
+          <li>Open Monday, Tuesday, Thursday and Friday — closed Wednesdays and weekends</li>
           <li>Frequent destination for military POV pickups on PCS orders</li>
           <li>24-hour advance notice required for TWIC escort jobs</li>
         </ul>
@@ -1003,9 +1084,10 @@ img,svg,video{max-width:100%;}
       <div class="port-card">
         <div class="port-card-head">
           <h3>Port of Matson</h3>
-          <span class="port-status open">Open Daily</span>
+          <span class="port-status open">Mon&ndash;Fri</span>
         </div>
         <ul>
+          <li>Open Monday-Friday — closed weekends</li>
           <li>Regular service for Hawaii and Pacific freight arrivals</li>
           <li>Same clearance chain verified directly with the port before scheduling</li>
           <li>Hotshot port service and heavy-equipment handling available</li>
@@ -1205,7 +1287,7 @@ img,svg,video{max-width:100%;}
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Is Port of Wilmington open every day?<span class="plus">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">No — Port of Wilmington (California) is closed every Wednesday. We schedule all Wilmington jobs Thursday through Tuesday. Port of Long Beach and Port of Matson remain open daily.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">No — Port of Wilmington (California) is open Monday, Tuesday, Thursday and Friday, and closed Wednesdays and weekends. Port of Long Beach and Port of Matson are open Monday-Friday and closed weekends.</div></div>
       </div>
 
     </div>
