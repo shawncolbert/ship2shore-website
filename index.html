@@ -115,7 +115,7 @@
         "areaServed": ["Port of Long Beach", "Port of Wilmington, CA", "Port of Matson"],
         "provider": { "@id": "https://ship2shorebooking.com/#business" }
       },
-      "price": "85",
+      "price": "95",
       "priceCurrency": "USD"
     },
     {
@@ -241,7 +241,7 @@
       "name": "What happens once my vehicle is out the gate?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We take 4 photos (front, back, both sides) and a full walkaround video outside the gate, with you present for your own inspection. You sign off on the delivery order confirming condition, then payment is collected the same day."
+        "text": "Vehicle condition documentation is completed at the gate, including photos and video when required, with you present for your own inspection. You sign off on the delivery order confirming condition, then payment is collected the same day."
       }
     },
     {
@@ -742,6 +742,7 @@ img,svg,video{max-width:100%;}
         <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" class="btn btn-red">Book Port Escort</a>
         <a href="#rates" class="btn btn-line">See Rates</a>
       </div>
+      <p class="hero-note" style="font-size:13.5px; color:var(--text-dim); margin:-6px 0 22px;">Need transportation after pickup? Call us and we'll connect you with a carrier.</p>
       <div class="hero-strip">
         <div class="hero-strip-item"><span class="hero-strip-num mono">3</span><span class="hero-strip-lbl">Ports Served</span></div>
         <div class="hero-strip-item"><span class="hero-strip-num mono">$95</span><span class="hero-strip-lbl">Vehicle Escort</span></div>
@@ -924,7 +925,7 @@ img,svg,video{max-width:100%;}
       </li>
       <li>
         <h4>We document the vehicle.</h4>
-        <p>We photograph all four sides of the vehicle, take a walkaround video, and complete a condition report that is signed at handoff.</p>
+        <p>Condition documentation is completed at the gate, including photos and video when required, and a condition report is signed at handoff.</p>
       </li>
       <li>
         <h4>You complete the handoff and pay.</h4>
@@ -999,7 +1000,7 @@ img,svg,video{max-width:100%;}
 
     </div>
     <div class="s2s-blurb-grid">
-      <p class="s2s-blurb"><span class="s2s-blurb-arrow">⬆️</span>Our most common job. We enter the secured port, locate your vehicle, document its condition with photos and video, and hand it off to you outside the gate.</p>
+      <p class="s2s-blurb"><span class="s2s-blurb-arrow">⬆️</span>Our most common job. We enter the secured port, locate your vehicle, document its condition at the gate (photos and video when required), and hand it off to you at the gate.</p>
       <p class="s2s-blurb"><span class="s2s-blurb-arrow">⬆️</span>Hotshot import or export? With your OK, our TWIC-credentialed driver takes your truck and trailer through the port, loads or unloads it, and returns it to you at the gate. Every job starts with photos and a signed condition report.</p>
       <p class="s2s-blurb"><span class="s2s-blurb-arrow">⬆️</span>Heavy equipment and oversized cargo handled inside the port for transportation companies, auto haulers, and dispatchers.</p>
       <p class="s2s-blurb"><span class="s2s-blurb-arrow">⬆️</span>🎖️ Active duty, veterans, and PCS orders: thank you for your service 🇺🇸 — your TWIC Vehicle Escort rate is $80 per vehicle, $15 off standard.</p>
@@ -1008,97 +1009,12 @@ img,svg,video{max-width:100%;}
 </section>
 
 <!-- ============================================================
-     TRANSPORT DELIVERY RATES & SURCHARGES
+     AFTER PICKUP
      ============================================================ -->
-<style>
-#transport-rates{padding:72px 24px;background:#070f1e;}
-#transport-rates .tr-inner{max-width:860px;margin:0 auto;}
-#transport-rates .tr-eyebrow{font-family:'Space Mono',monospace;font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:#00d4e0;margin-bottom:10px;text-align:center;}
-#transport-rates h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3rem);letter-spacing:2px;color:#e8f0ff;text-align:center;margin-bottom:10px;line-height:1.1;}
-#transport-rates .tr-subtitle{text-align:center;color:rgba(232,240,255,0.5);font-size:0.92rem;margin-bottom:48px;line-height:1.6;}
-.tr-block{margin-bottom:40px;scroll-margin-top:96px;}
-.tr-label{font-family:'Space Mono',monospace;font-size:0.65rem;letter-spacing:2.5px;text-transform:uppercase;color:#00d4e0;margin-bottom:12px;padding-left:4px;}
-.tr-table{width:100%;border-collapse:collapse;background:#0d1e38;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.3);}
-.tr-table thead tr{background:#0a1628;border-bottom:1px solid rgba(0,212,224,0.2);}
-.tr-table thead th{padding:14px 20px;text-align:left;font-family:'Space Mono',monospace;font-size:0.63rem;letter-spacing:2px;text-transform:uppercase;color:rgba(232,240,255,0.35);font-weight:400;}
-.tr-table thead th:last-child{text-align:right;}
-.tr-table tbody tr{border-bottom:1px solid rgba(255,255,255,0.05);transition:background 0.15s;}
-.tr-table tbody tr:last-child{border-bottom:none;}
-.tr-table tbody tr:hover{background:rgba(0,212,224,0.04);}
-.tr-table tbody td{padding:15px 20px;font-size:0.92rem;color:rgba(232,240,255,0.75);}
-.tr-table tbody td:last-child{text-align:right;font-family:'Space Mono',monospace;font-size:0.85rem;color:#f0b840;font-weight:700;white-space:nowrap;}
-.tr-table .call-row td:last-child{color:#00d4e0;}
-.tr-table .surcharge-td{display:flex;align-items:center;gap:10px;}
-.surcharge-dot{width:7px;height:7px;background:#f0b840;border-radius:50%;flex-shrink:0;display:inline-block;}
-.tr-divider{height:1px;background:rgba(0,212,224,0.1);margin:44px 0;}
-.tr-footnote{margin-top:14px;padding:16px 20px;background:rgba(0,212,224,0.05);border-left:2px solid #00d4e0;border-radius:0 8px 8px 0;}
-.tr-footnote p{font-size:0.8rem;color:rgba(232,240,255,0.45);line-height:1.6;margin-bottom:6px;}
-.tr-footnote p:last-child{margin-bottom:0;}
-.tr-footnote strong{color:rgba(232,240,255,0.7);}
-@media(max-width:540px){
-  .tr-table tbody td{padding:13px 14px;font-size:0.85rem;}
-  .tr-table thead th{padding:12px 14px;}
-}
-</style>
-
-<section id="transport-rates">
-  <div class="tr-inner">
-    <p class="tr-eyebrow">&#9875; Port of Long Beach &nbsp;&middot;&nbsp; Port of Wilmington &nbsp;&middot;&nbsp; Port of Matson</p>
-    <h2>TRANSPORT &amp; DELIVERY RATES</h2>
-    <p class="tr-subtitle">
-      Once your vehicle clears the port, Ship2Shore can deliver it directly to you.<br>
-      These are our flat delivery rates from all three ports we service — no hidden fees, same-day available.
-    </p>
-
-    <!-- ZONE RATE TABLE -->
-    <div class="tr-block" id="zone-rates">
-      <p class="tr-label">Delivery Zone Rates — From Port to Your Door</p>
-      <table class="tr-table">
-        <thead>
-          <tr>
-            <th>Destination Zone (Delivered From Port)</th>
-            <th>Rate Per Vehicle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Los Angeles (Local)</td><td>$305 &ndash; $355</td></tr>
-          <tr><td>Orange County</td><td>$330 &ndash; $380</td></tr>
-          <tr><td>Ventura County</td><td>$355 &ndash; $405</td></tr>
-          <tr><td>Valencia / Santa Clarita</td><td>$380 &ndash; $430</td></tr>
-          <tr><td>Riverside / San Bernardino</td><td>$430 &ndash; $505</td></tr>
-          <tr><td>San Diego</td><td>$600 &ndash; $675</td></tr>
-          <tr><td>Northern California</td><td>$625 &ndash; $725</td></tr>
-          <tr class="call-row"><td>Non-Port Deliveries</td><td>Call for Quote</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="tr-divider"></div>
-
-    <!-- SURCHARGE TABLE -->
-    <div class="tr-block">
-      <p class="tr-label">Vehicle Surcharges &mdash; Added to Your Zone Rate</p>
-      <table class="tr-table">
-        <thead>
-          <tr>
-            <th>Condition</th>
-            <th>Additional Per Vehicle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><span class="surcharge-td"><span class="surcharge-dot"></span>Non-Operating Vehicle</span></td><td>+ $200</td></tr>
-          <tr><td><span class="surcharge-td"><span class="surcharge-dot"></span>Requires Winching</span></td><td>+ $125</td></tr>
-          <tr><td><span class="surcharge-td"><span class="surcharge-dot"></span>Oversized Vehicle</span></td><td>+ $125</td></tr>
-          <tr><td><span class="surcharge-td"><span class="surcharge-dot"></span>Lifted / Modified Vehicle</span></td><td>+ $125 &ndash; $175</td></tr>
-        </tbody>
-      </table>
-      <div class="tr-footnote">
-        <p><strong>Example:</strong> Non-operating vehicle released from Port of Long Beach, delivered to San Diego = $600&ndash;$675 base + $200 non-op surcharge = <strong>$800&ndash;$875 total.</strong></p>
-        <p>Surcharge conditions are confirmed with you before the job is scheduled &mdash; nothing is added to your bill without your knowledge. Exact amount confirmed on inspection at the gate.</p>
-        <p>Questions? Call or text Shawn directly at <strong>(310) 748-0040</strong>.</p>
-      </div>
-    </div>
-
+<section class="section" id="after-pickup">
+  <div class="wrap" style="text-align:center;">
+    <p style="font-size:clamp(18px,2.4vw,22px); color:var(--text); max-width:620px; margin:0 auto 22px;">Need your vehicle moved after pickup? Call us and we&rsquo;ll connect you with a carrier.</p>
+    <a href="tel:13107480040" class="btn btn-red">Call (310) 748-0040</a>
   </div>
 </section>
 
@@ -1156,20 +1072,10 @@ img,svg,video{max-width:100%;}
     <div class="eyebrow">More Ways We Move Vehicles</div>
     <h2 style="font-size:clamp(26px,3.4vw,38px); margin-bottom:40px;">Our services.</h2>
     <div class="svc-grid">
-      <a class="who-card svc-card" href="https://dispatch.ship2shorebooking.com/pages/port-transport">
-        <h4>Port vehicle transport &amp; TWIC escorts</h4>
-        <p>Direct vehicle extraction and terminal logistics at Long Beach, Wilmington and Matson. Get a port quote in 30 seconds.</p>
-        <span class="svc-link">See port service &rarr;</span>
-      </a>
-      <a class="who-card svc-card" href="https://dispatch.ship2shorebooking.com/pages/nationwide-transport">
-        <h4>Nationwide auto transport</h4>
-        <p>Open and enclosed auto transport to all 48 states, with professional dispatch and tracking.</p>
-        <span class="svc-link">Get a nationwide quote &rarr;</span>
-      </a>
-      <a class="who-card svc-card" href="https://dispatch.ship2shorebooking.com/pages/transport">
-        <h4>Direct carrier dispatch</h4>
-        <p>Auto transport dispatched direct, with no middlemen and no broker fees. Southern California based.</p>
-        <span class="svc-link">Get a free quote &rarr;</span>
+      <a class="who-card svc-card" href="/port-vehicle-pickup/">
+        <h4>Port vehicle pickup &amp; TWIC escorts</h4>
+        <p>Vehicle extraction with a TWIC-credentialed escort at Long Beach, Wilmington and Matson. Flat rates from $95.</p>
+        <span class="svc-link">See port pickup &rarr;</span>
       </a>
     </div>
   </div>
@@ -1328,7 +1234,7 @@ img,svg,video{max-width:100%;}
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">What happens once my vehicle is out the gate?<span class="plus">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">We take 4 photos (front, back, both sides) and a full walkaround video outside the gate, with you present for your own inspection. You sign off on the delivery order confirming condition, then payment is collected the same day.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Vehicle condition documentation is completed at the gate, including photos and video when required, with you present for your own inspection. You sign off on the delivery order confirming condition, then payment is collected the same day.</div></div>
       </div>
 
       <div class="faq-item">
