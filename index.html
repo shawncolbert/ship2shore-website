@@ -16,8 +16,8 @@
 <!-- ============================================================
      PRIMARY SEO META
      ============================================================ -->
-<title>TWIC Port Escort & Vehicle Pickup | Ship2Shore Booking</title>
-<meta name="description" content="TWIC-credentialed port escorts for vehicle pickup at Long Beach, Wilmington & Matson. No TWIC card needed. Flat rates from $95. Call (310) 748-0040."/>
+<title>Port of Long Beach Vehicle Pickup &amp; TWIC Escort | Ship2Shore Booking</title>
+<meta name="description" content="Need a car out of the Port of Long Beach, Wilmington or Matson? TWIC-credentialed escorts get you in and your vehicle out. Call (310) 748-0040."/>
 <meta name="robots" content="index, follow, max-image-preview:large"/>
 <meta name="author" content="Shawn Colbert, Ship2Shore Booking"/>
 <link rel="canonical" href="https://ship2shorebooking.com/"/>
@@ -27,8 +27,8 @@
      ============================================================ -->
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Ship2Shore Booking"/>
-<meta property="og:title" content="TWIC Port Escort & Vehicle Pickup | Ship2Shore Booking"/>
-<meta property="og:description" content="TWIC-credentialed port escorts for vehicle pickup at Long Beach, Wilmington & Matson. No TWIC card needed. Flat rates from $95. Call (310) 748-0040."/>
+<meta property="og:title" content="Port of Long Beach Vehicle Pickup &amp; TWIC Escort | Ship2Shore Booking"/>
+<meta property="og:description" content="Need a car out of the Port of Long Beach, Wilmington or Matson? TWIC-credentialed escorts get you in and your vehicle out. Call (310) 748-0040."/>
 <meta property="og:url" content="https://ship2shorebooking.com/"/>
 <meta property="og:image" content="https://ship2shorebooking.com/og-image.jpg"/>
 <meta property="og:image:width" content="1200"/>
@@ -36,8 +36,8 @@
 <meta property="og:locale" content="en_US"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="TWIC Port Escort & Vehicle Pickup | Ship2Shore Booking"/>
-<meta name="twitter:description" content="TWIC-credentialed port escorts for vehicle pickup at Long Beach, Wilmington & Matson. No TWIC card needed. Flat rates from $95."/>
+<meta name="twitter:title" content="Port of Long Beach Vehicle Pickup &amp; TWIC Escort | Ship2Shore Booking"/>
+<meta name="twitter:description" content="Need a car out of the Port of Long Beach, Wilmington or Matson? TWIC-credentialed escorts get you in and your vehicle out. Call (310) 748-0040."/>
 <meta name="twitter:image" content="https://ship2shorebooking.com/og-image.jpg"/>
 
 <!-- ============================================================
@@ -542,6 +542,9 @@ img{max-width:100%;display:block}
 .port-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
 @media(max-width:860px){ .port-grid{ grid-template-columns:1fr; } }
 .port-card{ background:var(--steel-raised); border:1px solid var(--steel-line-soft); border-radius:var(--radius); padding:28px 26px; }
+a.port-card{ display:block; text-decoration:none; color:inherit; transition:border-color .15s; }
+a.port-card:hover{ border-color:var(--yellow); }
+.port-card .svc-link{ display:inline-block; margin-top:16px; }
 .port-card-head{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px; }
 .port-card h3{ font-size:19px; color:var(--text); }
 .port-status{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1px; text-transform:uppercase; padding:4px 9px; border-radius:20px; white-space:nowrap; }
@@ -1026,7 +1029,7 @@ img,svg,video{max-width:100%;}
     <div class="eyebrow">Where We Operate</div>
     <h2 style="font-size:clamp(26px,3.4vw,38px); margin-bottom:40px;">Three ports. One specialist.</h2>
     <div class="port-grid">
-      <div class="port-card">
+      <a class="port-card" href="/port-of-long-beach-vehicle-pickup/">
         <div class="port-card-head">
           <h3>Port of Long Beach</h3>
           <span class="port-status open">Mon&ndash;Fri</span>
@@ -1036,8 +1039,9 @@ img,svg,video{max-width:100%;}
           <li>Vehicles cannot be picked up directly by owners — port escort required</li>
           <li>Most common port for personal vehicle and dealer pickups</li>
         </ul>
-      </div>
-      <div class="port-card">
+      <span class="svc-link">Port of Long Beach pickup &rarr;</span>
+      </a>
+      <a class="port-card" href="/port-of-wilmington-vehicle-pickup/">
         <div class="port-card-head">
           <h3>Port of Wilmington, CA</h3>
           <span class="port-status note">Mon, Tue, Thu, Fri</span>
@@ -1047,8 +1051,9 @@ img,svg,video{max-width:100%;}
           <li>Frequent destination for military POV pickups on PCS orders</li>
           <li>24-hour advance notice required for TWIC escort jobs</li>
         </ul>
-      </div>
-      <div class="port-card">
+      <span class="svc-link">Wilmington pickup &rarr;</span>
+      </a>
+      <a class="port-card" href="/matson-vehicle-pickup/">
         <div class="port-card-head">
           <h3>Port of Matson</h3>
           <span class="port-status open">Mon&ndash;Fri</span>
@@ -1059,7 +1064,8 @@ img,svg,video{max-width:100%;}
           <li>Same clearance chain verified directly with the port before scheduling</li>
           <li>Hotshot port service and heavy-equipment handling available</li>
         </ul>
-      </div>
+      <span class="svc-link">Matson pickup &rarr;</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1837,6 +1843,9 @@ img,svg,video{max-width:100%;}
           <li><a href="/port-pickup-guide/">Port pickup guide</a></li>
           <li><a href="/twic-escort/">TWIC escort</a></li>
           <li><a href="/port-vehicle-pickup/">Port vehicle pickup</a></li>
+          <li><a href="/port-of-long-beach-vehicle-pickup/">Port of Long Beach vehicle pickup</a></li>
+          <li><a href="/port-of-wilmington-vehicle-pickup/">Wilmington vehicle pickup</a></li>
+          <li><a href="/matson-vehicle-pickup/">Matson vehicle pickup</a></li>
         </ul>
       </div>
       <div class="foot-col">
