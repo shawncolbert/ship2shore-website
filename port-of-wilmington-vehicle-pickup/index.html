@@ -253,6 +253,14 @@ footer{ background:var(--steel-dark); border-top:1px solid var(--steel-line-soft
 .page-cta .alt{ margin-top:14px; font-size:15px; color:var(--text-dim); }
 .related{ margin:44px 0 0; padding-top:24px; border-top:1px solid var(--steel-line-soft); font-size:15px; }
 .related a{ margin-right:18px; display:inline-block; }
+.table-scroll{ overflow-x:auto; margin:20px 0 14px; border:1px solid var(--steel-line); border-radius:var(--radius); background:var(--steel); }
+.cost-table{ width:100%; min-width:560px; border-collapse:collapse; font-size:16px; }
+.cost-table th, .cost-table td{ padding:14px 18px; text-align:left; vertical-align:top; border-bottom:1px solid var(--steel-line-soft); color:#d5dce2; }
+.cost-table thead th{ font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:11.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-dim); background:var(--steel-raised); }
+.cost-table tbody th{ font-weight:600; color:var(--text); }
+.cost-table tfoot th, .cost-table tfoot td{ border-bottom:none; background:var(--steel-raised); font-weight:700; color:var(--text); }
+.cost-table tfoot td:last-child{ color:var(--yellow); }
+.fine-print{ font-size:13.5px; color:var(--text-dim) !important; line-height:1.6; }
 </style>
 </head>
 <body>
@@ -310,6 +318,32 @@ footer{ background:var(--steel-dark); border-top:1px solid var(--steel-line-soft
   </ul>
   <p>A jump start, air and two gallons of gas are included if needed so the vehicle can leave the port. Electric and hybrid vehicles, and anything more involved, go to the port&rsquo;s professional mechanic. You pay after handoff, by credit or debit card through a secure invoice link, Cash App, Venmo, Zelle or Apple Pay.</p>
   <p>Need your vehicle moved after pickup? Call us and we'll connect you with a carrier.</p>
+
+  <h2>What a typical Wilmington pickup costs</h2>
+  <p>Most vehicles that have been sitting at the port need a jump start and a little gas. Here is what that looks like at the Wilmington terminal gate, and with Ship2Shore.</p>
+  <!-- RECHECK POSTED PRICES AT THE WILMINGTON GATE; photo dated 2026-07-16 -->
+  <div class="table-scroll" role="region" aria-label="Cost comparison table" tabindex="0">
+    <table class="cost-table">
+      <thead><tr><th scope="col"></th><th scope="col">Posted at the Wilmington terminal gate (July 2026)</th><th scope="col">With Ship2Shore</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Terminal access without a TWIC</th><td>$100 (access only; services are extra)</td><td>Not needed: our TWIC-credentialed escort goes in for you</td></tr>
+        <tr><th scope="row">Jump start</th><td>$50</td><td>Included</td></tr>
+        <tr><th scope="row">Gas, 2 gallons</th><td>$25</td><td>Included</td></tr>
+      </tbody>
+      <tfoot><tr><th scope="row">Typical total</th><td>$175</td><td>$95</td></tr></tfoot>
+    </table>
+  </div>
+  <p>Need air for a flat tire? That is $25 more at the gate. With us it is included if your vehicle needs it.</p>
+  <p class="fine-print">Prices as posted at the Wilmington terminal gate in July 2026 and they can change. Jump start, air and gas are included with the Ship2Shore escort when your vehicle needs them. Ship2Shore Booking is not affiliated with any terminal.</p>
+  <h3>Why Ship2Shore</h3>
+  <ul>
+    <li>One flat price. No add-ons at the gate.</li>
+    <li>You never go inside the port. A TWIC-credentialed escort goes in for you.</li>
+    <li>We check with the port before we go, so you do not make a trip for nothing.</li>
+    <li>A condition report with photos at the gate, signed at handoff.</li>
+    <li>Pay by card, Cash App, Venmo, Zelle or Apple Pay.</li>
+  </ul>
+  <div class="page-cta"><a href="https://dispatch.ship2shorebooking.com/book" rel="noopener" class="btn btn-red">Book Port Escort</a></div>
 
   <h2>Questions</h2>
   <div class="faq"><details><summary>Why can’t you pick up on Wednesdays?</summary><p>Wilmington is closed on Wednesdays and weekends. We schedule Monday, Tuesday, Thursday or Friday.</p></details><details><summary>Do I need a TWIC card?</summary><p>No. You never need a TWIC card and you do not go inside the port. Our escort goes in for you.</p></details><details><summary>What do you check before the pickup?</summary><p>We verify that all payments to the steamship line are paid and that customs has cleared the vehicle in the system. The steamship line, customs and the port decide release; we check status and can’t clear it ourselves.</p></details><details><summary>Can you help with a dead battery or an electric vehicle?</summary><p>If it’s needed so the vehicle can leave the port, a jump start, air and two gallons of gas are included. Electric and hybrid vehicles, and anything more involved, go to the port’s professional mechanic.</p></details></div>
