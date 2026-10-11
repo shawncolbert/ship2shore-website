@@ -687,6 +687,9 @@ img,svg,video{max-width:100%;}
   .foot-bottom{flex-direction:column;align-items:flex-start;gap:8px;}
   footer{padding:40px 0 20px;}
 }
+.assist-note{ font-size:13px; line-height:1.6; color:var(--text-dim); max-width:1040px; margin:14px auto 0; }
+.cta-section p.assist-note{ font-size:13px; max-width:1040px; margin:16px auto 0; color:var(--text-dim); }
+.foot-grid li.assist-note, .foot-col li.assist-note{ font-size:12.5px; margin:2px 0 0; max-width:300px; }
 </style>
 </head>
 <body>
@@ -1018,6 +1021,7 @@ img,svg,video{max-width:100%;}
   <div class="wrap" style="text-align:center;">
     <p style="font-size:clamp(18px,2.4vw,22px); color:var(--text); max-width:620px; margin:0 auto 22px;">Need your vehicle moved after pickup? Call us and we&rsquo;ll connect you with a carrier.</p>
     <a href="tel:13107480040" class="btn btn-red">Call (310) 748-0040</a>
+    <p class="assist-note">Call or text (310) 748-0040. If we're on a pickup and can't answer, our automated assistant will take your request and a dispatcher will call you back.</p>
   </div>
 </section>
 
@@ -1270,6 +1274,7 @@ img,svg,video{max-width:100%;}
       <a href="tel:13107480040" class="btn btn-red">Call (310) 748-0040</a>
       <a href="mailto:shawn@ship2shorebooking.com" class="btn btn-line">Email Shawn</a>
     </div>
+    <p class="assist-note">Call or text (310) 748-0040. If we're on a pickup and can't answer, our automated assistant will take your request and a dispatcher will call you back.</p>
   </div>
 </section>
 
@@ -1597,6 +1602,7 @@ img,svg,video{max-width:100%;}
   <input name="full-name"><input name="phone">
   <input name="vehicle"><input name="port">
   <input type="file" name="delivery-order">
+  <input type="checkbox" name="transport_interest" value="true">
 </form>
 
 <!-- ══════════════════════════════════════════════════
@@ -1653,6 +1659,11 @@ img,svg,video{max-width:100%;}
           <input type="file" name="delivery-order" id="s2s-file-input"
             accept="image/*,application/pdf" capture="environment" style="display:none;">
         </label>
+      </div>
+
+      <div class="s2s-field" style="display:flex; gap:10px; align-items:flex-start;">
+        <input type="checkbox" id="s2s-transport-interest" name="transport_interest" value="true" style="margin-top:4px; flex-shrink:0; width:18px; height:18px;">
+        <label for="s2s-transport-interest" style="font-size:0.8rem; color:rgba(232,240,255,0.6); line-height:1.5;">I may also need transportation after pickup.</label>
       </div>
 
       <div class="s2s-field" style="display:flex; gap:10px; align-items:flex-start;">
@@ -1793,11 +1804,7 @@ img,svg,video{max-width:100%;}
     // estimate-then-set flow untouched -- only these flat-rate buttons
     // get the price pre-filled.
     var flatPrice = (price.match(/[\d.]+/) || [])[0];
-    try {
-      await fetch('https://dispatch.ship2shorebooking.com/.netlify/functions/public-landing-page', {
-        method: 'POST', mode: 'no-cors',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({
+    var leadPayload = {
           action: 'submit_lead',
           slug: 'homepage-quote',
           service: service,
@@ -1809,7 +1816,15 @@ img,svg,video{max-width:100%;}
           sms_consent: !!(document.getElementById('s2s-sms-consent') && document.getElementById('s2s-sms-consent').checked),
           notes: 'Requested: ' + service + ' (' + price + ')' +
             (hasFile ? ' — delivery order photo attached (see Netlify Forms dashboard)' : '')
-        })
+        };
+    // Optional checkbox: sent as boolean true only when ticked, omitted otherwise.
+    var transportBox = document.getElementById('s2s-transport-interest');
+    if (transportBox && transportBox.checked) leadPayload.transport_interest = true;
+    try {
+      await fetch('https://dispatch.ship2shorebooking.com/.netlify/functions/public-landing-page', {
+        method: 'POST', mode: 'no-cors',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(leadPayload)
       });
     } catch(err){ console.error('Ship2Shore CRM:', err); }
 
@@ -1838,6 +1853,7 @@ img,svg,video{max-width:100%;}
         <h5>Contact</h5>
         <ul>
           <li><a href="tel:13107480040" itemprop="telephone">(310) 748-0040</a></li>
+          <li class="assist-note">Call or text (310) 748-0040. If we're on a pickup and can't answer, our automated assistant will take your request and a dispatcher will call you back.</li>
           <li><a href="mailto:shawn@ship2shorebooking.com" itemprop="email">shawn@ship2shorebooking.com</a></li>
           <li><a href="https://calendly.com/whaleyinc/60-min-appt-clone" target="_blank" rel="noopener">Schedule a pickup or drop-off</a></li>
           <li><a href="/port-pickup-guide/">Port pickup guide</a></li>
