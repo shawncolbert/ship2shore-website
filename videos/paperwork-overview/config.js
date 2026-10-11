@@ -8,7 +8,7 @@
    After editing, re-render (see README.md).
    ================================================================ */
 window.VIDEO_CONFIG = {
-  duration: 41,
+  duration: 47,
   scenes: [
     { type: "text", start: 0, end: 4, items: [
       { kind: "label", text: "The 4 documents for your pickup", at: 0.2 },
@@ -31,10 +31,14 @@ window.VIDEO_CONFIG = {
     { type: "doc", start: 28, end: 36, card: "gate", label: "4 · GATE PASS",
       captions: [
         { text: "Once everything is cleared, the terminal issues a gate pass with your driver's name and time window.", at: 28.6 }
-      ]}
+      ]},
+    { type: "text", start: 36, end: 42, items: [
+      { kind: "body", text: "Most holds come down to four things: steamship line charges, RoRo charges, customs clearance, or the original Bill of Lading.", at: 36.2, size: 62 },
+      { kind: "body", text: "We find out which one and tell you what to do.", at: 39.2, size: 62, yellow: true }
+    ]}
   ],
   end: {
-    start: 36,
+    start: 42,
     brandName: "SHIP2SHORE",
     callLine: "Call or text (310) 748-0040",
     website: "ship2shorebooking.com"
@@ -42,7 +46,7 @@ window.VIDEO_CONFIG = {
   sampleBadge: "SAMPLE",
   sampleStrip: "SAMPLE - NOT A REAL DOCUMENT",
   finePrintFrom: 4,
-  finePrint: "Sample documents for illustration. Release is up to the steamship line, customs and the port. We never promise a vehicle will be released.",
+  finePrint: "Sample documents for illustration. Release decisions are made by the steamship line, customs and the port.",
 
   /* ---- words printed on the sample cards (all invented placeholders) ---- */
   cards: {

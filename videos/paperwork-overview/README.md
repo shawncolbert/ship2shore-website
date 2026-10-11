@@ -1,6 +1,6 @@
 # paperwork-overview video
 
-A 41-second vertical video (1080x1920, silent, on-screen text only) called
+A 47-second vertical video (1080x1920, silent, on-screen text only) called
 "The 4 documents for your pickup". It shows four SAMPLE paperwork cards (Arrival
 Notice, Bill of Lading, Delivery Order, Gate Pass), zooms in on the part being explained
 and outlines it in yellow. Built with [HyperFrames](https://github.com/heygen-com/hyperframes).
