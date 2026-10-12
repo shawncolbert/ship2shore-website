@@ -1,0 +1,84 @@
+{
+  "note": "Narration (text-to-speech) is placed at delaySeconds on the video timeline. Phrase times below are VIDEO seconds (narration time + delaySeconds), found from silence detection and checked with word timing. Scenes were re-timed to the voice; the voice was not changed (no speed change).",
+  "narration": "narration.mp3",
+  "narrationSeconds": 33.696,
+  "delaySeconds": 0,
+  "tailSecondsAfterNarration": 1.5,
+  "videoSeconds": 35.2,
+  "sceneStarts": [
+    0,
+    4.2,
+    10.62,
+    17.5,
+    22.18
+  ],
+  "endCardStart": 27.76,
+  "phrases": [
+    {
+      "say": "Showing up at the Wilmington gate?",
+      "start": 0.34,
+      "end": 2.02,
+      "scene": 0
+    },
+    {
+      "say": "Get the gate pass first.",
+      "start": 2.58,
+      "end": 3.9,
+      "scene": 0
+    },
+    {
+      "say": "In our experience, you need a gate pass issued before you arrive.",
+      "start": 4.28,
+      "end": 7.6,
+      "scene": 1
+    },
+    {
+      "say": "Without one, you won't be admitted.",
+      "start": 8.12,
+      "end": 10.02,
+      "scene": 1
+    },
+    {
+      "say": "Before anything is scheduled, we check:",
+      "start": 10.72,
+      "end": 12.82,
+      "scene": 2
+    },
+    {
+      "say": "Steamship line payments are paid,",
+      "start": 13.17,
+      "end": 15,
+      "scene": 2
+    },
+    {
+      "say": "and customs has cleared the vehicle.",
+      "start": 15.24,
+      "end": 17.02,
+      "scene": 2
+    },
+    {
+      "say": "Once verified and cleared, we request the gate pass with your Delivery Order.",
+      "start": 17.6,
+      "end": 21.68,
+      "scene": 3
+    },
+    {
+      "say": "Pickup day: our TWIC-credentialed escort goes in and brings your vehicle to the gate.",
+      "start": 22.28,
+      "end": 27.46,
+      "scene": 4
+    },
+    {
+      "say": "Call or text 310, 748, 0040.",
+      "start": 27.84,
+      "end": 31.32,
+      "scene": "end:call"
+    },
+    {
+      "say": "Ship2Shore Booking dot com.",
+      "start": 31.66,
+      "end": 33.3,
+      "scene": "end:web"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "note": "Narration (text-to-speech) is placed at delaySeconds on the video timeline. Phrase times below are VIDEO seconds (narration time + delaySeconds), found from silence detection and checked with word timing. Scenes were re-timed to the voice; the voice was not changed (no speed change).",
+  "narration": "narration.mp3",
+  "narrationSeconds": 30.816,
+  "delaySeconds": 0,
+  "tailSecondsAfterNarration": 1.5,
+  "videoSeconds": 32.33,
+  "sceneStarts": [
+    0,
+    3.8,
+    5.66,
+    11.76,
+    18.76
+  ],
+  "endCardStart": 21.46,
+  "phrases": [
+    {
+      "say": "Vehicle stuck at the port?",
+      "start": 0.42,
+      "end": 1.82,
+      "scene": 0
+    },
+    {
+      "say": "No TWIC card?",
+      "start": 2.28,
+      "end": 3.26,
+      "scene": 0
+    },
+    {
+      "say": "You never need a TWIC card.",
+      "start": 3.9,
+      "end": 5.22,
+      "scene": 1
+    },
+    {
+      "say": "You don't go inside the port.",
+      "start": 5.76,
+      "end": 7.18,
+      "scene": 2
+    },
+    {
+      "say": "A TWIC-credentialed Ship2Shore escort goes in for you.",
+      "start": 7.7,
+      "end": 11.24,
+      "scene": 2
+    },
+    {
+      "say": "Locates your vehicle.",
+      "start": 11.86,
+      "end": 13.06,
+      "scene": 3
+    },
+    {
+      "say": "Brings it to the gate.",
+      "start": 13.68,
+      "end": 14.7,
+      "scene": 3
+    },
+    {
+      "say": "Condition report with photos, signed at handoff.",
+      "start": 15.3,
+      "end": 18.22,
+      "scene": 3
+    },
+    {
+      "say": "Port escort from ninety-five dollars.",
+      "start": 18.86,
+      "end": 21.16,
+      "scene": 4
+    },
+    {
+      "say": "Long Beach, Wilmington, Matson.",
+      "start": 21.56,
+      "end": 23.72,
+      "scene": "end:ports"
+    },
+    {
+      "say": "Call or text 310, 748, 0040.",
+      "start": 24.14,
+      "end": 28.8,
+      "scene": "end:call"
+    },
+    {
+      "say": "Ship2Shore Booking dot com.",
+      "start": 29.14,
+      "end": 30.76,
+      "scene": "end:web"
+    }
+  ]
+}

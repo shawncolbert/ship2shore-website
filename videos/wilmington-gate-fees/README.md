@@ -37,3 +37,21 @@ in this folder, so rendering does not depend on the internet for them.
 - `config.js` – all text and prices
 - `fonts/`, `gsap.min.js` – bundled fonts and animation library
 - `package.json` – pins HyperFrames at exact version 0.8.149
+
+## Narrated version (voice + scenes in sync)
+
+**Finished video:** `out/wilmington-gate-fees-narrated.mp4` (38.4s, 1080x1920, 30fps, H.264 + AAC stereo 44.1kHz, about -16 LUFS).
+The original silent MP4 is kept as it was.
+
+- `narration.mp3` – the woman's voice (text-to-speech), unchanged and not sped up.
+- `config-narrated.js` – same words as `config.js`; only the scene TIMES differ so every line appears as it is spoken. Change words in `config.js` and mirror the edit here.
+- `timing.json` – the map: each spoken phrase with its start/end second, the scene it belongs to, and the video length (narration + ~1.5s of end card).
+- `index-narrated.html` – the video layout used for the narrated version.
+- `build-narrated.sh` – renders the scenes, then lays the voice over them (loudness -16 LUFS, 0.2s fade-in, 0.5s fade-out).
+The silent version's $175-vs-$95 comparison scene has no narration and no gap to fit in, so the narrated version leaves it out (the silent MP4 keeps it).
+
+To re-render (Node 22+, FFmpeg, after `npm install`):
+
+```
+npm run render:narrated    # makes out/wilmington-gate-fees-narrated.mp4
+```

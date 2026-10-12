@@ -1,0 +1,89 @@
+{
+  "note": "Narration (text-to-speech) is placed at delaySeconds on the video timeline. Phrase times below are VIDEO seconds (narration time + delaySeconds), found from silence detection and checked with word timing. Scenes were re-timed to the voice; the voice was not changed (no speed change).",
+  "narration": "narration.mp3",
+  "narrationSeconds": 31.992,
+  "delaySeconds": 0.4,
+  "tailSecondsAfterNarration": 1.5,
+  "videoSeconds": 33.9,
+  "sceneStarts": [
+    0,
+    3.56,
+    11.75,
+    17.95
+  ],
+  "endCardStart": 25.04,
+  "phrases": [
+    {
+      "say": "Need a port pickup?",
+      "start": 0.48,
+      "end": 1.36,
+      "scene": 0
+    },
+    {
+      "say": "Send us four things.",
+      "start": 1.9,
+      "end": 3.16,
+      "scene": 0
+    },
+    {
+      "say": "One, Delivery Order.",
+      "start": 3.66,
+      "end": 5.08,
+      "scene": 1
+    },
+    {
+      "say": "Two, vessel name.",
+      "start": 5.62,
+      "end": 7.02,
+      "scene": 1
+    },
+    {
+      "say": "Three, Bill of Lading number.",
+      "start": 7.6,
+      "end": 9.3,
+      "scene": 1
+    },
+    {
+      "say": "Four, VIN.",
+      "start": 9.86,
+      "end": 11.14,
+      "scene": 1
+    },
+    {
+      "say": "Your Delivery Order must name Ship2Shore Booking",
+      "start": 11.85,
+      "end": 14.9,
+      "scene": 2
+    },
+    {
+      "say": "in the Local Delivery or Transfer By box.",
+      "start": 14.92,
+      "end": 17.5,
+      "scene": 2
+    },
+    {
+      "say": "We verify payments and customs.",
+      "start": 18.05,
+      "end": 20.18,
+      "scene": 3
+    },
+    {
+      "say": "Twenty-four hours' notice. Wilmington is closed Wednesdays.",
+      "start": 20.66,
+      "end": 24.68,
+      "scene": 3
+    },
+    {
+      "say": "Call or text 310, 748, 0040.",
+      "start": 25.14,
+      "end": 29.9,
+      "scene": "end:call"
+    },
+    {
+      "say": "Ship2Shore Booking dot com.",
+      "start": 30.38,
+      "end": 32.16,
+      "scene": "end:web"
+    }
+  ]
+}

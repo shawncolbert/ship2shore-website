@@ -1,0 +1,115 @@
+{
+  "note": "Narration (text-to-speech) is placed at delaySeconds on the video timeline. Phrase times below are VIDEO seconds (narration time + delaySeconds), found from silence detection and checked with word timing. Scenes were re-timed to the voice; the voice was not changed (no speed change).",
+  "narration": "narration.mp3",
+  "narrationSeconds": 60.816,
+  "delaySeconds": 0,
+  "tailSecondsAfterNarration": 1.5,
+  "videoSeconds": 62.33,
+  "sceneStarts": [
+    0,
+    3.45,
+    13.52,
+    21.4,
+    31.2,
+    40.34
+  ],
+  "endCardStart": 53.39,
+  "phrases": [
+    {
+      "say": "(label, before speech)",
+      "start": 0.35,
+      "end": 0.35,
+      "scene": 0
+    },
+    {
+      "say": "Getting a vehicle out of the port",
+      "start": 0.48,
+      "end": 1.85,
+      "scene": 0
+    },
+    {
+      "say": "starts with paperwork.",
+      "start": 1.9,
+      "end": 3.02,
+      "scene": 0
+    },
+    {
+      "say": "One, the arrival notice.",
+      "start": 3.55,
+      "end": 5.42,
+      "scene": 1
+    },
+    {
+      "say": "It tells you the vessel, the date, and what you owe.",
+      "start": 5.94,
+      "end": 9.26,
+      "scene": 1
+    },
+    {
+      "say": "It also says whether the original Bill of Lading is needed.",
+      "start": 9.85,
+      "end": 12.96,
+      "scene": 1
+    },
+    {
+      "say": "Two, the Bill of Lading.",
+      "start": 13.62,
+      "end": 15.64,
+      "scene": 2
+    },
+    {
+      "say": "A stamp like this means the original was surrendered overseas.",
+      "start": 16.58,
+      "end": 20.74,
+      "scene": 2
+    },
+    {
+      "say": "Three, the Delivery Order.",
+      "start": 21.5,
+      "end": 23.5,
+      "scene": 3
+    },
+    {
+      "say": "It should name Ship2Shore Booking in the Local Delivery or Transfer By box.",
+      "start": 24.16,
+      "end": 30.56,
+      "scene": 3
+    },
+    {
+      "say": "Four, the gate pass.",
+      "start": 31.3,
+      "end": 33.22,
+      "scene": 4
+    },
+    {
+      "say": "Once everything is cleared, the terminal issues a gate pass with your driver's name and time window.",
+      "start": 34,
+      "end": 39.76,
+      "scene": 4
+    },
+    {
+      "say": "Most holds come down to four things: steamship line charges, roll-on roll-off charges, customs clearance, or the original Bill of Lading.",
+      "start": 40.44,
+      "end": 49.65,
+      "scene": 5
+    },
+    {
+      "say": "We find out which one and tell you what to do.",
+      "start": 50.48,
+      "end": 52.82,
+      "scene": 5
+    },
+    {
+      "say": "Call or text 310, 748, 0040.",
+      "start": 53.49,
+      "end": 58.06,
+      "scene": "end:call"
+    },
+    {
+      "say": "Ship2Shore Booking dot com.",
+      "start": 58.7,
+      "end": 60.74,
+      "scene": "end:web"
+    }
+  ]
+}

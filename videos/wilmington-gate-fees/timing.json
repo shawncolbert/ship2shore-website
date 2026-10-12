@@ -1,0 +1,94 @@
+{
+  "note": "Narration is placed at delaySeconds on the video timeline. Phrase times are video seconds, found from silence detection and checked with word timing. Scenes were re-timed to the voice; the voice was not changed. The silent $175-vs-$95 comparison scene is not used in this version (no narration for it and no gap to fit it).",
+  "narration": "narration.mp3",
+  "narrationSeconds": 36.888,
+  "delaySeconds": 0,
+  "tailSecondsAfterNarration": 1.5,
+  "videoSeconds": 38.4,
+  "sceneStarts": [
+    0,
+    4.2,
+    18.14
+  ],
+  "endCardStart": 29.7,
+  "phrases": [
+    {
+      "say": "Picking up a vehicle at Wilmington?",
+      "start": 0.48,
+      "end": 2.06,
+      "scene": "s1"
+    },
+    {
+      "say": "Check the gate fees first.",
+      "start": 2.38,
+      "end": 3.78,
+      "scene": "s1"
+    },
+    {
+      "say": "Posted at the Wilmington terminal gate, July 2026.",
+      "start": 4.3,
+      "end": 7.78,
+      "scene": "s2"
+    },
+    {
+      "say": "Terminal access without a TWIC, one hundred dollars.",
+      "start": 8.28,
+      "end": 11.36,
+      "scene": "s2"
+    },
+    {
+      "say": "Jump start, fifty dollars.",
+      "start": 11.72,
+      "end": 13.32,
+      "scene": "s2"
+    },
+    {
+      "say": "Gas, two gallons, twenty-five dollars.",
+      "start": 13.5,
+      "end": 15.92,
+      "scene": "s2"
+    },
+    {
+      "say": "Total, one seventy-five.",
+      "start": 16.17,
+      "end": 17.78,
+      "scene": "s2 total"
+    },
+    {
+      "say": "With Ship2Shore, a TWIC escort is ninety-five dollars.",
+      "start": 18.24,
+      "end": 21.0,
+      "scene": "s3"
+    },
+    {
+      "say": "Jump start, air and gas are included if your vehicle needs them.",
+      "start": 21.21,
+      "end": 24.36,
+      "scene": "s3"
+    },
+    {
+      "say": "You never go inside the port.",
+      "start": 24.74,
+      "end": 26.3,
+      "scene": "s3"
+    },
+    {
+      "say": "Our TWIC-credentialed escort goes in for you.",
+      "start": 26.68,
+      "end": 29.4,
+      "scene": "s3"
+    },
+    {
+      "say": "Call or text 310, 748, 0040.",
+      "start": 29.67,
+      "end": 34.52,
+      "scene": "end"
+    },
+    {
+      "say": "Ship2Shore Booking dot com.",
+      "start": 34.84,
+      "end": 36.68,
+      "scene": "end"
+    }
+  ]
+}
