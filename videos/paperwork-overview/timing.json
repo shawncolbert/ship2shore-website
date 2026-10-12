@@ -1,114 +1,115 @@
 {
-  "note": "Narration (text-to-speech) is placed at delaySeconds on the video timeline. Phrase times below are VIDEO seconds (narration time + delaySeconds), found from silence detection and checked with word timing. Scenes were re-timed to the voice; the voice was not changed (no speed change).",
+  "note": "Narration (text-to-speech) is placed at delaySeconds on the video timeline. Phrase times below are VIDEO seconds (narration time + delaySeconds), found from silence detection and checked with word timing. The end card now carries the tagline \"We handle the port side. You don't have to.\" from the moment the voice says it. Scenes were re-timed to the voice; the voice was not changed (no speed change).",
   "narration": "narration.mp3",
-  "narrationSeconds": 60.816,
-  "delaySeconds": 0,
+  "narrationSeconds": 54.504,
+  "delaySeconds": 0.0,
   "tailSecondsAfterNarration": 1.5,
-  "videoSeconds": 62.33,
+  "videoSeconds": 56.0,
   "sceneStarts": [
     0,
-    3.45,
-    13.52,
-    21.4,
-    31.2,
-    40.34
+    4.04,
+    13.65,
+    19.32,
+    26.43,
+    33.47
   ],
-  "endCardStart": 53.39,
+  "endCardStart": 45.98,
+  "taglineStart": 46.08,
   "phrases": [
     {
-      "say": "(label, before speech)",
-      "start": 0.35,
-      "end": 0.35,
-      "scene": 0
-    },
-    {
       "say": "Getting a vehicle out of the port",
-      "start": 0.48,
-      "end": 1.85,
+      "start": 0.52,
+      "end": 2.2,
       "scene": 0
     },
     {
       "say": "starts with paperwork.",
-      "start": 1.9,
-      "end": 3.02,
+      "start": 2.49,
+      "end": 3.63,
       "scene": 0
     },
     {
       "say": "One, the arrival notice.",
-      "start": 3.55,
-      "end": 5.42,
+      "start": 4.14,
+      "end": 5.68,
       "scene": 1
     },
     {
       "say": "It tells you the vessel, the date, and what you owe.",
-      "start": 5.94,
-      "end": 9.26,
+      "start": 6.0,
+      "end": 8.88,
       "scene": 1
     },
     {
       "say": "It also says whether the original Bill of Lading is needed.",
-      "start": 9.85,
-      "end": 12.96,
+      "start": 9.43,
+      "end": 12.72,
       "scene": 1
     },
     {
       "say": "Two, the Bill of Lading.",
-      "start": 13.62,
-      "end": 15.64,
+      "start": 13.75,
+      "end": 15.22,
       "scene": 2
     },
     {
       "say": "A stamp like this means the original was surrendered overseas.",
-      "start": 16.58,
-      "end": 20.74,
+      "start": 15.88,
+      "end": 19.25,
       "scene": 2
     },
     {
       "say": "Three, the Delivery Order.",
-      "start": 21.5,
-      "end": 23.5,
+      "start": 19.42,
+      "end": 20.91,
       "scene": 3
     },
     {
       "say": "It should name Ship2Shore Booking in the Local Delivery or Transfer By box.",
-      "start": 24.16,
-      "end": 30.56,
+      "start": 21.49,
+      "end": 25.98,
       "scene": 3
     },
     {
       "say": "Four, the gate pass.",
-      "start": 31.3,
-      "end": 33.22,
+      "start": 26.53,
+      "end": 27.93,
       "scene": 4
     },
     {
       "say": "Once everything is cleared, the terminal issues a gate pass with your driver's name and time window.",
-      "start": 34,
-      "end": 39.76,
+      "start": 28.09,
+      "end": 32.86,
       "scene": 4
     },
     {
       "say": "Most holds come down to four things: steamship line charges, roll-on roll-off charges, customs clearance, or the original Bill of Lading.",
-      "start": 40.44,
-      "end": 49.65,
+      "start": 33.57,
+      "end": 42.43,
       "scene": 5
     },
     {
       "say": "We find out which one and tell you what to do.",
-      "start": 50.48,
-      "end": 52.82,
+      "start": 43.4,
+      "end": 45.68,
       "scene": 5
     },
     {
+      "say": "We handle the port side. You don't have to.",
+      "start": 46.08,
+      "end": 48.15,
+      "scene": "end:tagline"
+    },
+    {
       "say": "Call or text 310, 748, 0040.",
-      "start": 53.49,
-      "end": 58.06,
+      "start": 48.55,
+      "end": 51.97,
       "scene": "end:call"
     },
     {
       "say": "Ship2Shore Booking dot com.",
-      "start": 58.7,
-      "end": 60.74,
+      "start": 52.52,
+      "end": 54.1,
       "scene": "end:web"
     }
   ]

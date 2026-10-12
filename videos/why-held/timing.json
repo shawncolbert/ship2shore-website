@@ -1,69 +1,76 @@
 {
-  "note": "Narration (text-to-speech) is placed at delaySeconds on the video timeline. Phrase times below are VIDEO seconds (narration time + delaySeconds), found from silence detection and checked with word timing. Scenes were re-timed to the voice; the voice was not changed (no speed change).",
+  "note": "Narration (text-to-speech) is placed at delaySeconds on the video timeline. Phrase times below are VIDEO seconds (narration time + delaySeconds), found from silence detection and checked with word timing. The end card now carries the tagline \"We handle the port side. You don't have to.\" from the moment the voice says it. Scenes were re-timed to the voice; the voice was not changed (no speed change).",
   "narration": "narration.mp3",
-  "narrationSeconds": 26.616,
-  "delaySeconds": 0.35,
+  "narrationSeconds": 28.704,
+  "delaySeconds": 0.1,
   "tailSecondsAfterNarration": 1.5,
-  "videoSeconds": 28.47,
+  "videoSeconds": 30.3,
   "sceneStarts": [
     0,
-    3.07,
-    15.01
+    2.83,
+    15.95
   ],
-  "endCardStart": 19.91,
+  "endCardStart": 20.82,
+  "taglineStart": 20.92,
   "phrases": [
     {
       "say": "Vehicle not released at the port?",
-      "start": 0.49,
-      "end": 2.49,
+      "start": 0.52,
+      "end": 2.25,
       "scene": 0
     },
     {
       "say": "Four things hold up most vehicles.",
-      "start": 3.17,
-      "end": 5.15,
+      "start": 2.93,
+      "end": 4.91,
       "scene": 1
     },
     {
       "say": "The steamship line hasn't been paid.",
-      "start": 5.59,
-      "end": 7.37,
+      "start": 5.49,
+      "end": 7.28,
       "scene": 1
     },
     {
       "say": "The port's roll-on, roll-off charge hasn't been paid.",
-      "start": 7.53,
-      "end": 10.07,
+      "start": 7.84,
+      "end": 10.36,
       "scene": 1
     },
     {
       "say": "Customs hasn't cleared the vehicle.",
-      "start": 10.43,
-      "end": 12.07,
+      "start": 10.84,
+      "end": 12.44,
       "scene": 1
     },
     {
       "say": "The original Bill of Lading hasn't been surrendered.",
-      "start": 12.27,
-      "end": 14.71,
+      "start": 12.92,
+      "end": 15.27,
       "scene": 1
     },
     {
       "say": "We contact the port, find out which one it is, and tell you exactly what's needed.",
-      "start": 15.03,
-      "end": 19.61,
+      "start": 15.97,
+      "end": 20.3,
       "scene": 2
     },
     {
+      "say": "We handle the port side. You don't have to.",
+      "start": 20.92,
+      "end": 23.15,
+      "scene": "end:tagline"
+    },
+    {
       "say": "Call or text 310, 748, 0040.",
-      "start": 19.95,
-      "end": 24.29,
+      "start": 23.54,
+      "end": 26.86,
       "scene": "end:call"
     },
     {
       "say": "Ship2Shore Booking dot com.",
-      "start": 24.71,
-      "end": 26.87,
+      "start": 27.12,
+      "end": 28.8,
       "scene": "end:web"
     }
   ]

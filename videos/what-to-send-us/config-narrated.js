@@ -6,84 +6,84 @@
    Render with:  npm run render:narrated
    ================================================================ */
 window.VIDEO_CONFIG = {
-  "duration": 33.9,
+  "duration": 35.55,
   "scenes": [
     {
       "start": 0,
-      "end": 3.56,
+      "end": 3.21,
       "items": [
         {
           "kind": "hook",
           "text": "Need a port pickup?",
-          "at": 0.28
+          "at": 0.29
         },
         {
           "kind": "hook",
           "text": "Send us 4 things.",
-          "at": 1.7,
+          "at": 1.62,
           "yellow": true
         }
       ]
     },
     {
-      "start": 3.56,
-      "end": 11.75,
+      "start": 3.21,
+      "end": 10.69,
       "items": [
         {
           "kind": "num",
           "text": "1. Delivery Order",
-          "at": 3.56
+          "at": 3.21
         },
         {
           "kind": "num",
           "text": "2. Vessel name",
-          "at": 5.42
+          "at": 4.93
         },
         {
           "kind": "num",
           "text": "3. Bill of Lading number",
-          "at": 7.4
+          "at": 6.75
         },
         {
           "kind": "num",
           "text": "4. VIN",
-          "at": 9.66
+          "at": 8.9
         }
       ]
     },
     {
-      "start": 11.75,
-      "end": 17.95,
+      "start": 10.69,
+      "end": 16.52,
       "items": [
         {
           "kind": "body",
           "text": "Your Delivery Order must name Ship2Shore Booking",
-          "at": 11.75,
+          "at": 10.69,
           "size": 62
         },
         {
           "kind": "body",
           "text": "in the 'Local Delivery or Transfer By' box.",
-          "at": 14.72,
+          "at": 13.27,
           "size": 62,
           "yellow": true
         }
       ]
     },
     {
-      "start": 17.95,
-      "end": 25.04,
+      "start": 16.52,
+      "end": 23.41,
       "items": [
         {
           "kind": "body",
           "text": "We verify payments and customs.",
-          "at": 17.95,
+          "at": 16.52,
           "size": 62
         },
         {
           "kind": "body",
           "text": "24 hours' notice. Wilmington is closed Wednesdays.",
-          "at": 20.46,
+          "at": 18.66,
           "size": 62,
           "yellow": true
         }
@@ -91,17 +91,19 @@ window.VIDEO_CONFIG = {
     }
   ],
   "end": {
-    "start": 25.04,
+    "start": 23.41,
     "brandName": "SHIP2SHORE",
     "callLine": "Call or text (310) 748-0040",
+    "tagline": "We handle the port side. You don't have to.",
     "website": "ship2shorebooking.com",
     "times": {
-      "mark": 25.06,
-      "brand": 25.12,
-      "call": 25.18,
-      "web": 30.18
+      "mark": 23.43,
+      "brand": 23.47,
+      "tagline": 23.46,
+      "call": 26.24,
+      "web": 31.59
     }
   },
-  "finePrintFrom": 3.56,
+  "finePrintFrom": 3.21,
   "finePrint": "Pickup days: Long Beach and Matson Mon–Fri; Wilmington Mon, Tue, Thu, Fri. Closed weekends. Release is up to the steamship line, customs and the port."
 };

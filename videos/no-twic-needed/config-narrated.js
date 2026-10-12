@@ -6,104 +6,106 @@
    Render with:  npm run render:narrated
    ================================================================ */
 window.VIDEO_CONFIG = {
-  "duration": 32.33,
+  "duration": 28.88,
   "scenes": [
     {
       "start": 0,
-      "end": 3.8,
+      "end": 3.38,
       "items": [
         {
           "kind": "hook",
           "text": "Vehicle stuck at the port?",
-          "at": 0.22
+          "at": 0.29
         },
         {
           "kind": "hook",
           "text": "No TWIC card?",
-          "at": 2.08,
+          "at": 1.88,
           "yellow": true
         }
       ]
     },
     {
-      "start": 3.8,
-      "end": 5.66,
+      "start": 3.38,
+      "end": 4.91,
       "items": [
         {
           "kind": "big",
           "text": "You never need a TWIC card.",
-          "at": 3.8,
+          "at": 3.38,
           "size": 120
         }
       ]
     },
     {
-      "start": 5.66,
-      "end": 11.76,
+      "start": 4.91,
+      "end": 9.97,
       "items": [
         {
           "kind": "body",
           "text": "You don't go inside the port.",
-          "at": 5.66,
+          "at": 4.91,
           "size": 66
         },
         {
           "kind": "body",
           "text": "A TWIC-credentialed Ship2Shore escort goes in for you.",
-          "at": 7.5,
+          "at": 6.51,
           "size": 66,
           "yellow": true
         }
       ]
     },
     {
-      "start": 11.76,
-      "end": 18.76,
+      "start": 9.97,
+      "end": 15.29,
       "items": [
         {
           "kind": "step",
           "text": "Locates your vehicle",
-          "at": 11.76
+          "at": 9.97
         },
         {
           "kind": "step",
           "text": "Brings it to the gate",
-          "at": 13.48
+          "at": 11.08
         },
         {
           "kind": "step",
           "text": "Condition report with photos, signed at handoff",
-          "at": 15.1
+          "at": 12.26
         }
       ]
     },
     {
-      "start": 18.76,
-      "end": 21.46,
+      "start": 15.29,
+      "end": 17.55,
       "items": [
         {
           "kind": "price",
           "text": "Port escort from",
           "price": "$95",
-          "at": 18.76
+          "at": 15.29
         }
       ]
     }
   ],
   "end": {
-    "start": 21.46,
+    "start": 17.55,
     "brandName": "SHIP2SHORE",
     "callLine": "Call or text (310) 748-0040",
+    "tagline": "We handle the port side. You don't have to.",
     "website": "ship2shorebooking.com",
     "extraLine": "Long Beach · Wilmington · Matson",
     "times": {
-      "mark": 21.48,
-      "brand": 21.54,
-      "call": 23.94,
-      "web": 28.94,
-      "ports": 21.51
+      "mark": 17.57,
+      "brand": 17.61,
+      "tagline": 19.75,
+      "call": 21.96,
+      "web": 25.53,
+      "ports": 17.6
     }
   },
-  "finePrintFrom": 3.8,
+  "finePrintFrom": 3.38,
   "finePrint": "Release is up to the steamship line, customs and the port. We check first and never promise a vehicle will be released."
 };

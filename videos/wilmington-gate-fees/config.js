@@ -29,8 +29,7 @@ window.VIDEO_CONFIG = {
 
   // Scene 5: end card
   brandName: "SHIP2SHORE",
-  callLine: "Call or text (310) 748-0040",
-  website: "ship2shorebooking.com",
+\1\2: "Call or text (310) 748-0040",\n\1tagline: "We handle the port side. You don\'t have to.",\n  website: "ship2shorebooking.com",
 
   // Shown on screen from scene 2 to the end
   finePrint:

@@ -32,8 +32,7 @@ window.VIDEO_CONFIG = {
   end: {
     start: 26,
     brandName: "SHIP2SHORE",
-    callLine: "Call or text (310) 748-0040",
-    website: "ship2shorebooking.com"
+\1\2: "Call or text (310) 748-0040",\n\1tagline: "We handle the port side. You don\'t have to.",\n    website: "ship2shorebooking.com"
   },
   finePrintFrom: 4,
   finePrint: "Release is always up to the steamship line, customs and the port. We never promise a vehicle will be released."

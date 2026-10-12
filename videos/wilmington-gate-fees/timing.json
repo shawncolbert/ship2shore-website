@@ -1,94 +1,101 @@
 {
-  "note": "Narration is placed at delaySeconds on the video timeline. Phrase times are video seconds, found from silence detection and checked with word timing. Scenes were re-timed to the voice; the voice was not changed. The silent $175-vs-$95 comparison scene is not used in this version (no narration for it and no gap to fit it).",
+  "note": "Narration is placed at delaySeconds on the video timeline. Phrase times are video seconds, found from silence detection and checked with word timing. Scenes were re-timed to the voice; the voice was not changed. The end card carries the tagline \"We handle the port side. You don't have to.\" from the moment the voice says it. The silent $175-vs-$95 comparison scene is not used in this version (no narration for it and no gap to fit it).",
   "narration": "narration.mp3",
-  "narrationSeconds": 36.888,
+  "narrationSeconds": 34.512,
   "delaySeconds": 0,
   "tailSecondsAfterNarration": 1.5,
-  "videoSeconds": 38.4,
+  "videoSeconds": 36.01,
   "sceneStarts": [
     0,
-    4.2,
-    18.14
+    3.5,
+    15.74
   ],
-  "endCardStart": 29.7,
+  "endCardStart": 26.75,
+  "taglineStart": 26.8,
   "phrases": [
     {
       "say": "Picking up a vehicle at Wilmington?",
-      "start": 0.48,
-      "end": 2.06,
+      "start": 0.53,
+      "end": 2.04,
       "scene": "s1"
     },
     {
       "say": "Check the gate fees first.",
-      "start": 2.38,
-      "end": 3.78,
+      "start": 2.16,
+      "end": 3.47,
       "scene": "s1"
     },
     {
       "say": "Posted at the Wilmington terminal gate, July 2026.",
-      "start": 4.3,
-      "end": 7.78,
+      "start": 3.6,
+      "end": 6.7,
       "scene": "s2"
     },
     {
       "say": "Terminal access without a TWIC, one hundred dollars.",
-      "start": 8.28,
-      "end": 11.36,
+      "start": 6.85,
+      "end": 9.44,
       "scene": "s2"
     },
     {
       "say": "Jump start, fifty dollars.",
-      "start": 11.72,
-      "end": 13.32,
+      "start": 9.75,
+      "end": 11.1,
       "scene": "s2"
     },
     {
       "say": "Gas, two gallons, twenty-five dollars.",
-      "start": 13.5,
-      "end": 15.92,
+      "start": 11.3,
+      "end": 13.65,
       "scene": "s2"
     },
     {
       "say": "Total, one seventy-five.",
-      "start": 16.17,
-      "end": 17.78,
+      "start": 13.95,
+      "end": 15.45,
       "scene": "s2 total"
     },
     {
       "say": "With Ship2Shore, a TWIC escort is ninety-five dollars.",
-      "start": 18.24,
-      "end": 21.0,
+      "start": 15.84,
+      "end": 19.07,
       "scene": "s3"
     },
     {
       "say": "Jump start, air and gas are included if your vehicle needs them.",
-      "start": 21.21,
-      "end": 24.36,
+      "start": 19.31,
+      "end": 22.46,
       "scene": "s3"
     },
     {
       "say": "You never go inside the port.",
-      "start": 24.74,
-      "end": 26.3,
+      "start": 22.7,
+      "end": 24.26,
       "scene": "s3"
     },
     {
       "say": "Our TWIC-credentialed escort goes in for you.",
-      "start": 26.68,
-      "end": 29.4,
+      "start": 24.43,
+      "end": 26.7,
       "scene": "s3"
     },
     {
+      "say": "We handle the port side. You don't have to.",
+      "start": 26.8,
+      "end": 28.9,
+      "scene": "end:tagline"
+    },
+    {
       "say": "Call or text 310, 748, 0040.",
-      "start": 29.67,
-      "end": 34.52,
-      "scene": "end"
+      "start": 29.15,
+      "end": 32.27,
+      "scene": "end:call"
     },
     {
       "say": "Ship2Shore Booking dot com.",
-      "start": 34.84,
-      "end": 36.68,
-      "scene": "end"
+      "start": 32.49,
+      "end": 34.21,
+      "scene": "end:web"
     }
   ]
 }

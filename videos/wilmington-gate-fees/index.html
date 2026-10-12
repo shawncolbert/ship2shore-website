@@ -106,10 +106,11 @@
       .cmpcap { margin-top: 56px; text-align: center; font-family: "Oswald", sans-serif; font-weight: 600; font-size: 72px; text-transform: uppercase; color: var(--yellow); }
 
       /* Scene 5 */
-      .endwrap { align-items: center; text-align: center; }
+      .endwrap { align-items: center; text-align: center; padding-bottom: 80px; }
       .mark { width: 220px; height: 220px; margin-bottom: 26px; }
       .brandname { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 128px; letter-spacing: 8px; color: var(--text); line-height: 1; }
       .endrule { width: 160px; height: 6px; background: var(--red); margin: 52px 0; }
+      .tagline { font-family: "Source Sans 3", sans-serif; font-weight: 600; font-size: 56px; line-height: 1.2; color: #fff; max-width: 650px; margin: 0 0 44px 0; }
       .callline { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 74px; line-height: 1.15; color: var(--yellow); text-transform: none; }
       .web { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 48px; letter-spacing: 1px; color: var(--text); margin-top: 36px; }
 
@@ -186,6 +187,7 @@
           </svg>
           <div id="brandName" class="brandname"></div>
           <div class="endrule"></div>
+          <div id="tagline" class="tagline"></div>
           <div id="callLine" class="callline"></div>
           <div id="website" class="web"></div>
         </div>
@@ -223,6 +225,7 @@
       $("cmpCap").textContent = C.compareCaption;
       $("brandName").textContent = C.brandName;
       $("callLine").textContent = C.callLine;
+      $("tagline").textContent = C.tagline;
       $("website").textContent = C.website;
       $("fine").textContent = C.finePrint;
 
@@ -273,6 +276,7 @@
         // Scene 5 (24-30)
         tl.fromTo("#mark", { opacity: 0, scale: 0.7, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.6)" }, 24.2);
         inUp("#brandName", 24.6);
+        inUp("#tagline", 25.0);
         inUp("#callLine", 25.4);
         inUp("#website", 26.1);
 

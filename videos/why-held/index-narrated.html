@@ -54,10 +54,11 @@
       .priceline .pre { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 96px; text-transform: uppercase; color: var(--text); line-height: 1.1; }
       .priceline .pv { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 400px; line-height: 1.05; color: var(--red); }
 
-      .endwrap { align-items: center; text-align: center; padding-bottom: 560px; }
+      .endwrap { align-items: center; text-align: center; padding-bottom: 440px; }
       .mark { width: 220px; height: 220px; margin-bottom: 26px; }
       .brandname { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 128px; letter-spacing: 8px; color: var(--text); line-height: 1; }
       .endrule { width: 160px; height: 6px; background: var(--red); margin: 48px 0; }
+      .tagline { font-family: "Source Sans 3", sans-serif; font-weight: 600; font-size: 56px; line-height: 1.2; color: #fff; max-width: 650px; margin: 0 0 44px 0; }
       .callline { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 74px; line-height: 1.15; color: var(--yellow); }
       .web { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 48px; letter-spacing: 1px; color: var(--text); margin-top: 32px; }
       .portsline { font-family: "Source Sans 3", sans-serif; font-weight: 600; font-size: 46px; color: var(--dim); margin-top: 36px; }
@@ -133,11 +134,12 @@
         '<svg id="mark" class="mark" viewBox="0 0 100 100" fill="none" stroke="#e8b13a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">' +
         '<circle cx="50" cy="50" r="46" stroke-width="2.2"/><circle cx="50" cy="26" r="5.5"/><path d="M50 31.5V74"/><path d="M39 40H61"/>' +
         '<path d="M25 58C27 70 37 76 50 76C63 76 73 70 75 58"/><path d="M20.5 62L25 57L30 61"/><path d="M70 61L75 57L79.5 62"/></svg>' +
-        '<div id="brandName" class="brandname"></div><div class="endrule"></div><div id="callLine" class="callline"></div>' +
+        '<div id="brandName" class="brandname"></div><div class="endrule"></div><div id="tagline" class="tagline"></div><div id="callLine" class="callline"></div>' +
         '<div id="website" class="web"></div><div id="portsLine" class="portsline"></div></div>';
       $("endscene").appendChild(es);
       $("brandName").textContent = E.brandName;
       $("callLine").textContent = E.callLine;
+      $("tagline").textContent = E.tagline;
       $("website").textContent = E.website;
       $("portsLine").textContent = E.extraLine || "";
 
@@ -163,6 +165,7 @@
         const e = E.start; const T = E.times || {};
         tl.fromTo("#mark", { opacity: 0, scale: 0.7, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.6)" }, T.mark ?? e + 0.2);
         tl.fromTo("#brandName", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, T.brand ?? e + 0.6);
+        tl.fromTo("#tagline", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, T.tagline ?? e + 0.9);
         tl.fromTo("#callLine", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, T.call ?? e + 1.2);
         tl.fromTo("#website", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, T.web ?? e + 1.8);
         tl.fromTo("#portsLine", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, T.ports ?? e + 2.4);

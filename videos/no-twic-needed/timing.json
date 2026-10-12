@@ -1,89 +1,96 @@
 {
-  "note": "Narration (text-to-speech) is placed at delaySeconds on the video timeline. Phrase times below are VIDEO seconds (narration time + delaySeconds), found from silence detection and checked with word timing. Scenes were re-timed to the voice; the voice was not changed (no speed change).",
+  "note": "Narration (text-to-speech) is placed at delaySeconds on the video timeline. Phrase times below are VIDEO seconds (narration time + delaySeconds), found from silence detection and checked with word timing. The end card now carries the tagline \"We handle the port side. You don't have to.\" from the moment the voice says it. Scenes were re-timed to the voice; the voice was not changed (no speed change).",
   "narration": "narration.mp3",
-  "narrationSeconds": 30.816,
-  "delaySeconds": 0,
+  "narrationSeconds": 26.976,
+  "delaySeconds": 0.4,
   "tailSecondsAfterNarration": 1.5,
-  "videoSeconds": 32.33,
+  "videoSeconds": 28.88,
   "sceneStarts": [
     0,
-    3.8,
-    5.66,
-    11.76,
-    18.76
+    3.38,
+    4.91,
+    9.97,
+    15.29
   ],
-  "endCardStart": 21.46,
+  "endCardStart": 17.55,
+  "taglineStart": 19.8,
   "phrases": [
     {
       "say": "Vehicle stuck at the port?",
-      "start": 0.42,
-      "end": 1.82,
+      "start": 0.49,
+      "end": 1.69,
       "scene": 0
     },
     {
       "say": "No TWIC card?",
-      "start": 2.28,
-      "end": 3.26,
+      "start": 2.08,
+      "end": 2.94,
       "scene": 0
     },
     {
       "say": "You never need a TWIC card.",
-      "start": 3.9,
-      "end": 5.22,
+      "start": 3.48,
+      "end": 4.7,
       "scene": 1
     },
     {
       "say": "You don't go inside the port.",
-      "start": 5.76,
-      "end": 7.18,
+      "start": 5.01,
+      "end": 6.37,
       "scene": 2
     },
     {
       "say": "A TWIC-credentialed Ship2Shore escort goes in for you.",
-      "start": 7.7,
-      "end": 11.24,
+      "start": 6.71,
+      "end": 9.74,
       "scene": 2
     },
     {
       "say": "Locates your vehicle.",
-      "start": 11.86,
-      "end": 13.06,
+      "start": 10.07,
+      "end": 11.02,
       "scene": 3
     },
     {
       "say": "Brings it to the gate.",
-      "start": 13.68,
-      "end": 14.7,
+      "start": 11.28,
+      "end": 12.19,
       "scene": 3
     },
     {
       "say": "Condition report with photos, signed at handoff.",
-      "start": 15.3,
-      "end": 18.22,
+      "start": 12.46,
+      "end": 15.15,
       "scene": 3
     },
     {
       "say": "Port escort from ninety-five dollars.",
-      "start": 18.86,
-      "end": 21.16,
+      "start": 15.39,
+      "end": 17.4,
       "scene": 4
     },
     {
       "say": "Long Beach, Wilmington, Matson.",
-      "start": 21.56,
-      "end": 23.72,
+      "start": 17.65,
+      "end": 19.51,
       "scene": "end:ports"
     },
     {
+      "say": "We handle the port side. You don't have to.",
+      "start": 19.8,
+      "end": 21.87,
+      "scene": "end:tagline"
+    },
+    {
       "say": "Call or text 310, 748, 0040.",
-      "start": 24.14,
-      "end": 28.8,
+      "start": 22.16,
+      "end": 25.47,
       "scene": "end:call"
     },
     {
       "say": "Ship2Shore Booking dot com.",
-      "start": 29.14,
-      "end": 30.76,
+      "start": 25.73,
+      "end": 27.38,
       "scene": "end:web"
     }
   ]

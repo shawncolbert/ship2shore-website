@@ -1,83 +1,90 @@
 {
-  "note": "Narration (text-to-speech) is placed at delaySeconds on the video timeline. Phrase times below are VIDEO seconds (narration time + delaySeconds), found from silence detection and checked with word timing. Scenes were re-timed to the voice; the voice was not changed (no speed change).",
+  "note": "Narration (text-to-speech) is placed at delaySeconds on the video timeline. Phrase times below are VIDEO seconds (narration time + delaySeconds), found from silence detection and checked with word timing. The end card now carries the tagline \"We handle the port side. You don't have to.\" from the moment the voice says it. Scenes were re-timed to the voice; the voice was not changed (no speed change).",
   "narration": "narration.mp3",
-  "narrationSeconds": 33.696,
-  "delaySeconds": 0,
+  "narrationSeconds": 43.68,
+  "delaySeconds": 0.0,
   "tailSecondsAfterNarration": 1.5,
-  "videoSeconds": 35.2,
+  "videoSeconds": 45.18,
   "sceneStarts": [
     0,
-    4.2,
-    10.62,
-    17.5,
-    22.18
+    4.74,
+    12.21,
+    20.65,
+    25.71
   ],
-  "endCardStart": 27.76,
+  "endCardStart": 32.35,
+  "taglineStart": 32.45,
   "phrases": [
     {
       "say": "Showing up at the Wilmington gate?",
-      "start": 0.34,
-      "end": 2.02,
+      "start": 0.41,
+      "end": 2.09,
       "scene": 0
     },
     {
       "say": "Get the gate pass first.",
-      "start": 2.58,
-      "end": 3.9,
+      "start": 2.65,
+      "end": 4.13,
       "scene": 0
     },
     {
       "say": "In our experience, you need a gate pass issued before you arrive.",
-      "start": 4.28,
-      "end": 7.6,
+      "start": 4.82,
+      "end": 8.61,
       "scene": 1
     },
     {
       "say": "Without one, you won't be admitted.",
-      "start": 8.12,
-      "end": 10.02,
+      "start": 9.29,
+      "end": 11.15,
       "scene": 1
     },
     {
       "say": "Before anything is scheduled, we check:",
-      "start": 10.72,
-      "end": 12.82,
+      "start": 12.31,
+      "end": 14.59,
       "scene": 2
     },
     {
       "say": "Steamship line payments are paid,",
-      "start": 13.17,
-      "end": 15,
+      "start": 15.43,
+      "end": 17.59,
       "scene": 2
     },
     {
       "say": "and customs has cleared the vehicle.",
-      "start": 15.24,
-      "end": 17.02,
+      "start": 18.01,
+      "end": 19.92,
       "scene": 2
     },
     {
       "say": "Once verified and cleared, we request the gate pass with your Delivery Order.",
-      "start": 17.6,
-      "end": 21.68,
+      "start": 20.75,
+      "end": 25.29,
       "scene": 3
     },
     {
       "say": "Pickup day: our TWIC-credentialed escort goes in and brings your vehicle to the gate.",
-      "start": 22.28,
-      "end": 27.46,
+      "start": 25.81,
+      "end": 31.85,
       "scene": 4
     },
     {
+      "say": "We handle the port side. You don't have to.",
+      "start": 32.45,
+      "end": 35.04,
+      "scene": "end:tagline"
+    },
+    {
       "say": "Call or text 310, 748, 0040.",
-      "start": 27.84,
-      "end": 31.32,
+      "start": 35.85,
+      "end": 40.81,
       "scene": "end:call"
     },
     {
       "say": "Ship2Shore Booking dot com.",
-      "start": 31.66,
-      "end": 33.3,
+      "start": 41.43,
+      "end": 43.68,
       "scene": "end:web"
     }
   ]

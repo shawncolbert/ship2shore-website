@@ -6,28 +6,28 @@
    Render with:  npm run render:narrated
    ================================================================ */
 window.VIDEO_CONFIG = {
-  "duration": 62.33,
+  "duration": 56.0,
   "scenes": [
     {
       "type": "text",
       "start": 0,
-      "end": 3.45,
+      "end": 4.04,
       "items": [
         {
           "kind": "label",
           "text": "The 4 documents for your pickup",
-          "at": 0.15
+          "at": 0.19
         },
         {
           "kind": "hook",
           "text": "Getting a vehicle out of the port",
-          "at": 0.28,
+          "at": 0.32,
           "size": 92
         },
         {
           "kind": "hook",
           "text": "starts with paperwork.",
-          "at": 1.7,
+          "at": 2.29,
           "size": 92,
           "yellow": true
         }
@@ -35,79 +35,79 @@ window.VIDEO_CONFIG = {
     },
     {
       "type": "doc",
-      "start": 3.45,
-      "end": 13.52,
+      "start": 4.04,
+      "end": 13.65,
       "card": "arrival",
       "label": "1 · ARRIVAL NOTICE",
       "captions": [
         {
           "text": "Tells you the vessel, the date, and what you owe.",
-          "at": 5.74
+          "at": 5.8
         },
         {
           "text": "It also says whether the original Bill of Lading is needed.",
-          "at": 9.65
+          "at": 9.23
         }
       ],
-      "zoomAt": 9.35
+      "zoomAt": 8.93
     },
     {
       "type": "doc",
-      "start": 13.52,
-      "end": 21.4,
+      "start": 13.65,
+      "end": 19.32,
       "card": "bol",
       "label": "2 · BILL OF LADING",
       "captions": [
         {
           "text": "A stamp like this means the original was surrendered overseas.",
-          "at": 16.38
+          "at": 15.68
         }
       ],
-      "zoomAt": 16.38
+      "zoomAt": 15.68
     },
     {
       "type": "doc",
-      "start": 21.4,
-      "end": 31.2,
+      "start": 19.32,
+      "end": 26.43,
       "card": "order",
       "label": "3 · DELIVERY ORDER",
       "captions": [
         {
           "text": "It should name Ship2Shore Booking in the 'Local Delivery or Transfer By' box.",
-          "at": 23.96
+          "at": 21.29
         }
       ],
-      "zoomAt": 24.56
+      "zoomAt": 21.89
     },
     {
       "type": "doc",
-      "start": 31.2,
-      "end": 40.34,
+      "start": 26.43,
+      "end": 33.47,
       "card": "gate",
       "label": "4 · GATE PASS",
       "captions": [
         {
           "text": "Once everything is cleared, the terminal issues a gate pass with your driver's name and time window.",
-          "at": 33.8
+          "at": 27.89
         }
       ],
-      "zoomAt": 35.6
+      "zoomAt": 29.69
     },
     {
       "type": "text",
-      "start": 40.34,
-      "end": 53.39,
+      "start": 33.47,
+      "end": 45.98,
       "items": [
         {
           "kind": "body",
           "text": "Most holds come down to four things: steamship line charges, RoRo charges, customs clearance, or the original Bill of Lading.",
-          "at": 40.34,
+          "at": 33.47,
           "size": 62
         },
         {
           "kind": "body",
           "text": "We find out which one and tell you what to do.",
-          "at": 50.28,
+          "at": 43.2,
           "size": 62,
           "yellow": true
         }
@@ -115,20 +115,22 @@ window.VIDEO_CONFIG = {
     }
   ],
   "end": {
-    "start": 53.39,
+    "start": 45.98,
     "brandName": "SHIP2SHORE",
     "callLine": "Call or text (310) 748-0040",
+    "tagline": "We handle the port side. You don't have to.",
     "website": "ship2shorebooking.com",
     "times": {
-      "mark": 53.41,
-      "brand": 53.47,
-      "call": 53.53,
-      "web": 58.5
+      "mark": 46.0,
+      "brand": 46.04,
+      "tagline": 46.03,
+      "call": 48.35,
+      "web": 52.32
     }
   },
   "sampleBadge": "SAMPLE",
   "sampleStrip": "SAMPLE - NOT A REAL DOCUMENT",
-  "finePrintFrom": 3.45,
+  "finePrintFrom": 4.04,
   "finePrint": "Sample documents for illustration. Release decisions are made by the steamship line, customs and the port.",
   "cards": {
     "arrival": {

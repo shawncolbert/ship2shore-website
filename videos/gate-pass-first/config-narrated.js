@@ -6,88 +6,88 @@
    Render with:  npm run render:narrated
    ================================================================ */
 window.VIDEO_CONFIG = {
-  "duration": 35.2,
+  "duration": 45.18,
   "scenes": [
     {
       "start": 0,
-      "end": 4.2,
+      "end": 4.74,
       "items": [
         {
           "kind": "hook",
           "text": "Showing up at the Wilmington gate?",
-          "at": 0.14,
+          "at": 0.21,
           "size": 112
         },
         {
           "kind": "hook",
           "text": "Get the gate pass first.",
-          "at": 2.38,
+          "at": 2.45,
           "yellow": true,
           "size": 112
         }
       ]
     },
     {
-      "start": 4.2,
-      "end": 10.62,
+      "start": 4.74,
+      "end": 12.21,
       "items": [
         {
           "kind": "body",
           "text": "In our experience, you need a gate pass issued before you arrive.",
-          "at": 4.2,
+          "at": 4.74,
           "size": 62
         },
         {
           "kind": "body",
           "text": "Without one, you won't be admitted.",
-          "at": 7.92,
+          "at": 9.09,
           "size": 62,
           "yellow": true
         }
       ]
     },
     {
-      "start": 10.62,
-      "end": 17.5,
+      "start": 12.21,
+      "end": 20.65,
       "items": [
         {
           "kind": "body",
           "text": "Before anything is scheduled, we check:",
-          "at": 10.62,
+          "at": 12.21,
           "size": 62
         },
         {
           "kind": "check",
           "text": "Steamship line payments are paid",
-          "at": 12.97
+          "at": 15.23
         },
         {
           "kind": "check",
           "text": "Customs has cleared the vehicle",
-          "at": 15.04
+          "at": 17.81
         }
       ]
     },
     {
-      "start": 17.5,
-      "end": 22.18,
+      "start": 20.65,
+      "end": 25.71,
       "items": [
         {
           "kind": "body",
           "text": "Once verified and cleared, we request the gate pass with your Delivery Order.",
-          "at": 17.5,
+          "at": 20.65,
           "size": 62
         }
       ]
     },
     {
-      "start": 22.18,
-      "end": 27.76,
+      "start": 25.71,
+      "end": 32.35,
       "items": [
         {
           "kind": "body",
           "text": "Pickup day: our TWIC-credentialed escort goes in and brings your vehicle to the gate.",
-          "at": 22.18,
+          "at": 25.71,
           "size": 60,
           "yellow": true
         }
@@ -95,17 +95,19 @@ window.VIDEO_CONFIG = {
     }
   ],
   "end": {
-    "start": 27.76,
+    "start": 32.35,
     "brandName": "SHIP2SHORE",
     "callLine": "Call or text (310) 748-0040",
+    "tagline": "We handle the port side. You don't have to.",
     "website": "ship2shorebooking.com",
     "times": {
-      "mark": 27.78,
-      "brand": 27.84,
-      "call": 27.9,
-      "web": 31.46
+      "mark": 32.37,
+      "brand": 32.41,
+      "tagline": 32.4,
+      "call": 35.65,
+      "web": 41.23
     }
   },
-  "finePrintFrom": 4.2,
+  "finePrintFrom": 4.74,
   "finePrint": "Release is always up to the steamship line, customs and the port. We never promise a vehicle will be released."
 };

@@ -32,6 +32,7 @@ window.VIDEO_CONFIG = {
   // Scene 5: end card
   brandName: "SHIP2SHORE",
   callLine: "Call or text (310) 748-0040",
+  tagline: "We handle the port side. You don't have to.",
   website: "ship2shorebooking.com",
 
   // Shown on screen from scene 2 to the end
@@ -40,13 +41,13 @@ window.VIDEO_CONFIG = {
 
   // ---- narrated timing (seconds on the video timeline) ----
   timing: {
-    duration: 38.4,
-    s1: { start: 0, end: 4.2, hook1: 0.26, hook2: 2.18 },
-    s2: { start: 4.2, end: 18.14, label: 4.2, rule: 4.35,
-          fees: [ { row: 8.08, price: 10.1 }, { row: 11.5, price: 12.3 }, { row: 13.3, price: 14.65 } ],
-          totalBox: 16.0, totalCount: 16.2, totalPulse: 17.0 },
-    s3: { start: 18.14, end: 29.7, label: 18.14, rule: 18.3, card: 18.97, price: 20.0, line1: 21.0, line2: 24.54 },
-    s5: { start: 29.7, mark: 29.72, brand: 29.76, call: 29.8, web: 34.59 },
-    finePrintFrom: 4.2
+    duration: 36.01,
+    s1: { start: 0, end: 3.5, hook1: 0.31, hook2: 1.96 },
+    s2: { start: 3.5, end: 15.74, label: 3.5, rule: 3.65,
+          fees: [ { row: 6.65, price: 8.45 }, { row: 9.55, price: 10.35 }, { row: 11.1, price: 12.55 } ],
+          totalBox: 13.8, totalCount: 14.05, totalPulse: 14.85 },
+    s3: { start: 15.74, end: 26.75, label: 15.74, rule: 15.9, card: 16.57, price: 17.8, line1: 19.1, line2: 22.5 },
+    s5: { start: 26.75, mark: 26.77, brand: 26.81, tagline: 26.85, call: 29.1, web: 32.25 },
+    finePrintFrom: 3.5
   }
 };

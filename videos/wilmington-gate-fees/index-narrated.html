@@ -106,10 +106,11 @@
       .cmpcap { margin-top: 56px; text-align: center; font-family: "Oswald", sans-serif; font-weight: 600; font-size: 72px; text-transform: uppercase; color: var(--yellow); }
 
       /* Scene 5 */
-      .endwrap { align-items: center; text-align: center; }
+      .endwrap { align-items: center; text-align: center; padding-bottom: 80px; }
       .mark { width: 220px; height: 220px; margin-bottom: 26px; }
       .brandname { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 128px; letter-spacing: 8px; color: var(--text); line-height: 1; }
       .endrule { width: 160px; height: 6px; background: var(--red); margin: 52px 0; }
+      .tagline { font-family: "Source Sans 3", sans-serif; font-weight: 600; font-size: 56px; line-height: 1.2; color: #fff; max-width: 650px; margin: 0 0 44px 0; }
       .callline { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 74px; line-height: 1.15; color: var(--yellow); text-transform: none; }
       .web { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 48px; letter-spacing: 1px; color: var(--text); margin-top: 36px; }
 
@@ -122,12 +123,12 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="38.4" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="36.01" data-width="1080" data-height="1920">
       <div id="grid"></div>
       <div id="vignette"></div>
 
       <!-- Scene 1: hook, 0-4s -->
-      <div id="s1" class="clip scene center" data-start="0" data-duration="4.2" data-track-index="1">
+      <div id="s1" class="clip scene center" data-start="0" data-duration="3.5" data-track-index="1">
         <div id="s1in">
           <div id="hook1" class="hook1"></div>
           <div id="hook2" class="hook2"></div>
@@ -135,7 +136,7 @@
       </div>
 
       <!-- Scene 2: posted gate fees, 4-12s -->
-      <div id="s2" class="clip scene" data-start="4.2" data-duration="13.94" data-track-index="1">
+      <div id="s2" class="clip scene" data-start="3.5" data-duration="12.24" data-track-index="1">
         <div id="s2in">
           <div id="gateLabel" class="label"></div>
           <div class="rule"></div>
@@ -148,7 +149,7 @@
       </div>
 
       <!-- Scene 3: with Ship2Shore, 12-20s -->
-      <div id="s3" class="clip scene" data-start="18.14" data-duration="11.56" data-track-index="1">
+      <div id="s3" class="clip scene" data-start="15.74" data-duration="11.01" data-track-index="1">
         <div id="s3in">
           <div id="ourLabel" class="label"></div>
           <div class="rule red"></div>
@@ -163,7 +164,7 @@
 
       <!-- Scene 4 (silent $175 vs $95 comparison) is not used in the narrated version -->
       <!-- Scene 5: end card, 24-30s -->
-      <div id="s5" class="clip scene center endwrap" data-start="29.7" data-duration="8.7" data-track-index="1">
+      <div id="s5" class="clip scene center endwrap" data-start="26.75" data-duration="9.26" data-track-index="1">
         <div id="s5in" style="display:flex;flex-direction:column;align-items:center;">
           <svg id="mark" class="mark" viewBox="0 0 100 100" fill="none" stroke="#e8b13a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="50" cy="50" r="46" stroke-width="2.2"/>
@@ -176,12 +177,13 @@
           </svg>
           <div id="brandName" class="brandname"></div>
           <div class="endrule"></div>
+          <div id="tagline" class="tagline"></div>
           <div id="callLine" class="callline"></div>
           <div id="website" class="web"></div>
         </div>
       </div>
 
-      <div id="fine" class="clip" data-start="4.2" data-duration="34.2" data-track-index="2"></div>
+      <div id="fine" class="clip" data-start="3.5" data-duration="32.51" data-track-index="2"></div>
     </div>
 
     <script>
@@ -210,6 +212,7 @@
       $("ourLine2").textContent = C.ourLine2;
       $("brandName").textContent = C.brandName;
       $("callLine").textContent = C.callLine;
+      $("tagline").textContent = C.tagline;
       $("website").textContent = C.website;
       $("fine").textContent = C.finePrint;
 
@@ -255,6 +258,7 @@
         // Scene 5: end card
         tl.fromTo("#mark", { opacity: 0, scale: 0.7, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.6)" }, T.s5.mark);
         inUp("#brandName", T.s5.brand);
+        inUp("#tagline", T.s5.tagline);
         inUp("#callLine", T.s5.call);
         inUp("#website", T.s5.web);
 
