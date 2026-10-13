@@ -1,0 +1,66 @@
+{
+  "note": "Narration placed at delaySeconds on the video timeline; phrase times are VIDEO seconds (narration + delay) from silencedetect. Scenes appear ~0.2s before the sentence. Voice is unchanged.",
+  "narration": "narration.mp3",
+  "narrationSeconds": 24.888,
+  "delaySeconds": 0.4,
+  "tailSecondsAfterNarration": 1.5,
+  "videoSeconds": 26.79,
+  "sceneStarts": [
+    0,
+    2.06,
+    4.8,
+    9.15,
+    12.22
+  ],
+  "endCardStart": 13.45,
+  "phrases": [
+    {
+      "say": "Picking up at the port?",
+      "start": 0.93,
+      "end": 1.89,
+      "scene": 0
+    },
+    {
+      "say": "Your vehicle's condition, documented.",
+      "start": 2.26,
+      "end": 4.18,
+      "scene": 1
+    },
+    {
+      "say": "At pickup, we take four photos and one walkaround video.",
+      "start": 4.81,
+      "end": 8.67,
+      "scene": 2
+    },
+    {
+      "say": "A condition report, signed at handoff.",
+      "start": 9.35,
+      "end": 11.79,
+      "scene": 3
+    },
+    {
+      "say": "It's yours to keep.",
+      "start": 12.42,
+      "end": 13.24,
+      "scene": 4
+    },
+    {
+      "say": "We handle the port side. You don't have to.",
+      "start": 13.85,
+      "end": 16.08,
+      "scene": "end:tagline"
+    },
+    {
+      "say": "Call or text 310, 748, 0040.",
+      "start": 16.8,
+      "end": 20.82,
+      "scene": "end:call"
+    },
+    {
+      "say": "Ship2Shore Booking dot com.",
+      "start": 21.28,
+      "end": 25.29,
+      "scene": "end:web"
+    }
+  ]
+}

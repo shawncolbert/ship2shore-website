@@ -1,0 +1,19 @@
+{
+  "name": "condition-report-video",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ship2Shore Booking vertical social video (HyperFrames). Not part of the website.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "hyperframes check",
+    "preview": "hyperframes preview",
+    "render": "hyperframes render -o out/condition-report.mp4",
+    "render:narrated": "bash build-narrated.sh"
+  },
+  "devDependencies": {
+    "hyperframes": "0.8.149"
+  }
+}
