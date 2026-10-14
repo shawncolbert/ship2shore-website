@@ -55,3 +55,7 @@ To re-render (Node 22+, FFmpeg, after `npm install`):
 ```
 npm run render:narrated    # makes out/wilmington-gate-fees-narrated.mp4
 ```
+
+## End card logo
+
+The end card shows the real Ship2Shore logo (`logo.png`, copied from `../_shared/logo.png`) on a solid white circle, fading in with the end card. The logo already contains the name, so the separate SHIP2SHORE wordmark text was removed (`brandName` is no longer in the config files). To swap the logo, replace `logo.png` here and in `_shared/`, then re-render.

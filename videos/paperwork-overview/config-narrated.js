@@ -116,7 +116,6 @@ window.VIDEO_CONFIG = {
   ],
   "end": {
     "start": 45.98,
-    "brandName": "SHIP2SHORE",
     "callLine": "Call or text (310) 748-0040",
     "tagline": "We handle the port side. You don't have to.",
     "website": "ship2shorebooking.com",

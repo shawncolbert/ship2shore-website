@@ -30,7 +30,6 @@ window.VIDEO_CONFIG = {
   compareCaption: "Typical Wilmington pickup",
 
   // Scene 5: end card
-  brandName: "SHIP2SHORE",
   callLine: "Call or text (310) 748-0040",
   tagline: "We handle the port side. You don't have to.",
   website: "ship2shorebooking.com",
