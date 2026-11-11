@@ -1980,5 +1980,29 @@ document.querySelectorAll('.faq-item').forEach(item => {
 });
 </script>
 
+<style id="vdraft2">
+/* VISUAL DRAFT 2: pricing block, request pop-up and header use the site palette (steel, red, amber) instead of the old navy / cyan. Styling only. */
+:root{ --navy-card:var(--steel); --border:var(--steel-line); --white:var(--text); --muted:var(--text-dim); --gold:var(--yellow); --aqua:var(--yellow); }
+.s2s-price-btn{ background:var(--steel); border:1px solid var(--steel-line); border-radius:var(--radius, 3px); }
+.s2s-price-btn:hover{ border-color:var(--yellow); box-shadow:none; }
+.s2s-price-btn.military{ border-color:var(--yellow); }
+.s2s-price-btn .s2s-amount{ font-family:'Oswald',sans-serif; font-weight:600; font-size:2.6rem; color:var(--yellow); }
+.s2s-price-btn .s2s-per{ color:var(--text-dim); font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:1.5px; }
+.s2s-price-btn .s2s-name{ font-family:'Oswald',sans-serif; font-weight:500; font-size:1.05rem; letter-spacing:0.3px; }
+.s2s-price-btn .s2s-desc{ color:var(--text-dim); font-size:0.85rem; }
+.s2s-badge{ font-family:'IBM Plex Mono',monospace; color:var(--steel-dark); }
+.s2s-blurb{ font-size:0.92rem; color:var(--text-dim); }
+.s2s-blurb-grid{ margin-top:22px; }
+.topbar{ background:rgba(20,24,29,0.98); }
+#s2s-overlay{ background:rgba(10,13,17,0.88); }
+#s2s-modal{ background:var(--steel); border:1px solid var(--steel-line); }
+#s2s-modal::before{ background:var(--steel-line); }
+#s2s-modal-service{ font-family:'Oswald',sans-serif !important; font-weight:600; letter-spacing:0.5px; }
+.s2s-input, .s2s-select, #s2s-upload-label{ background:var(--steel-dark); border:1px solid var(--steel-line); border-radius:var(--radius, 3px); }
+#s2s-upload-label{ border-style:dashed; }
+.s2s-input:focus, .s2s-select:focus, #s2s-upload-label:hover{ border-color:var(--yellow); }
+#s2s-submit{ background:var(--red); color:#fff; border-radius:var(--radius, 3px); }
+#s2s-submit:hover{ background:var(--red-bright); }
+</style>
 </body>
 </html>
