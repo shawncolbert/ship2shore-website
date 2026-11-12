@@ -1933,6 +1933,20 @@ img,svg,video{max-width:100%;}
       return;
     }
 
+    // "Pick a time now" opens the booking calendar with what they just typed already filled in,
+    // so they only choose a day and time (the CRM attaches it to the request they just sent).
+    var bookBtn = success.querySelector('.s2s-book-btn');
+    if (bookBtn) {
+      var q = new URLSearchParams();
+      if (name)  q.set('name', name);
+      if (phone) q.set('phone', phone);
+      if (email) q.set('email', email);
+      if (port)  q.set('port', port);
+      if (service) q.set('service', service);
+      if (leadPayload.sms_consent) q.set('sms', '1');
+      bookBtn.href = 'https://dispatch.ship2shorebooking.com/book?' + q.toString();
+    }
+
     form.style.display    = 'none';
     success.style.display = 'block';
     modal.scrollTop = 0;
