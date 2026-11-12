@@ -1616,6 +1616,8 @@ img,svg,video{max-width:100%;}
   <input name="vehicle"><input name="port">
   <input type="file" name="delivery-order">
   <input type="checkbox" name="transport_interest" value="true">
+  <input type="email" name="email"><input name="needed-when"><input type="date" name="needed-date">
+  <input name="notes"><input type="checkbox" name="sms-consent" value="yes">
 </form>
 
 <!-- ══════════════════════════════════════════════════
@@ -2114,6 +2116,20 @@ document.querySelectorAll('.faq-item').forEach(item => {
 .s2s-input:focus, .s2s-select:focus, #s2s-upload-label:hover{ border-color:var(--yellow); }
 #s2s-submit{ background:var(--red); color:#fff; border-radius:var(--radius, 3px); }
 #s2s-submit:hover{ background:var(--red-bright); }
+</style>
+<style id="audit-fixes">
+/* Audit fixes (visual only): readable small text and touch-friendly links. */
+.brand-name span{ font-size:12px; }
+.s2s-price-btn .s2s-per, .s2s-per{ font-size:12.5px; }
+.s2s-price-btn .s2s-badge, .s2s-badge{ font-size:12px; }
+@media (max-width:900px){
+  .nav-toggle{ width:44px; height:44px; }
+  .brand{ min-height:44px; }
+  .foot-brand{ min-height:44px; display:inline-flex; align-items:center; }
+  .foot-col ul{ gap:0; }
+  .foot-col li a{ display:inline-block; padding:14px 0; min-width:44px; }
+  .foot-bottom a{ display:inline-block; padding:12px 0; }
+}
 </style>
 </body>
 </html>
