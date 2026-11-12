@@ -567,7 +567,7 @@ a.who-card.svc-card:hover{ border-color:var(--yellow); }
 @media(max-width:860px){ .who-grid{ grid-template-columns:1fr; } }
 .who-card{ background:var(--steel); border:1px solid var(--steel-line-soft); border-radius:var(--radius); padding:26px; display:flex; gap:18px; }
 .who-icon{ font-size:26px; flex-shrink:0; width:46px; height:46px; border-radius:50%; background:var(--steel-raised); display:flex; align-items:center; justify-content:center; }
-.who-card h4{ font-size:16.5px; color:var(--text); margin-bottom:6px; }
+.who-card h3{ font-size:16.5px; color:var(--text); margin-bottom:6px; }
 .who-card p{ font-size:13.5px; color:var(--text-dim); line-height:1.55; }
 
 /* ============================================================
@@ -581,9 +581,9 @@ a.who-card.svc-card:hover{ border-color:var(--yellow); }
 .auth-col.port{ border-color:var(--green); }
 .auth-vs{ display:flex; align-items:center; justify-content:center; padding:0 28px; font-family:'Oswald',sans-serif; color:var(--text-faint); font-size:14px; }
 @media(max-width:780px){ .auth-vs{ display:none; } }
-.auth-col h4{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:18px; }
-.auth-col.broker h4{ color:var(--text-faint); }
-.auth-col.port h4{ color:#5cc37f; }
+.auth-col h3{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:18px; }
+.auth-col.broker h3{ color:var(--text-faint); }
+.auth-col.port h3{ color:#5cc37f; }
 .auth-col ul{ list-style:none; display:flex; flex-direction:column; gap:13px; }
 .auth-col li{ font-size:14.5px; color:var(--text-dim); display:flex; gap:10px; }
 .auth-col.broker li::before{ content:'×'; color:var(--text-faint); font-weight:700; flex-shrink:0; }
@@ -647,7 +647,7 @@ footer{ background:var(--steel-dark); border-top:1px solid var(--steel-line-soft
 .foot-brand .brand-mark{ width:32px; height:32px; font-size:14px; }
 .foot-brand-name{ font-family:'Oswald',sans-serif; font-size:16px; color:var(--text); letter-spacing:0.5px; }
 .foot-col p{ color:var(--text-dim); font-size:13.5px; line-height:1.7; max-width:280px; }
-.foot-col h5{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-faint); margin-bottom:16px; }
+.foot-col h3{ line-height:inherit; font-weight:700; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-faint); margin-bottom:16px; }
 .foot-col ul{ list-style:none; display:flex; flex-direction:column; gap:11px; }
 .foot-col a{ font-size:14px; color:var(--text-dim); text-decoration:none; transition:color .15s; }
 .foot-col a:hover{ color:var(--yellow); }
@@ -869,7 +869,7 @@ img,svg,video{max-width:100%;}
       <div class="who-card">
         <div class="who-icon">🛂</div>
         <div>
-          <h4>Port Services &amp; TWIC Escorts</h4>
+          <h3>Port Services &amp; TWIC Escorts</h3>
           <p>Uncredentialed? No problem. Federal security regulations require a TWIC holder to escort you into secured marine terminals. We provide TWIC-credentialed escorts who walk right through security, interface with terminal management, handle dead batteries or minor vehicle prep on the dock, and extract your vehicle without you having to navigate terminal red tape.</p>
           <p style="margin-top:10px"><a href="/twic-escort/" class="svc-link">TWIC escort details &rarr;</a></p>
         </div>
@@ -877,7 +877,7 @@ img,svg,video{max-width:100%;}
       <div class="who-card">
         <div class="who-icon">🎖️</div>
         <div>
-          <h4>Military PCS Support</h4>
+          <h3>Military PCS Support</h3>
           <p>Navigating Matson or port vehicle handoffs for your service move? We offer a flat military rate ($80) to make your vehicle extraction seamless.</p>
           <p style="margin-top:10px"><a href="#rates" class="svc-link">See rates &rarr;</a> &nbsp; <a href="/military-vehicle-shipping/" class="svc-link">Military pickup &amp; delivery &rarr;</a></p>
         </div>
@@ -1091,7 +1091,7 @@ img,svg,video{max-width:100%;}
     <h2 style="font-size:clamp(26px,3.4vw,38px); margin-bottom:40px;">Our services.</h2>
     <div class="svc-grid">
       <a class="who-card svc-card" href="/port-vehicle-pickup/">
-        <h4>Port vehicle pickup &amp; TWIC escorts</h4>
+        <h3>Port vehicle pickup &amp; TWIC escorts</h3>
         <p>Vehicle extraction with a TWIC-credentialed escort at Long Beach, Wilmington and Matson. Flat rates from $95.</p>
         <span class="svc-link">See port pickup &rarr;</span>
       </a>
@@ -1110,28 +1110,28 @@ img,svg,video{max-width:100%;}
       <div class="who-card">
         <div class="who-icon">🎖️</div>
         <div>
-          <h4>Military &amp; PCS Orders</h4>
+          <h3>Military &amp; PCS Orders</h3>
           <p>Service members relocating on orders who need their personally owned vehicle picked up through port security — without a TWIC card of their own. <a href="/matson-vehicle-pickup/">Shipped your car from Hawaii?</a></p>
         </div>
       </div>
       <div class="who-card">
         <div class="who-icon">🚛</div>
         <div>
-          <h4>Trucking &amp; Auto Haulers</h4>
+          <h3>Trucking &amp; Auto Haulers</h3>
           <p>Carriers and auto transport companies that need TWIC-credentialed boots on the ground, fast turnarounds, and clean delivery order paperwork every time.</p>
         </div>
       </div>
       <div class="who-card">
         <div class="who-icon">📡</div>
         <div>
-          <h4>Dispatchers &amp; Fleets</h4>
+          <h3>Dispatchers &amp; Fleets</h3>
           <p>Fleet coordinators who need a dependable port escort partner for scheduled and same-day pickups — no fluff, just confirmation and action.</p>
         </div>
       </div>
       <div class="who-card">
         <div class="who-icon">🚗</div>
         <div>
-          <h4>Private Importers &amp; JDM Imports</h4>
+          <h3>Private Importers &amp; JDM Imports</h3>
           <p>Individuals, dealers and JDM import buyers bringing a car in through Long Beach, who need the process explained clearly and handled completely, start to finish. <a href="/port-pickup-guide/#jdm">Importing a JDM car?</a></p>
         </div>
       </div>
@@ -1149,7 +1149,7 @@ img,svg,video{max-width:100%;}
     <p style="color:var(--text-dim); max-width:560px; margin-bottom:44px; font-size:15.5px;">Brokers often tell clients a vehicle is "cleared" when it isn't — not out of dishonesty, but because they simply can't see what the port can see.</p>
     <div class="authority-grid">
       <div class="auth-col broker">
-        <h4>What a broker knows</h4>
+        <h3>What a broker knows</h3>
         <ul>
           <li>Only what the steamship line happens to tell them</li>
           <li>May guess or assume clearance status</li>
@@ -1158,7 +1158,7 @@ img,svg,video{max-width:100%;}
       </div>
       <div class="auth-vs">VS</div>
       <div class="auth-col port">
-        <h4>What the port knows</h4>
+        <h3>What the port knows</h3>
         <ul>
           <li>Actual vessel clearance status, straight from their system</li>
           <li>Actual customs clearance status, confirmed directly</li>
@@ -1969,7 +1969,7 @@ img,svg,video{max-width:100%;}
         <p>TWIC-credentialed port escort and vehicle pickup serving Port of Long Beach, Port of Wilmington (CA), and Matson Terminal (Long Beach). We go the extra mile.</p>
       </div>
       <div class="foot-col">
-        <h5>Contact</h5>
+        <h3>Contact</h3>
         <ul>
           <li><a href="tel:13107480040" itemprop="telephone">(310) 748-0040</a></li>
           <li class="assist-note">Call or text (310) 748-0040. If we're on a pickup and can't answer, our automated assistant will take your request and a dispatcher will call you back.</li>
@@ -1989,7 +1989,7 @@ img,svg,video{max-width:100%;}
         </ul>
       </div>
       <div class="foot-col">
-        <h5>Office</h5>
+        <h3>Office</h3>
         <address style="font-style:normal; display:contents;">
         <ul>
           <li style="color:var(--text-dim); font-size:14px; cursor:default;"><span itemprop="streetAddress">444 Ocean Blvd #800</span><br><span itemprop="addressLocality">Long Beach</span>, <span itemprop="addressRegion">CA</span> <span itemprop="postalCode">90802</span></li>
@@ -2000,13 +2000,13 @@ img,svg,video{max-width:100%;}
         </address>
       </div>
       <div class="foot-col">
-        <h5>Hours</h5>
+        <h3>Hours</h3>
         <ul>
           <li style="color:var(--text-dim); font-size:14px; cursor:default;">Daily: 7:00 AM &ndash; 7:00 PM</li>
         </ul>
       </div>
       <div class="foot-col">
-        <h5>Pay Your Invoice</h5>
+        <h3>Pay Your Invoice</h3>
         <div class="foot-pay">
           <div class="foot-pay-item"><span>Credit or debit card (secure invoice link)</span></div>
           <div class="foot-pay-item"><span>Cash App</span></div>
