@@ -722,7 +722,7 @@ img,svg,video{max-width:100%;}
     </nav>
     <div class="topbar-cta">
       <a href="tel:13107480040" class="tb-phone">(310) 748-0040</a>
-      <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" class="btn btn-red">Book Now</a>
+      <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" data-open-request class="btn btn-red">Book Now</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
   </div>
@@ -753,7 +753,7 @@ img,svg,video{max-width:100%;}
       <h1 class="hero-headline">Get Your Vehicle Out of the Port. <em>We Handle the Pier.</em></h1>
       <p class="hero-sub">Whether your vehicle is arriving through the Port of Long Beach, Wilmington (Port of Los Angeles), or Matson terminals, you need a TWIC holder to escort you. We handle the pier access, paperwork verification, and safe extraction. Every vehicle, every step, fully documented.</p>
       <div class="hero-actions">
-        <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" class="btn btn-red">Book Port Escort</a>
+        <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" data-open-request class="btn btn-red">Book Port Escort</a>
         <a href="#rates" class="btn btn-line">See Rates</a>
       </div>
       <p class="hero-note" style="font-size:13.5px; color:var(--text-dim); margin:-6px 0 22px;">Need transportation after pickup? Call us and we'll connect you with a carrier.</p>
@@ -1179,7 +1179,7 @@ img,svg,video{max-width:100%;}
       <h2>Wrong name on the delivery order? The port won't release your car.</h2>
       <p>Almost every delivery order arrives with the wrong name in the <strong>"Local Delivery or Transfer By"</strong> field — a broker, the customer's own name, "Self Pickup," or it's just left blank.</p>
       <p>Before any vehicle can come out of the gate, that field has to read <strong>Ship2Shore Booking</strong>. As your consignee, we correct it the moment you hire us — no extra step on your end.</p>
-      <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" class="btn btn-red">Start My Pickup</a>
+      <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" data-open-request class="btn btn-red">Start My Pickup</a>
     </div>
     <div class="do-doc">
       <div class="do-doc-head">Delivery Order — Local Delivery / Transfer By</div>
@@ -1278,7 +1278,7 @@ img,svg,video{max-width:100%;}
     <h2>Your only contact is Ship2Shore.</h2>
     <p>You don't call the port. You don't chase a broker. Book your appointment or call Shawn directly — we'll take it from there, start to finish.</p>
     <div class="cta-actions">
-      <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" class="btn btn-paper">Book Now</a>
+      <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" data-open-request class="btn btn-paper">Book Now</a>
       <a href="tel:13107480040" class="btn btn-red">Call (310) 748-0040</a>
       <a href="mailto:shawn@ship2shorebooking.com" class="btn btn-line">Email Shawn</a>
     </div>
@@ -1573,6 +1573,8 @@ img,svg,video{max-width:100%;}
 }
 #s2s-submit:active { transform: scale(0.98); }
 #s2s-submit:disabled { opacity: 0.5; }
+.s2s-opt{ text-transform:none; letter-spacing:0; font-weight:400; opacity:0.6; }
+#s2s-when-date[hidden]{ display:none; }
 #s2s-error { margin-top: 12px; padding: 10px 12px; border: 1px solid #d8483a; border-radius: 3px; font-size: 0.9rem; line-height: 1.5; color: #e8f0ff; }
 #s2s-error[hidden] { display: none; }
 #s2s-error a { color: #e8f0ff; font-weight: 700; text-decoration: underline; }
@@ -1635,6 +1637,17 @@ img,svg,video{max-width:100%;}
       <input type="hidden" name="price"   id="s2s-hidden-price">
 
       <div class="s2s-field">
+        <label class="s2s-label" for="s2s-service-pick">Service</label>
+        <select class="s2s-select" id="s2s-service-pick" required>
+          <option value="" data-price="">Choose a service…</option>
+          <option value="TWIC Vehicle Escort" data-price="$95/vehicle">TWIC Vehicle Escort — $95/vehicle</option>
+          <option value="Hotshot Delivery" data-price="$200/job">Hotshot Delivery — $200/job</option>
+          <option value="Semi / Container Load-Unload" data-price="$325/unit">Semi / Container Load-Unload — $325/unit</option>
+          <option value="TWIC Vehicle Escort — Military/PCS" data-price="$80/vehicle">Military / PCS Escort — $80/vehicle</option>
+        </select>
+      </div>
+
+      <div class="s2s-field">
         <label class="s2s-label">Full Name</label>
         <input class="s2s-input" type="text" name="full-name" required autocomplete="name" placeholder="Your full name">
       </div>
@@ -1642,6 +1655,11 @@ img,svg,video{max-width:100%;}
       <div class="s2s-field">
         <label class="s2s-label">Phone Number</label>
         <input class="s2s-input" type="tel" name="phone" required autocomplete="tel" placeholder="(555) 000-0000">
+      </div>
+
+      <div class="s2s-field">
+        <label class="s2s-label">Email <span class="s2s-opt">— optional</span></label>
+        <input class="s2s-input" type="email" name="email" autocomplete="email" placeholder="you@example.com">
       </div>
 
       <div class="s2s-field">
@@ -1660,6 +1678,17 @@ img,svg,video{max-width:100%;}
       </div>
 
       <div class="s2s-field">
+        <label class="s2s-label" for="s2s-when">When do you need it? <span class="s2s-opt">— optional</span></label>
+        <select class="s2s-select" id="s2s-when" name="needed-when">
+          <option value="">Not sure yet</option>
+          <option value="Today">Today</option>
+          <option value="Tomorrow">Tomorrow</option>
+          <option value="A specific date">A specific date</option>
+        </select>
+        <input class="s2s-input" type="date" id="s2s-when-date" name="needed-date" aria-label="Pick a date" hidden style="margin-top:8px;">
+      </div>
+
+      <div class="s2s-field">
         <label class="s2s-label">
           Delivery Order
           <span style="color:rgba(232,240,255,0.3); font-size:0.68rem; text-transform:none; letter-spacing:0;"> — optional, photo or PDF</span>
@@ -1670,6 +1699,11 @@ img,svg,video{max-width:100%;}
           <input type="file" name="delivery-order" id="s2s-file-input"
             accept="image/*,application/pdf" capture="environment" style="display:none;">
         </label>
+      </div>
+
+      <div class="s2s-field">
+        <label class="s2s-label">Notes <span class="s2s-opt">— optional</span></label>
+        <input class="s2s-input" type="text" name="notes" maxlength="300" placeholder="Gate codes, which terminal, anything we should know">
       </div>
 
       <div class="s2s-field" style="display:flex; gap:10px; align-items:flex-start;">
@@ -1694,8 +1728,9 @@ img,svg,video{max-width:100%;}
         Shawn will call or text you shortly to confirm clearance and get your job scheduled.<br>
         <strong style="color:#e8f0ff;">You don't need to call the port — Ship2Shore handles everything.</strong>
       </p>
+      <p style="color:rgba(232,240,255,0.65); margin-bottom:12px; font-size:0.9rem;">Want to lock in a time right now?</p>
       <a class="s2s-book-btn" href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener">
-        BOOK ON CALENDLY
+        PICK A TIME NOW
       </a>
       <p style="font-size:0.82rem; color:rgba(232,240,255,0.4); margin-top:8px;">
         Questions? Call or text <strong style="color:#e8f0ff;">(310) 748-0040</strong>
@@ -1722,25 +1757,59 @@ img,svg,video{max-width:100%;}
   // specifically, so a plain CTA button styled like the rest of the site
   // (e.g. the Flat Rates cards below) can trigger the same popup without
   // inheriting s2s-price-btn's own full-card look.
+  var pick     = document.getElementById('s2s-service-pick');
+  var whenSel  = document.getElementById('s2s-when');
+  var whenDate = document.getElementById('s2s-when-date');
+
+  function setService(service, price){
+    document.getElementById('s2s-modal-service').textContent = service || 'Tell us what you need';
+    document.getElementById('s2s-modal-price').textContent   = price || '';
+    document.getElementById('s2s-hidden-service').value      = service || '';
+    document.getElementById('s2s-hidden-price').value        = price || '';
+  }
+
+  function openRequest(service, price){
+    form.style.display    = '';
+    success.style.display = 'none';
+    submitBtn.disabled    = false;
+    submitBtn.textContent = 'SUBMIT REQUEST';
+    errorMsg.hidden       = true;
+    uploadTxt.textContent = 'Snap a photo or choose a file';
+    form.reset();
+    whenDate.hidden = true;
+    pick.value = service || '';
+    setService(service, price);
+    overlay.style.display = 'flex';
+    // scroll modal to top on reopen
+    modal.scrollTop = 0;
+    // prevent body scroll on iOS
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Price tiles: open with that service already chosen
   document.querySelectorAll('[data-service]').forEach(function(btn){
     btn.addEventListener('click', function(){
-      document.getElementById('s2s-modal-service').textContent = btn.dataset.service;
-      document.getElementById('s2s-modal-price').textContent   = btn.dataset.price;
-      document.getElementById('s2s-hidden-service').value      = btn.dataset.service;
-      document.getElementById('s2s-hidden-price').value        = btn.dataset.price;
-      form.style.display    = '';
-      success.style.display = 'none';
-      submitBtn.disabled    = false;
-      submitBtn.textContent = 'SUBMIT REQUEST';
-      errorMsg.hidden       = true;
-      uploadTxt.textContent = 'Snap a photo or choose a file';
-      form.reset();
-      overlay.style.display = 'flex';
-      // scroll modal to top on reopen
-      modal.scrollTop = 0;
-      // prevent body scroll on iOS
-      document.body.style.overflow = 'hidden';
+      openRequest(btn.dataset.service, btn.dataset.price);
     });
+  });
+
+  // Book Now buttons: same pop-up, customer picks the service.
+  // (The href stays as a fallback if JavaScript is off.)
+  document.querySelectorAll('[data-open-request]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      openRequest('', '');
+    });
+  });
+
+  pick.addEventListener('change', function(){
+    var opt = pick.options[pick.selectedIndex];
+    setService(pick.value, opt ? opt.getAttribute('data-price') : '');
+  });
+
+  whenSel.addEventListener('change', function(){
+    whenDate.hidden = whenSel.value !== 'A specific date';
+    if (whenDate.hidden) whenDate.value = '';
   });
 
   // File selection label update
@@ -1776,6 +1845,9 @@ img,svg,video{max-width:100%;}
     var phone   = form.querySelector('[name="phone"]').value.trim();
     var vehicle = form.querySelector('[name="vehicle"]').value.trim();
     var port    = form.querySelector('[name="port"]').value;
+    var email   = form.querySelector('[name="email"]').value.trim();
+    var when    = whenSel.value === 'A specific date' ? (whenDate.value || 'A specific date') : whenSel.value;
+    var extra   = form.querySelector('[name="notes"]').value.trim();
     var service = document.getElementById('s2s-hidden-service').value;
     var price   = document.getElementById('s2s-hidden-price').value;
     var hasFile = fileInput.files && fileInput.files[0];
@@ -1796,8 +1868,11 @@ img,svg,video{max-width:100%;}
           '*Service:* ' + service + ' (' + price + ')\n' +
           '*Name:* ' + name + '\n' +
           '*Phone:* ' + phone + '\n' +
+          (email ? '*Email:* ' + email + '\n' : '') +
           '*Vehicle:* ' + vehicle + '\n' +
           '*Port:* ' + port +
+          (when ? '\n*Needed:* ' + when : '') +
+          (extra ? '\n*Notes:* ' + extra : '') +
           (hasFile
             ? '\n\uD83D\uDCC4 *Delivery Order:* attached — check Netlify Forms dashboard'
             : '\n\uD83D\uDCC4 *Delivery Order:* not uploaded')
@@ -1808,8 +1883,8 @@ img,svg,video{max-width:100%;}
 
     // 3 — Ship2Shore CRM: creates the contact + Pipeline job and fires the
     // team's Telegram alert, same as every other intake path (landing
-    // pages, the native /book widget, Calendly). This form doesn't collect
-    // email, only phone -- the CRM's lead endpoint accepts either. Runs
+    // pages, the native /book widget, Calendly). Email is optional here; the CRM's lead
+    // endpoint needs just one of email or phone. Runs
     // last and never blocks the success screen below if it fails; a
     // failure here still leaves Slack + Netlify Forms as a record.
     //
@@ -1833,8 +1908,11 @@ img,svg,video{max-width:100%;}
           value: flatPrice,
           sms_consent: !!(document.getElementById('s2s-sms-consent') && document.getElementById('s2s-sms-consent').checked),
           notes: 'Requested: ' + service + ' (' + price + ')' +
+            (when ? ' — Needed: ' + when : '') +
+            (extra ? ' — Notes: ' + extra : '') +
             (hasFile ? ' — delivery order photo attached (see Netlify Forms dashboard)' : '')
         };
+    if (email) leadPayload.email = email;
     // Optional checkbox: sent as boolean true only when ticked, omitted otherwise.
     var transportBox = document.getElementById('s2s-transport-interest');
     if (transportBox && transportBox.checked) leadPayload.transport_interest = true;
