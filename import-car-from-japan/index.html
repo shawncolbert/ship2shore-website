@@ -307,6 +307,24 @@ footer{ background:var(--steel-dark); border-top:1px solid var(--steel-line-soft
   .article > .article-head + .glance div:last-child{ border-bottom:none !important; }
 }
 </style>
+<style id="audit-fixes">
+/* Audit fixes (visual only): readable small text, touch-friendly links, buttons that never overflow. */
+.brand-name span{ font-size:12px; }
+.glance dt, .foot-grid h3{ font-size:12px; }
+.callout-title{ font-size:12.5px; }
+.cost-table thead th{ font-size:12.5px; }
+.btn, .nav-cta{ max-width:100%; }
+@media (max-width:900px){
+  .btn{ white-space:normal; text-align:center; }
+  .brand{ min-height:44px; }
+  .crumbs a{ display:inline-block; padding:13px 6px; margin:-13px -6px; }
+  .related a{ padding:10px 0; margin-right:16px; min-width:44px; }
+  .foot-grid ul{ gap:0; }
+  .foot-grid li a{ display:inline-block; padding:14px 0; min-width:44px; }
+  .faq summary{ min-height:44px; align-items:center; }
+  .foot-bottom a{ display:inline-block; padding:12px 0; }
+}
+</style>
 </head>
 <body>
 
