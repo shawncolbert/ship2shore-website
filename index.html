@@ -1616,7 +1616,7 @@ img,svg,video{max-width:100%;}
   <input name="full-name"><input name="phone">
   <input name="vehicle"><input name="port">
   <input type="file" name="delivery-order">
-  <input type="checkbox" name="transport_interest" value="true">
+  <input name="transport_needed"><input name="delivery_location">
   <input type="email" name="email"><input name="needed-when"><input type="date" name="needed-date">
   <input name="notes"><input type="checkbox" name="sms-consent" value="yes">
 </form>
@@ -1710,9 +1710,20 @@ img,svg,video{max-width:100%;}
         <input class="s2s-input" type="text" name="notes" maxlength="300" placeholder="Gate codes, which terminal, anything we should know">
       </div>
 
-      <div class="s2s-field" style="display:flex; gap:10px; align-items:flex-start;">
-        <input type="checkbox" id="s2s-transport-interest" name="transport_interest" value="true" style="margin-top:4px; flex-shrink:0; width:18px; height:18px;">
-        <label for="s2s-transport-interest" style="font-size:0.8rem; color:rgba(232,240,255,0.6); line-height:1.5;">I may also need transportation after pickup.</label>
+      <div class="s2s-field" id="s2s-transport-field">
+        <label class="s2s-label">Do you need transport? <span class="s2s-opt">— required</span></label>
+        <label style="display:flex; gap:10px; align-items:flex-start; font-size:0.9rem; color:rgba(232,240,255,0.85); line-height:1.4; margin-bottom:8px;">
+          <input type="radio" name="transport_needed" value="no" required style="margin-top:3px; flex-shrink:0; width:18px; height:18px;">
+          <span>No — just the service above</span>
+        </label>
+        <label style="display:flex; gap:10px; align-items:flex-start; font-size:0.9rem; color:rgba(232,240,255,0.85); line-height:1.4;">
+          <input type="radio" name="transport_needed" value="yes" style="margin-top:3px; flex-shrink:0; width:18px; height:18px;">
+          <span>Yes — I also need my vehicle transported</span>
+        </label>
+        <div id="s2s-deliver-wrap" hidden style="margin-top:10px;">
+          <label class="s2s-label" for="s2s-deliver">Where should it be delivered?</label>
+          <input class="s2s-input" type="text" id="s2s-deliver" name="delivery_location" maxlength="200" autocomplete="off" placeholder="City, State (or full address)">
+        </div>
       </div>
 
       <div class="s2s-field" style="display:flex; gap:10px; align-items:flex-start;">
@@ -1764,6 +1775,17 @@ img,svg,video{max-width:100%;}
   var pick     = document.getElementById('s2s-service-pick');
   var whenSel  = document.getElementById('s2s-when');
   var whenDate = document.getElementById('s2s-when-date');
+  var deliverWrap  = document.getElementById('s2s-deliver-wrap');
+  var deliverInput = document.getElementById('s2s-deliver');
+  // "Do you need transport?" -- Yes asks where it goes, and that answer is then required.
+  document.querySelectorAll('input[name="transport_needed"]').forEach(function(r){
+    r.addEventListener('change', function(){
+      var yes = form.querySelector('input[name="transport_needed"]:checked');
+      var wants = !!yes && yes.value === 'yes';
+      deliverWrap.hidden = !wants; deliverInput.required = wants;
+      if (!wants) deliverInput.value = '';
+    });
+  });
 
   function setService(service, price){
     document.getElementById('s2s-modal-service').textContent = service || 'Tell us what you need';
@@ -1781,6 +1803,7 @@ img,svg,video{max-width:100%;}
     uploadTxt.textContent = 'Snap a photo or choose a file';
     form.reset();
     whenDate.hidden = true;
+    deliverWrap.hidden = true; deliverInput.required = false;
     pick.value = service || '';
     setService(service, price);
     overlay.style.display = 'flex';
@@ -1901,6 +1924,9 @@ img,svg,video{max-width:100%;}
     // estimate-then-set flow untouched -- only these flat-rate buttons
     // get the price pre-filled.
     var flatPrice = (price.match(/[\d.]+/) || [])[0];
+    var transportPick = form.querySelector('input[name="transport_needed"]:checked');
+    var wantsTransport = !!transportPick && transportPick.value === 'yes';
+    var deliverTo = (document.getElementById('s2s-deliver').value || '').trim();
     var leadPayload = {
           action: 'submit_lead',
           slug: 'homepage-quote',
@@ -1918,15 +1944,17 @@ img,svg,video{max-width:100%;}
           pickup_location: port,
           value: flatPrice,
           sms_consent: !!(document.getElementById('s2s-sms-consent') && document.getElementById('s2s-sms-consent').checked),
+          transport_needed: wantsTransport,
+          delivery_location: wantsTransport ? deliverTo : undefined,
           notes: 'Requested: ' + service + ' (' + price + ')' +
+            (wantsTransport ? ' — TRANSPORT NEEDED, deliver to: ' + deliverTo : ' — No transport needed') +
             (when ? ' — Needed: ' + when : '') +
             (extra ? ' — Notes: ' + extra : '') +
             (hasFile ? ' — delivery order photo attached (see Netlify Forms dashboard)' : '')
         };
     if (email) leadPayload.email = email;
-    // Optional checkbox: sent as boolean true only when ticked, omitted otherwise.
-    var transportBox = document.getElementById('s2s-transport-interest');
-    if (transportBox && transportBox.checked) leadPayload.transport_interest = true;
+    // Old follow-up flag, still sent so the CRM's transport follow-up list keeps working.
+    if (wantsTransport) leadPayload.transport_interest = true;
     try {
       await fetch('https://dispatch.ship2shorebooking.com/.netlify/functions/public-landing-page', {
         method: 'POST', mode: 'no-cors',

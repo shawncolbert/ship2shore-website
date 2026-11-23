@@ -300,6 +300,7 @@
     <input name="full-name"><input name="phone">
     <input name="vehicle"><input name="port">
     <input type="file" name="delivery-order">
+    <input name="transport_needed"><input name="delivery_location">
   </form>
 
   <div id="qq-overlay">
@@ -343,6 +344,21 @@
             <span id="qq-upload-text">Snap a photo or choose a file</span>
             <input type="file" name="delivery-order" id="qq-file-input" accept="image/*,.pdf" style="position:absolute;width:1px;height:1px;opacity:0;">
           </label>
+        </div>
+        <div class="qq-field" id="qq-transport-field">
+          <label>Do you need transport? <span style="text-transform:none;letter-spacing:0;color:var(--ink-faint);">&mdash; required</span></label>
+          <label style="display:flex;gap:10px;align-items:flex-start;text-transform:none;letter-spacing:0;margin:6px 0;">
+            <input type="radio" name="transport_needed" value="no" required style="margin-top:3px;flex-shrink:0;width:18px;height:18px;">
+            <span>No &mdash; just the service</span>
+          </label>
+          <label style="display:flex;gap:10px;align-items:flex-start;text-transform:none;letter-spacing:0;margin:6px 0;">
+            <input type="radio" name="transport_needed" value="yes" style="margin-top:3px;flex-shrink:0;width:18px;height:18px;">
+            <span>Yes &mdash; I also need my vehicle transported</span>
+          </label>
+          <div id="qq-deliver-wrap" hidden style="margin-top:8px;">
+            <label for="qq-deliver">Where should it be delivered?</label>
+            <input class="qq-input" type="text" id="qq-deliver" name="delivery_location" maxlength="200" autocomplete="off" placeholder="City, State (or full address)">
+          </div>
         </div>
         <button type="submit" id="qq-submit">Submit Request</button>
       </form>
@@ -448,6 +464,17 @@
   var submitBtn = document.getElementById('qq-submit');
   var fileInput = document.getElementById('qq-file-input');
   var uploadTxt = document.getElementById('qq-upload-text');
+  var deliverWrap  = document.getElementById('qq-deliver-wrap');
+  var deliverInput = document.getElementById('qq-deliver');
+  // "Do you need transport?" -- Yes asks where it goes, and that answer is then required.
+  document.querySelectorAll('input[name="transport_needed"]').forEach(function(r){
+    r.addEventListener('change', function(){
+      var picked = form.querySelector('input[name="transport_needed"]:checked');
+      var wants = !!picked && picked.value === 'yes';
+      deliverWrap.hidden = !wants; deliverInput.required = wants;
+      if (!wants) deliverInput.value = '';
+    });
+  });
 
   document.querySelectorAll('[data-service]').forEach(function(btn){
     btn.addEventListener('click', function(){
@@ -461,6 +488,7 @@
       submitBtn.textContent = 'Submit Request';
       uploadTxt.textContent = 'Snap a photo or choose a file';
       form.reset();
+      deliverWrap.hidden = true; deliverInput.required = false;
       overlay.style.display = 'flex';
       modal.scrollTop = 0;
       document.body.style.overflow = 'hidden';
@@ -491,6 +519,9 @@
     var price   = document.getElementById('qq-hidden-price').value;
     var hasFile = fileInput.files && fileInput.files[0];
     var flatPrice = (price.match(/[\d.]+/) || [])[0];
+    var transportPick = form.querySelector('input[name="transport_needed"]:checked');
+    var wantsTransport = !!transportPick && transportPick.value === 'yes';
+    var deliverTo = (deliverInput.value || '').trim();
 
     // 1 — Netlify Forms (handles file upload)
     try {
@@ -519,7 +550,11 @@
           vehicle: vehicle,
           pickup_location: port,
           value: flatPrice,
+          transport_needed: wantsTransport,
+          delivery_location: wantsTransport ? deliverTo : undefined,
+          transport_interest: wantsTransport ? true : undefined,
           notes: 'Requested via digital business card: ' + service + ' (' + price + ')' +
+            (wantsTransport ? ' — TRANSPORT NEEDED, deliver to: ' + deliverTo : ' — No transport needed') +
             (hasFile ? ' — delivery order photo attached (see Netlify Forms dashboard)' : '')
         })
       });
