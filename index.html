@@ -722,7 +722,7 @@ img,svg,video{max-width:100%;}
     </nav>
     <div class="topbar-cta">
       <a href="tel:13107480040" class="tb-phone">(310) 748-0040</a>
-      <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" data-open-request class="btn btn-red">Book Now</a>
+      <a href="https://dispatch.ship2shorebooking.com/book?form=S2S-BOOK-HOME&from=ship2shorebooking.com" target="_blank" rel="noopener" data-open-request class="btn btn-red">Book Now</a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
   </div>
@@ -753,7 +753,7 @@ img,svg,video{max-width:100%;}
       <h1 class="hero-headline">Get Your Vehicle Out of the Port. <em>We Handle the Pier.</em></h1>
       <p class="hero-sub">Whether your vehicle is arriving through the Port of Long Beach, Wilmington (Port of Los Angeles), or Matson terminals, you need a TWIC holder to escort you. We handle the pier access, paperwork verification, and safe extraction. Every vehicle, every step, fully documented.</p>
       <div class="hero-actions">
-        <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" data-open-request class="btn btn-red">Book Port Escort</a>
+        <a href="https://dispatch.ship2shorebooking.com/book?form=S2S-BOOK-HOME&from=ship2shorebooking.com" target="_blank" rel="noopener" data-open-request class="btn btn-red">Book Port Escort</a>
         <a href="#rates" class="btn btn-line">See Rates</a>
       </div>
       <p class="hero-note" style="font-size:13.5px; color:var(--text-dim); margin:-6px 0 22px;">Need transportation after pickup? Call us and we'll connect you with a carrier.</p>
@@ -974,7 +974,7 @@ img,svg,video{max-width:100%;}
     <ol class="pickup-steps">
       <li>
         <h4>You book a pickup time.</h4>
-        <p>Choose your pickup time through our <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener">booking page</a>. We require 24 hours' notice for Long Beach and Wilmington. We accept up to 3 pickups per time slot.</p>
+        <p>Choose your pickup time through our <a href="https://dispatch.ship2shorebooking.com/book?form=S2S-BOOK-HOME&from=ship2shorebooking.com" target="_blank" rel="noopener">booking page</a>. We require 24 hours' notice for Long Beach and Wilmington. We accept up to 3 pickups per time slot.</p>
       </li>
       <li>
         <h4>You send us your paperwork.</h4>
@@ -1179,7 +1179,7 @@ img,svg,video{max-width:100%;}
       <h2>Wrong name on the delivery order? The port won't release your car.</h2>
       <p>Almost every delivery order arrives with the wrong name in the <strong>"Local Delivery or Transfer By"</strong> field — a broker, the customer's own name, "Self Pickup," or it's just left blank.</p>
       <p>Before any vehicle can come out of the gate, that field has to read <strong>Ship2Shore Booking</strong>. As your consignee, we correct it the moment you hire us — no extra step on your end.</p>
-      <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" data-open-request class="btn btn-red">Start My Pickup</a>
+      <a href="https://dispatch.ship2shorebooking.com/book?form=S2S-BOOK-HOME&from=ship2shorebooking.com" target="_blank" rel="noopener" data-open-request class="btn btn-red">Start My Pickup</a>
     </div>
     <div class="do-doc">
       <div class="do-doc-head">Delivery Order — Local Delivery / Transfer By</div>
@@ -1278,7 +1278,7 @@ img,svg,video{max-width:100%;}
     <h2>Your only contact is Ship2Shore.</h2>
     <p>You don't call the port. You don't chase a broker. Book your appointment or call Shawn directly — we'll take it from there, start to finish.</p>
     <div class="cta-actions">
-      <a href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener" data-open-request class="btn btn-paper">Book Now</a>
+      <a href="https://dispatch.ship2shorebooking.com/book?form=S2S-BOOK-HOME&from=ship2shorebooking.com" target="_blank" rel="noopener" data-open-request class="btn btn-paper">Book Now</a>
       <a href="tel:13107480040" class="btn btn-red">Call (310) 748-0040</a>
       <a href="mailto:shawn@ship2shorebooking.com" class="btn btn-line">Email Shawn</a>
     </div>
@@ -1610,12 +1610,13 @@ img,svg,video{max-width:100%;}
 <!-- Netlify bot detection form (hidden, must exist in HTML at build time) -->
 <form name="transport-request" netlify netlify-honeypot="bot-field" enctype="multipart/form-data" style="display:none;">
   <input type="hidden" name="form-name" value="transport-request">
+  <input name="form_id">
   <input name="bot-field">
   <input name="service"><input name="price">
   <input name="full-name"><input name="phone">
   <input name="vehicle"><input name="port">
   <input type="file" name="delivery-order">
-  <input type="checkbox" name="transport_interest" value="true">
+  <input name="transport_needed"><input name="delivery_location">
   <input type="email" name="email"><input name="needed-when"><input type="date" name="needed-date">
   <input name="notes"><input type="checkbox" name="sms-consent" value="yes">
 </form>
@@ -1634,6 +1635,7 @@ img,svg,video{max-width:100%;}
     <!-- FORM -->
     <form id="s2s-form" name="transport-request" method="POST" enctype="multipart/form-data" action="/#rates">
       <input type="hidden" name="form-name" value="transport-request">
+      <input type="hidden" name="form_id" value="S2S-BOOK-POPUP">
       <p style="display:none;"><input name="bot-field"></p>
       <input type="hidden" name="service" id="s2s-hidden-service">
       <input type="hidden" name="price"   id="s2s-hidden-price">
@@ -1708,9 +1710,20 @@ img,svg,video{max-width:100%;}
         <input class="s2s-input" type="text" name="notes" maxlength="300" placeholder="Gate codes, which terminal, anything we should know">
       </div>
 
-      <div class="s2s-field" style="display:flex; gap:10px; align-items:flex-start;">
-        <input type="checkbox" id="s2s-transport-interest" name="transport_interest" value="true" style="margin-top:4px; flex-shrink:0; width:18px; height:18px;">
-        <label for="s2s-transport-interest" style="font-size:0.8rem; color:rgba(232,240,255,0.6); line-height:1.5;">I may also need transportation after pickup.</label>
+      <div class="s2s-field" id="s2s-transport-field">
+        <label class="s2s-label">Do you need transport? <span class="s2s-opt">— required</span></label>
+        <label style="display:flex; gap:10px; align-items:flex-start; font-size:0.9rem; color:rgba(232,240,255,0.85); line-height:1.4; margin-bottom:8px;">
+          <input type="radio" name="transport_needed" value="no" required style="margin-top:3px; flex-shrink:0; width:18px; height:18px;">
+          <span>No — just the service above</span>
+        </label>
+        <label style="display:flex; gap:10px; align-items:flex-start; font-size:0.9rem; color:rgba(232,240,255,0.85); line-height:1.4;">
+          <input type="radio" name="transport_needed" value="yes" style="margin-top:3px; flex-shrink:0; width:18px; height:18px;">
+          <span>Yes — I also need my vehicle transported</span>
+        </label>
+        <div id="s2s-deliver-wrap" hidden style="margin-top:10px;">
+          <label class="s2s-label" for="s2s-deliver">Where should it be delivered?</label>
+          <input class="s2s-input" type="text" id="s2s-deliver" name="delivery_location" maxlength="200" autocomplete="off" placeholder="City, State (or full address)">
+        </div>
       </div>
 
       <div class="s2s-field" style="display:flex; gap:10px; align-items:flex-start;">
@@ -1731,7 +1744,7 @@ img,svg,video{max-width:100%;}
         <strong style="color:#e8f0ff;">You don't need to call the port — Ship2Shore handles everything.</strong>
       </p>
       <p style="color:rgba(232,240,255,0.65); margin-bottom:12px; font-size:0.9rem;">Want to lock in a time right now?</p>
-      <a class="s2s-book-btn" href="https://dispatch.ship2shorebooking.com/book" target="_blank" rel="noopener">
+      <a class="s2s-book-btn" href="https://dispatch.ship2shorebooking.com/book?form=S2S-BOOK-HOME&from=ship2shorebooking.com" target="_blank" rel="noopener">
         PICK A TIME NOW
       </a>
       <p style="font-size:0.82rem; color:rgba(232,240,255,0.4); margin-top:8px;">
@@ -1762,6 +1775,17 @@ img,svg,video{max-width:100%;}
   var pick     = document.getElementById('s2s-service-pick');
   var whenSel  = document.getElementById('s2s-when');
   var whenDate = document.getElementById('s2s-when-date');
+  var deliverWrap  = document.getElementById('s2s-deliver-wrap');
+  var deliverInput = document.getElementById('s2s-deliver');
+  // "Do you need transport?" -- Yes asks where it goes, and that answer is then required.
+  document.querySelectorAll('input[name="transport_needed"]').forEach(function(r){
+    r.addEventListener('change', function(){
+      var yes = form.querySelector('input[name="transport_needed"]:checked');
+      var wants = !!yes && yes.value === 'yes';
+      deliverWrap.hidden = !wants; deliverInput.required = wants;
+      if (!wants) deliverInput.value = '';
+    });
+  });
 
   function setService(service, price){
     document.getElementById('s2s-modal-service').textContent = service || 'Tell us what you need';
@@ -1779,6 +1803,7 @@ img,svg,video{max-width:100%;}
     uploadTxt.textContent = 'Snap a photo or choose a file';
     form.reset();
     whenDate.hidden = true;
+    deliverWrap.hidden = true; deliverInput.required = false;
     pick.value = service || '';
     setService(service, price);
     overlay.style.display = 'flex';
@@ -1899,9 +1924,19 @@ img,svg,video{max-width:100%;}
     // estimate-then-set flow untouched -- only these flat-rate buttons
     // get the price pre-filled.
     var flatPrice = (price.match(/[\d.]+/) || [])[0];
+    var transportPick = form.querySelector('input[name="transport_needed"]:checked');
+    var wantsTransport = !!transportPick && transportPick.value === 'yes';
+    var deliverTo = (document.getElementById('s2s-deliver').value || '').trim();
     var leadPayload = {
           action: 'submit_lead',
           slug: 'homepage-quote',
+          form_id: 'S2S-BOOK-POPUP',
+          site: location.hostname,
+          page: location.pathname,
+          referrer: document.referrer || undefined,
+          utm_source: new URLSearchParams(location.search).get('utm_source') || undefined,
+          utm_medium: new URLSearchParams(location.search).get('utm_medium') || undefined,
+          utm_campaign: new URLSearchParams(location.search).get('utm_campaign') || undefined,
           service: service,
           full_name: name,
           phone: phone,
@@ -1909,15 +1944,17 @@ img,svg,video{max-width:100%;}
           pickup_location: port,
           value: flatPrice,
           sms_consent: !!(document.getElementById('s2s-sms-consent') && document.getElementById('s2s-sms-consent').checked),
+          transport_needed: wantsTransport,
+          delivery_location: wantsTransport ? deliverTo : undefined,
           notes: 'Requested: ' + service + ' (' + price + ')' +
+            (wantsTransport ? ' — TRANSPORT NEEDED, deliver to: ' + deliverTo : ' — No transport needed') +
             (when ? ' — Needed: ' + when : '') +
             (extra ? ' — Notes: ' + extra : '') +
             (hasFile ? ' — delivery order photo attached (see Netlify Forms dashboard)' : '')
         };
     if (email) leadPayload.email = email;
-    // Optional checkbox: sent as boolean true only when ticked, omitted otherwise.
-    var transportBox = document.getElementById('s2s-transport-interest');
-    if (transportBox && transportBox.checked) leadPayload.transport_interest = true;
+    // Old follow-up flag, still sent so the CRM's transport follow-up list keeps working.
+    if (wantsTransport) leadPayload.transport_interest = true;
     try {
       await fetch('https://dispatch.ship2shorebooking.com/.netlify/functions/public-landing-page', {
         method: 'POST', mode: 'no-cors',
@@ -1946,6 +1983,7 @@ img,svg,video{max-width:100%;}
       if (port)  q.set('port', port);
       if (service) q.set('service', service);
       if (leadPayload.sms_consent) q.set('sms', '1');
+      q.set('form', 'S2S-BOOK-POPUP-TIME'); q.set('from', 'ship2shorebooking.com');
       bookBtn.href = 'https://dispatch.ship2shorebooking.com/book?' + q.toString();
     }
 
